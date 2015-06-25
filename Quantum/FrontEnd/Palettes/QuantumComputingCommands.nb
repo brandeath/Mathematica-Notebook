@@ -1,0 +1,293 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     11079,        284]
+NotebookOptionsPosition[     10707,        267]
+NotebookOutlinePosition[     11108,        284]
+CellTagsIndexPosition[     11065,        281]
+WindowTitle->Quantum Computing Commands
+WindowFrame->Palette*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     ButtonBox["\<\"Needs[\\\"Quantum`Computing`\\\"]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "Needs[\"Quantum`Computing`\"]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"SetComputingAliases[]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "SetComputingAliases[]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"QuantumEvaluate[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "QuantumEvaluate[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"QuantumTable[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "QuantumTable[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"PauliExpand[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "PauliExpand[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"QuantumTableForm[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "QuantumTableForm[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"FactorKet[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "FactorKet[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"TraditionalForm[QuantumTableForm[\[Placeholder]]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "TraditionalForm[QuantumTableForm[\[Placeholder]]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"QuantumMatrixForm[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "QuantumMatrixForm[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"QuantumTensorForm[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "QuantumTensorForm[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"QuantumMatrix[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "QuantumMatrix[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"QuantumTensor[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "QuantumTensor[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"MatrixQuantum[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "MatrixQuantum[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"TensorQuantum[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "TensorQuantum[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"QubitToDec[\\!\\(\\*TagBox[\\n RowBox[{\\\"\
+\[VerticalSeparator]\\\", TagBox[\\n   \
+RowBox[{SubscriptBox[\\\"\[Placeholder]\\\", OverscriptBox[\\\"\[Placeholder]\
+\\\", \\\"^\\\"]], \\\",\\\", SubscriptBox[\\\"\[Placeholder]\\\", \
+OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]], \\\",\\\", SubscriptBox[\\\
+\"\[Placeholder]\\\", OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]]}],\\n \
+  Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "QubitToDec[\!\(\*TagBox[\n RowBox[{\"\[VerticalSeparator]\", TagBox[\
+\n   RowBox[{SubscriptBox[\"\[Placeholder]\", \
+OverscriptBox[\"\[Placeholder]\", \"^\"]], \",\", SubscriptBox[\"\
+\[Placeholder]\", OverscriptBox[\"\[Placeholder]\", \"^\"]], \",\", \
+SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\[Placeholder]\", \"^\"]]}],\
+\n   Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> True},\n\
+Editable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080Ket,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"DecToQubit[\[Placeholder],\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "DecToQubit[\[Placeholder],\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"QuantumPartialTrace[\[Placeholder],\\!\\(\\*OverscriptBox[\
+\\(\[Placeholder]\\), \\(^\\)]\\)]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "QuantumPartialTrace[\[Placeholder],\!\(\*OverscriptBox[\(\
+\[Placeholder]\), \(^\)]\)]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"QuantumPartialTranspose[\[Placeholder],\\!\\(\\*\
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]\\)]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "QuantumPartialTranspose[\[Placeholder],\!\(\*OverscriptBox[\(\
+\[Placeholder]\), \(^\)]\)]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"QuantumPlot[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "QuantumPlot[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"SetQuantumGate[\[Placeholder],\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "SetQuantumGate[\[Placeholder],\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"QuantumPlot3D[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "QuantumPlot3D[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"SetQuantumGate[\[Placeholder],{\[Placeholder],\
+\[Placeholder]}]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "SetQuantumGate[\[Placeholder],{\[Placeholder],\[Placeholder]}]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"SetQuantumGate[\[Placeholder],\[Placeholder],Function[{\
+\[Placeholder],\[Placeholder]},\[Placeholder]]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "SetQuantumGate[\[Placeholder],\[Placeholder],Function[{\[Placeholder]\
+,\[Placeholder]},\[Placeholder]]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"QuantumPlot[QubitMeasurement[\[Placeholder],{\\!\\(\\*\
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]\\),\\!\\(\\*OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)]\\)}]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "QuantumPlot[QubitMeasurement[\[Placeholder],{\!\(\*OverscriptBox[\(\
+\[Placeholder]\), \(^\)]\),\!\(\*OverscriptBox[\(\[Placeholder]\), \
+\(^\)]\)}]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"QuantumEvaluate[QubitMeasurement[\[Placeholder],{\\!\\(\\*\
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]\\),\\!\\(\\*OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)]\\)}]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "QuantumEvaluate[QubitMeasurement[\[Placeholder],{\!\(\*OverscriptBox[\
+\(\[Placeholder]\), \(^\)]\),\!\(\*OverscriptBox[\(\[Placeholder]\), \
+\(^\)]\)}]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"QuantumEvaluate[QubitMeasurement[\[Placeholder],{\\!\\(\\*\
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]\\),\\!\\(\\*OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)]\\)},FactorKet\[Rule]False]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "QuantumEvaluate[QubitMeasurement[\[Placeholder],{\!\(\*OverscriptBox[\
+\(\[Placeholder]\), \(^\)]\),\!\(\*OverscriptBox[\(\[Placeholder]\), \
+\(^\)]\)},FactorKet\[Rule]False]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"QuantumDensityOperator[QubitMeasurement[\[Placeholder],{\\\
+!\\(\\*OverscriptBox[\\(\[Placeholder]\\), \
+\\(^\\)]\\),\\!\\(\\*OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]\\)}]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "QuantumDensityOperator[QubitMeasurement[\[Placeholder],{\!\(\*\
+OverscriptBox[\(\[Placeholder]\), \(^\)]\),\!\(\*OverscriptBox[\(\
+\[Placeholder]\), \(^\)]\)}]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]"}
+   },
+   AutoDelete->False,
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]],
+ CellMargins->{{0, 0}, {0, 0}},
+ CellBracketOptions->{"Color"->RGBColor[0.269993, 0.308507, 0.6]},
+ CellHorizontalScrolling->True,
+ PageBreakAbove->True,
+ PageBreakWithin->False,
+ ShowAutoStyles->True,
+ LineSpacing->{1.25, 0},
+ AutoItalicWords->{},
+ ScriptMinSize->9,
+ ShowStringCharacters->False,
+ FontFamily:>CurrentValue["PanelFontFamily"],
+ FontSize:>CurrentValue["PanelFontSize"]]
+},
+WindowSize->All,
+WindowMargins->{{Automatic, 397}, {4, Automatic}},
+WindowElements->{},
+WindowTitle->"Quantum Computing Commands",
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (February 18, 2009)",
+StyleDefinitions->"Palette.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[586, 21, 10117, 244, 336, InheritFromParent,
+ PageBreakAbove->True,
+ PageBreakWithin->False]
+}
+]
+*)
+
+(* End of internal cache information *)

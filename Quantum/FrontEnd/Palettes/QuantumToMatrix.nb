@@ -1,0 +1,578 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     33252,        569]
+NotebookOptionsPosition[     32889,        552]
+NotebookOutlinePosition[     33281,        569]
+CellTagsIndexPosition[     33238,        566]
+WindowTitle->Quantum to Matrix
+WindowFrame->Palette*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     ButtonBox["\<\"Needs[\\\"Quantum`Notation`\\\"]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "Needs[\"Quantum`Notation`\"]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"MatrixToDirac[\\!\\(\\*TagBox[\\n RowBox[{\\\"(\\\", \\\"\
+\[NoBreak]\\\", GridBox[{\\n    {\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\
+\", \\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\"},\\n    \
+{\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \\\"\
+\[Placeholder]\\\"},\\n    {\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \
+\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\"},\\n    \
+{\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \\\"\
+\[Placeholder]\\\"}\\n   },\\nGridBoxAlignment->{\\\"Columns\\\" -> {{Left}}, \
+\\\"ColumnsIndexed\\\" -> {}, \\\"Rows\\\" -> {{Baseline}}, \\\"RowsIndexed\\\
+\" -> {}},\\nGridBoxSpacings->{\\\"Columns\\\" -> \
+{Offset[0.27999999999999997`], {Offset[0.7]}, Offset[0.27999999999999997`]}, \
+\\\"ColumnsIndexed\\\" -> {}, \\\"Rows\\\" -> {Offset[0.2], {Offset[0.4]}, \
+Offset[0.2]}, \\\"RowsIndexed\\\" -> {}}], \\\"\[NoBreak]\\\", \
+\\\")\\\"}],\\n Function[BoxForm`e$, MatrixForm[BoxForm`e$]]]\\),{4}]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "MatrixToDirac[\!\(\*TagBox[\n RowBox[{\"(\", \"\[NoBreak]\", \
+GridBox[{\n    {\"\[Placeholder]\", \"\[Placeholder]\", \"\[Placeholder]\", \
+\"\[Placeholder]\"},\n    {\"\[Placeholder]\", \"\[Placeholder]\", \"\
+\[Placeholder]\", \"\[Placeholder]\"},\n    {\"\[Placeholder]\", \"\
+\[Placeholder]\", \"\[Placeholder]\", \"\[Placeholder]\"},\n    {\"\
+\[Placeholder]\", \"\[Placeholder]\", \"\[Placeholder]\", \"\[Placeholder]\"}\
+\n   },\nGridBoxAlignment->{\"Columns\" -> {{Left}}, \"ColumnsIndexed\" -> \
+{}, \"Rows\" -> {{Baseline}}, \"RowsIndexed\" -> {}},\n\
+GridBoxSpacings->{\"Columns\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \"RowsIndexed\" -> \
+{}}], \"\[NoBreak]\", \")\"}],\n Function[BoxForm`e$, \
+MatrixForm[BoxForm`e$]]]\),{4}]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"MatrixToDirac[\\!\\(\\*TagBox[\\n RowBox[{\\\"(\\\", \\\"\
+\[NoBreak]\\\", GridBox[{\\n    {\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\
+\", \\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\"},\\n    \
+{\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \\\"\
+\[Placeholder]\\\"},\\n    {\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \
+\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\"},\\n    \
+{\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \\\"\
+\[Placeholder]\\\"}\\n   },\\nGridBoxAlignment->{\\\"Columns\\\" -> {{Left}}, \
+\\\"ColumnsIndexed\\\" -> {}, \\\"Rows\\\" -> {{Baseline}}, \\\"RowsIndexed\\\
+\" -> {}},\\nGridBoxSpacings->{\\\"Columns\\\" -> \
+{Offset[0.27999999999999997`], {Offset[0.7]}, Offset[0.27999999999999997`]}, \
+\\\"ColumnsIndexed\\\" -> {}, \\\"Rows\\\" -> {Offset[0.2], {Offset[0.4]}, \
+Offset[0.2]}, \\\"RowsIndexed\\\" -> {}}], \\\"\[NoBreak]\\\", \
+\\\")\\\"}],\\n Function[BoxForm`e$, MatrixForm[BoxForm`e$]]]\\),{2,2}]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "MatrixToDirac[\!\(\*TagBox[\n RowBox[{\"(\", \"\[NoBreak]\", \
+GridBox[{\n    {\"\[Placeholder]\", \"\[Placeholder]\", \"\[Placeholder]\", \
+\"\[Placeholder]\"},\n    {\"\[Placeholder]\", \"\[Placeholder]\", \"\
+\[Placeholder]\", \"\[Placeholder]\"},\n    {\"\[Placeholder]\", \"\
+\[Placeholder]\", \"\[Placeholder]\", \"\[Placeholder]\"},\n    {\"\
+\[Placeholder]\", \"\[Placeholder]\", \"\[Placeholder]\", \"\[Placeholder]\"}\
+\n   },\nGridBoxAlignment->{\"Columns\" -> {{Left}}, \"ColumnsIndexed\" -> \
+{}, \"Rows\" -> {{Baseline}}, \"RowsIndexed\" -> {}},\n\
+GridBoxSpacings->{\"Columns\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \"RowsIndexed\" -> \
+{}}], \"\[NoBreak]\", \")\"}],\n Function[BoxForm`e$, \
+MatrixForm[BoxForm`e$]]]\),{2,2}]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"TensorToDirac[\\!\\(\\*TagBox[\\n RowBox[{\\\"(\\\", \\\"\
+\[NoBreak]\\\", GridBox[{\\n    {\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\
+\", \\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\"},\\n    \
+{\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \\\"\
+\[Placeholder]\\\"},\\n    {\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \
+\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\"},\\n    \
+{\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \\\"\
+\[Placeholder]\\\"}\\n   },\\nGridBoxAlignment->{\\\"Columns\\\" -> {{Left}}, \
+\\\"ColumnsIndexed\\\" -> {}, \\\"Rows\\\" -> {{Baseline}}, \\\"RowsIndexed\\\
+\" -> {}},\\nGridBoxSpacings->{\\\"Columns\\\" -> \
+{Offset[0.27999999999999997`], {Offset[0.7]}, Offset[0.27999999999999997`]}, \
+\\\"ColumnsIndexed\\\" -> {}, \\\"Rows\\\" -> {Offset[0.2], {Offset[0.4]}, \
+Offset[0.2]}, \\\"RowsIndexed\\\" -> {}}], \\\"\[NoBreak]\\\", \
+\\\")\\\"}],\\n Function[BoxForm`e$, MatrixForm[BoxForm`e$]]]\\)]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "TensorToDirac[\!\(\*TagBox[\n RowBox[{\"(\", \"\[NoBreak]\", \
+GridBox[{\n    {\"\[Placeholder]\", \"\[Placeholder]\", \"\[Placeholder]\", \
+\"\[Placeholder]\"},\n    {\"\[Placeholder]\", \"\[Placeholder]\", \"\
+\[Placeholder]\", \"\[Placeholder]\"},\n    {\"\[Placeholder]\", \"\
+\[Placeholder]\", \"\[Placeholder]\", \"\[Placeholder]\"},\n    {\"\
+\[Placeholder]\", \"\[Placeholder]\", \"\[Placeholder]\", \"\[Placeholder]\"}\
+\n   },\nGridBoxAlignment->{\"Columns\" -> {{Left}}, \"ColumnsIndexed\" -> \
+{}, \"Rows\" -> {{Baseline}}, \"RowsIndexed\" -> {}},\n\
+GridBoxSpacings->{\"Columns\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \"RowsIndexed\" -> \
+{}}], \"\[NoBreak]\", \")\"}],\n Function[BoxForm`e$, \
+MatrixForm[BoxForm`e$]]]\)]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"TensorToDirac[\\!\\(\\*TagBox[\\n RowBox[{\\\"(\\\", \\\"\
+\[NoBreak]\\\", GridBox[{\\n    {\\n     RowBox[{\\\"(\\\", \
+\\\"\[NoBreak]\\\", GridBox[{\\n        {\\\"\[Placeholder]\\\", \\\"\
+\[Placeholder]\\\"},\\n        {\\\"\[Placeholder]\\\", \
+\\\"\[Placeholder]\\\"}\\n       },\\nGridBoxAlignment->{\\\"Columns\\\" -> \
+{{Left}}, \\\"ColumnsIndexed\\\" -> {}, \\\"Rows\\\" -> {{Baseline}}, \
+\\\"RowsIndexed\\\" -> {}},\\nGridBoxSpacings->{\\\"Columns\\\" -> \
+{Offset[0.27999999999999997`], {Offset[0.7]}, Offset[0.27999999999999997`]}, \
+\\\"ColumnsIndexed\\\" -> {}, \\\"Rows\\\" -> {Offset[0.2], {Offset[0.4]}, \
+Offset[0.2]}, \\\"RowsIndexed\\\" -> {}}], \\\"\[NoBreak]\\\", \\\")\\\"}], \
+\\n     RowBox[{\\\"(\\\", \\\"\[NoBreak]\\\", GridBox[{\\n        {\\\"\
+\[Placeholder]\\\", \\\"\[Placeholder]\\\"},\\n        \
+{\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\"}\\n       \
+},\\nGridBoxAlignment->{\\\"Columns\\\" -> {{Left}}, \\\"ColumnsIndexed\\\" \
+-> {}, \\\"Rows\\\" -> {{Baseline}}, \\\"RowsIndexed\\\" -> \
+{}},\\nGridBoxSpacings->{\\\"Columns\\\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \\\"ColumnsIndexed\\\" -> {}, \
+\\\"Rows\\\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \
+\\\"RowsIndexed\\\" -> {}}], \\\"\[NoBreak]\\\", \\\")\\\"}]},\\n    {\\n     \
+RowBox[{\\\"(\\\", \\\"\[NoBreak]\\\", GridBox[{\\n        \
+{\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\"},\\n        {\\\"\
+\[Placeholder]\\\", \\\"\[Placeholder]\\\"}\\n       },\\nGridBoxAlignment->{\
+\\\"Columns\\\" -> {{Left}}, \\\"ColumnsIndexed\\\" -> {}, \\\"Rows\\\" -> \
+{{Baseline}}, \\\"RowsIndexed\\\" -> {}},\\nGridBoxSpacings->{\\\"Columns\\\" \
+-> {Offset[0.27999999999999997`], {Offset[0.7]}, \
+Offset[0.27999999999999997`]}, \\\"ColumnsIndexed\\\" -> {}, \\\"Rows\\\" -> \
+{Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \\\"RowsIndexed\\\" -> {}}], \\\"\
+\[NoBreak]\\\", \\\")\\\"}], \\n     RowBox[{\\\"(\\\", \\\"\[NoBreak]\\\", \
+GridBox[{\\n        {\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\"},\\n      \
+  {\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\"}\\n       \
+},\\nGridBoxAlignment->{\\\"Columns\\\" -> {{Left}}, \\\"ColumnsIndexed\\\" \
+-> {}, \\\"Rows\\\" -> {{Baseline}}, \\\"RowsIndexed\\\" -> \
+{}},\\nGridBoxSpacings->{\\\"Columns\\\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \\\"ColumnsIndexed\\\" -> {}, \
+\\\"Rows\\\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \
+\\\"RowsIndexed\\\" -> {}}], \\\"\[NoBreak]\\\", \\\")\\\"}]}\\n   \
+},\\nGridBoxAlignment->{\\\"Columns\\\" -> {{Left}}, \\\"ColumnsIndexed\\\" \
+-> {}, \\\"Rows\\\" -> {{Baseline}}, \\\"RowsIndexed\\\" -> \
+{}},\\nGridBoxSpacings->{\\\"Columns\\\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \\\"ColumnsIndexed\\\" -> {}, \
+\\\"Rows\\\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \
+\\\"RowsIndexed\\\" -> {}}], \\\"\[NoBreak]\\\", \\\")\\\"}],\\n \
+Function[BoxForm`e$, MatrixForm[BoxForm`e$]]]\\)]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "TensorToDirac[\!\(\*TagBox[\n RowBox[{\"(\", \"\[NoBreak]\", \
+GridBox[{\n    {\n     RowBox[{\"(\", \"\[NoBreak]\", GridBox[{\n        {\"\
+\[Placeholder]\", \"\[Placeholder]\"},\n        {\"\[Placeholder]\", \"\
+\[Placeholder]\"}\n       },\nGridBoxAlignment->{\"Columns\" -> {{Left}}, \
+\"ColumnsIndexed\" -> {}, \"Rows\" -> {{Baseline}}, \"RowsIndexed\" -> {}},\n\
+GridBoxSpacings->{\"Columns\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \"RowsIndexed\" -> \
+{}}], \"\[NoBreak]\", \")\"}], \n     RowBox[{\"(\", \"\[NoBreak]\", \
+GridBox[{\n        {\"\[Placeholder]\", \"\[Placeholder]\"},\n        {\"\
+\[Placeholder]\", \"\[Placeholder]\"}\n       },\n\
+GridBoxAlignment->{\"Columns\" -> {{Left}}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {{Baseline}}, \"RowsIndexed\" -> {}},\n\
+GridBoxSpacings->{\"Columns\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \"RowsIndexed\" -> \
+{}}], \"\[NoBreak]\", \")\"}]},\n    {\n     RowBox[{\"(\", \"\[NoBreak]\", \
+GridBox[{\n        {\"\[Placeholder]\", \"\[Placeholder]\"},\n        {\"\
+\[Placeholder]\", \"\[Placeholder]\"}\n       },\n\
+GridBoxAlignment->{\"Columns\" -> {{Left}}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {{Baseline}}, \"RowsIndexed\" -> {}},\n\
+GridBoxSpacings->{\"Columns\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \"RowsIndexed\" -> \
+{}}], \"\[NoBreak]\", \")\"}], \n     RowBox[{\"(\", \"\[NoBreak]\", \
+GridBox[{\n        {\"\[Placeholder]\", \"\[Placeholder]\"},\n        {\"\
+\[Placeholder]\", \"\[Placeholder]\"}\n       },\n\
+GridBoxAlignment->{\"Columns\" -> {{Left}}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {{Baseline}}, \"RowsIndexed\" -> {}},\n\
+GridBoxSpacings->{\"Columns\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \"RowsIndexed\" -> \
+{}}], \"\[NoBreak]\", \")\"}]}\n   },\nGridBoxAlignment->{\"Columns\" -> \
+{{Left}}, \"ColumnsIndexed\" -> {}, \"Rows\" -> {{Baseline}}, \"RowsIndexed\" \
+-> {}},\nGridBoxSpacings->{\"Columns\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \"RowsIndexed\" -> \
+{}}], \"\[NoBreak]\", \")\"}],\n Function[BoxForm`e$, \
+MatrixForm[BoxForm`e$]]]\)]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"VectorToDirac[{\[Placeholder],\[Placeholder],\
+\[Placeholder],\[Placeholder]},{4}]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "VectorToDirac[{\[Placeholder],\[Placeholder],\[Placeholder],\
+\[Placeholder]},{4}]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"VectorToDirac[{\[Placeholder],\[Placeholder],\
+\[Placeholder],\[Placeholder]},{2,2}]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "VectorToDirac[{\[Placeholder],\[Placeholder],\[Placeholder],\
+\[Placeholder]},{2,2}]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"MatrixToDirac[\\!\\(\\*TagBox[\\n RowBox[{\\\"(\\\", \\\"\
+\[NoBreak]\\\", GridBox[{\\n    {\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\
+\", \\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\"},\\n    \
+{\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \\\"\
+\[Placeholder]\\\"},\\n    {\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \
+\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\"},\\n    \
+{\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\", \\\"\
+\[Placeholder]\\\"}\\n   },\\nGridBoxAlignment->{\\\"Columns\\\" -> {{Left}}, \
+\\\"ColumnsIndexed\\\" -> {}, \\\"Rows\\\" -> {{Baseline}}, \\\"RowsIndexed\\\
+\" -> {}},\\nGridBoxSpacings->{\\\"Columns\\\" -> \
+{Offset[0.27999999999999997`], {Offset[0.7]}, Offset[0.27999999999999997`]}, \
+\\\"ColumnsIndexed\\\" -> {}, \\\"Rows\\\" -> {Offset[0.2], {Offset[0.4]}, \
+Offset[0.2]}, \\\"RowsIndexed\\\" -> {}}], \\\"\[NoBreak]\\\", \
+\\\")\\\"}],\\n Function[BoxForm`e$, \
+MatrixForm[BoxForm`e$]]]\\),{2,2},{\\!\\(\\*SubscriptBox[\\(0\\), \
+OverscriptBox[\\(1\\), \\(^\\)]]\\)\[Rule]\\!\\(\\*SubscriptBox[\\(a1\\), \
+OverscriptBox[\\(a\\), \\(^\\)]]\\),\\!\\(\\*SubscriptBox[\\(1\\), \
+OverscriptBox[\\(1\\), \\(^\\)]]\\)\[Rule]\\!\\(\\*SubscriptBox[\\(a2\\), \
+OverscriptBox[\\(a\\), \\(^\\)]]\\),\\!\\(\\*SubscriptBox[\\(0\\), \
+OverscriptBox[\\(2\\), \\(^\\)]]\\)\[Rule]\\!\\(\\*SubscriptBox[\\(b1\\), \
+OverscriptBox[\\(b\\), \\(^\\)]]\\),\\!\\(\\*SubscriptBox[\\(1\\), \
+OverscriptBox[\\(2\\), \\(^\\)]]\\)\[Rule]\\!\\(\\*SubscriptBox[\\(b2\\), \
+OverscriptBox[\\(b\\), \\(^\\)]]\\)}]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "MatrixToDirac[\!\(\*TagBox[\n RowBox[{\"(\", \"\[NoBreak]\", \
+GridBox[{\n    {\"\[Placeholder]\", \"\[Placeholder]\", \"\[Placeholder]\", \
+\"\[Placeholder]\"},\n    {\"\[Placeholder]\", \"\[Placeholder]\", \"\
+\[Placeholder]\", \"\[Placeholder]\"},\n    {\"\[Placeholder]\", \"\
+\[Placeholder]\", \"\[Placeholder]\", \"\[Placeholder]\"},\n    {\"\
+\[Placeholder]\", \"\[Placeholder]\", \"\[Placeholder]\", \"\[Placeholder]\"}\
+\n   },\nGridBoxAlignment->{\"Columns\" -> {{Left}}, \"ColumnsIndexed\" -> \
+{}, \"Rows\" -> {{Baseline}}, \"RowsIndexed\" -> {}},\n\
+GridBoxSpacings->{\"Columns\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \"RowsIndexed\" -> \
+{}}], \"\[NoBreak]\", \")\"}],\n Function[BoxForm`e$, \
+MatrixForm[BoxForm`e$]]]\),{2,2},{\!\(\*SubscriptBox[\(0\), OverscriptBox[\(1\
+\), \(^\)]]\)\[Rule]\!\(\*SubscriptBox[\(a1\), OverscriptBox[\(a\), \
+\(^\)]]\),\!\(\*SubscriptBox[\(1\), OverscriptBox[\(1\), \(^\)]]\)\[Rule]\!\(\
+\*SubscriptBox[\(a2\), OverscriptBox[\(a\), \
+\(^\)]]\),\!\(\*SubscriptBox[\(0\), OverscriptBox[\(2\), \(^\)]]\)\[Rule]\!\(\
+\*SubscriptBox[\(b1\), OverscriptBox[\(b\), \
+\(^\)]]\),\!\(\*SubscriptBox[\(1\), OverscriptBox[\(2\), \(^\)]]\)\[Rule]\!\(\
+\*SubscriptBox[\(b2\), OverscriptBox[\(b\), \(^\)]]\)}]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"TensorToDirac[\\!\\(\\*TagBox[\\n RowBox[{\\\"(\\\", \\\"\
+\[NoBreak]\\\", GridBox[{\\n    {\\n     RowBox[{\\\"(\\\", \
+\\\"\[NoBreak]\\\", GridBox[{\\n        {\\\"\[Placeholder]\\\", \\\"\
+\[Placeholder]\\\"},\\n        {\\\"\[Placeholder]\\\", \
+\\\"\[Placeholder]\\\"}\\n       },\\nGridBoxAlignment->{\\\"Columns\\\" -> \
+{{Left}}, \\\"ColumnsIndexed\\\" -> {}, \\\"Rows\\\" -> {{Baseline}}, \
+\\\"RowsIndexed\\\" -> {}},\\nGridBoxSpacings->{\\\"Columns\\\" -> \
+{Offset[0.27999999999999997`], {Offset[0.7]}, Offset[0.27999999999999997`]}, \
+\\\"ColumnsIndexed\\\" -> {}, \\\"Rows\\\" -> {Offset[0.2], {Offset[0.4]}, \
+Offset[0.2]}, \\\"RowsIndexed\\\" -> {}}], \\\"\[NoBreak]\\\", \\\")\\\"}], \
+\\n     RowBox[{\\\"(\\\", \\\"\[NoBreak]\\\", GridBox[{\\n        {\\\"\
+\[Placeholder]\\\", \\\"\[Placeholder]\\\"},\\n        \
+{\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\"}\\n       \
+},\\nGridBoxAlignment->{\\\"Columns\\\" -> {{Left}}, \\\"ColumnsIndexed\\\" \
+-> {}, \\\"Rows\\\" -> {{Baseline}}, \\\"RowsIndexed\\\" -> \
+{}},\\nGridBoxSpacings->{\\\"Columns\\\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \\\"ColumnsIndexed\\\" -> {}, \
+\\\"Rows\\\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \
+\\\"RowsIndexed\\\" -> {}}], \\\"\[NoBreak]\\\", \\\")\\\"}]},\\n    {\\n     \
+RowBox[{\\\"(\\\", \\\"\[NoBreak]\\\", GridBox[{\\n        \
+{\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\"},\\n        {\\\"\
+\[Placeholder]\\\", \\\"\[Placeholder]\\\"}\\n       },\\nGridBoxAlignment->{\
+\\\"Columns\\\" -> {{Left}}, \\\"ColumnsIndexed\\\" -> {}, \\\"Rows\\\" -> \
+{{Baseline}}, \\\"RowsIndexed\\\" -> {}},\\nGridBoxSpacings->{\\\"Columns\\\" \
+-> {Offset[0.27999999999999997`], {Offset[0.7]}, \
+Offset[0.27999999999999997`]}, \\\"ColumnsIndexed\\\" -> {}, \\\"Rows\\\" -> \
+{Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \\\"RowsIndexed\\\" -> {}}], \\\"\
+\[NoBreak]\\\", \\\")\\\"}], \\n     RowBox[{\\\"(\\\", \\\"\[NoBreak]\\\", \
+GridBox[{\\n        {\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\"},\\n      \
+  {\\\"\[Placeholder]\\\", \\\"\[Placeholder]\\\"}\\n       \
+},\\nGridBoxAlignment->{\\\"Columns\\\" -> {{Left}}, \\\"ColumnsIndexed\\\" \
+-> {}, \\\"Rows\\\" -> {{Baseline}}, \\\"RowsIndexed\\\" -> \
+{}},\\nGridBoxSpacings->{\\\"Columns\\\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \\\"ColumnsIndexed\\\" -> {}, \
+\\\"Rows\\\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \
+\\\"RowsIndexed\\\" -> {}}], \\\"\[NoBreak]\\\", \\\")\\\"}]}\\n   \
+},\\nGridBoxAlignment->{\\\"Columns\\\" -> {{Left}}, \\\"ColumnsIndexed\\\" \
+-> {}, \\\"Rows\\\" -> {{Baseline}}, \\\"RowsIndexed\\\" -> \
+{}},\\nGridBoxSpacings->{\\\"Columns\\\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \\\"ColumnsIndexed\\\" -> {}, \
+\\\"Rows\\\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \
+\\\"RowsIndexed\\\" -> {}}], \\\"\[NoBreak]\\\", \\\")\\\"}],\\n \
+Function[BoxForm`e$, \
+MatrixForm[BoxForm`e$]]]\\),{\\!\\(\\*SubscriptBox[\\(0\\), \
+OverscriptBox[\\(1\\), \\(^\\)]]\\)\[Rule]\\!\\(\\*SubscriptBox[\\(a1\\), \
+OverscriptBox[\\(a\\), \\(^\\)]]\\),\\!\\(\\*SubscriptBox[\\(1\\), \
+OverscriptBox[\\(1\\), \\(^\\)]]\\)\[Rule]\\!\\(\\*SubscriptBox[\\(a2\\), \
+OverscriptBox[\\(a\\), \\(^\\)]]\\),\\!\\(\\*SubscriptBox[\\(0\\), \
+OverscriptBox[\\(2\\), \\(^\\)]]\\)\[Rule]\\!\\(\\*SubscriptBox[\\(b1\\), \
+OverscriptBox[\\(b\\), \\(^\\)]]\\),\\!\\(\\*SubscriptBox[\\(1\\), \
+OverscriptBox[\\(2\\), \\(^\\)]]\\)\[Rule]\\!\\(\\*SubscriptBox[\\(b2\\), \
+OverscriptBox[\\(b\\), \\(^\\)]]\\)}]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "TensorToDirac[\!\(\*TagBox[\n RowBox[{\"(\", \"\[NoBreak]\", \
+GridBox[{\n    {\n     RowBox[{\"(\", \"\[NoBreak]\", GridBox[{\n        {\"\
+\[Placeholder]\", \"\[Placeholder]\"},\n        {\"\[Placeholder]\", \"\
+\[Placeholder]\"}\n       },\nGridBoxAlignment->{\"Columns\" -> {{Left}}, \
+\"ColumnsIndexed\" -> {}, \"Rows\" -> {{Baseline}}, \"RowsIndexed\" -> {}},\n\
+GridBoxSpacings->{\"Columns\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \"RowsIndexed\" -> \
+{}}], \"\[NoBreak]\", \")\"}], \n     RowBox[{\"(\", \"\[NoBreak]\", \
+GridBox[{\n        {\"\[Placeholder]\", \"\[Placeholder]\"},\n        {\"\
+\[Placeholder]\", \"\[Placeholder]\"}\n       },\n\
+GridBoxAlignment->{\"Columns\" -> {{Left}}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {{Baseline}}, \"RowsIndexed\" -> {}},\n\
+GridBoxSpacings->{\"Columns\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \"RowsIndexed\" -> \
+{}}], \"\[NoBreak]\", \")\"}]},\n    {\n     RowBox[{\"(\", \"\[NoBreak]\", \
+GridBox[{\n        {\"\[Placeholder]\", \"\[Placeholder]\"},\n        {\"\
+\[Placeholder]\", \"\[Placeholder]\"}\n       },\n\
+GridBoxAlignment->{\"Columns\" -> {{Left}}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {{Baseline}}, \"RowsIndexed\" -> {}},\n\
+GridBoxSpacings->{\"Columns\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \"RowsIndexed\" -> \
+{}}], \"\[NoBreak]\", \")\"}], \n     RowBox[{\"(\", \"\[NoBreak]\", \
+GridBox[{\n        {\"\[Placeholder]\", \"\[Placeholder]\"},\n        {\"\
+\[Placeholder]\", \"\[Placeholder]\"}\n       },\n\
+GridBoxAlignment->{\"Columns\" -> {{Left}}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {{Baseline}}, \"RowsIndexed\" -> {}},\n\
+GridBoxSpacings->{\"Columns\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \"RowsIndexed\" -> \
+{}}], \"\[NoBreak]\", \")\"}]}\n   },\nGridBoxAlignment->{\"Columns\" -> \
+{{Left}}, \"ColumnsIndexed\" -> {}, \"Rows\" -> {{Baseline}}, \"RowsIndexed\" \
+-> {}},\nGridBoxSpacings->{\"Columns\" -> {Offset[0.27999999999999997`], \
+{Offset[0.7]}, Offset[0.27999999999999997`]}, \"ColumnsIndexed\" -> {}, \
+\"Rows\" -> {Offset[0.2], {Offset[0.4]}, Offset[0.2]}, \"RowsIndexed\" -> \
+{}}], \"\[NoBreak]\", \")\"}],\n Function[BoxForm`e$, \
+MatrixForm[BoxForm`e$]]]\),{\!\(\*SubscriptBox[\(0\), OverscriptBox[\(1\), \
+\(^\)]]\)\[Rule]\!\(\*SubscriptBox[\(a1\), OverscriptBox[\(a\), \
+\(^\)]]\),\!\(\*SubscriptBox[\(1\), OverscriptBox[\(1\), \(^\)]]\)\[Rule]\!\(\
+\*SubscriptBox[\(a2\), OverscriptBox[\(a\), \
+\(^\)]]\),\!\(\*SubscriptBox[\(0\), OverscriptBox[\(2\), \(^\)]]\)\[Rule]\!\(\
+\*SubscriptBox[\(b1\), OverscriptBox[\(b\), \
+\(^\)]]\),\!\(\*SubscriptBox[\(1\), OverscriptBox[\(2\), \(^\)]]\)\[Rule]\!\(\
+\*SubscriptBox[\(b2\), OverscriptBox[\(b\), \(^\)]]\)}]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"MatrixToDirac[\[Placeholder],{\[Placeholder]}]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "MatrixToDirac[\[Placeholder],{\[Placeholder]}]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"TensorToDirac[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "TensorToDirac[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"DiracToMatrix[\[Placeholder],{{\\!\\(\\*SubscriptBox[\\(\
+\[Placeholder]\\), OverscriptBox[\\(\[Placeholder]\\), \
+\\(^\\)]]\\),\\!\\(\\*SubscriptBox[\\(\[Placeholder]\\), OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)]]\\)},{\\!\\(\\*SubscriptBox[\\(\[Placeholder]\\), \
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\),\\!\\(\\*SubscriptBox[\\(\
+\[Placeholder]\\), OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\)}}]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "DiracToMatrix[\[Placeholder],{{\!\(\*SubscriptBox[\(\[Placeholder]\),\
+ OverscriptBox[\(\[Placeholder]\), \(^\)]]\),\!\(\*SubscriptBox[\(\
+\[Placeholder]\), OverscriptBox[\(\[Placeholder]\), \
+\(^\)]]\)},{\!\(\*SubscriptBox[\(\[Placeholder]\), OverscriptBox[\(\
+\[Placeholder]\), \(^\)]]\),\!\(\*SubscriptBox[\(\[Placeholder]\), \
+OverscriptBox[\(\[Placeholder]\), \(^\)]]\)}}]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"DiracToTensor[\[Placeholder],{{\\!\\(\\*SubscriptBox[\\(\
+\[Placeholder]\\), OverscriptBox[\\(\[Placeholder]\\), \
+\\(^\\)]]\\),\\!\\(\\*SubscriptBox[\\(\[Placeholder]\\), OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)]]\\)},{\\!\\(\\*SubscriptBox[\\(\[Placeholder]\\), \
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\),\\!\\(\\*SubscriptBox[\\(\
+\[Placeholder]\\), OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\)}}]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "DiracToTensor[\[Placeholder],{{\!\(\*SubscriptBox[\(\[Placeholder]\),\
+ OverscriptBox[\(\[Placeholder]\), \(^\)]]\),\!\(\*SubscriptBox[\(\
+\[Placeholder]\), OverscriptBox[\(\[Placeholder]\), \
+\(^\)]]\)},{\!\(\*SubscriptBox[\(\[Placeholder]\), OverscriptBox[\(\
+\[Placeholder]\), \(^\)]]\),\!\(\*SubscriptBox[\(\[Placeholder]\), \
+OverscriptBox[\(\[Placeholder]\), \(^\)]]\)}}]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"MatrixForm[DiracToMatrix[\[Placeholder],{{\\!\\(\\*\
+SubscriptBox[\\(\[Placeholder]\\), OverscriptBox[\\(\[Placeholder]\\), \
+\\(^\\)]]\\),\\!\\(\\*SubscriptBox[\\(\[Placeholder]\\), OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)]]\\)},{\\!\\(\\*SubscriptBox[\\(\[Placeholder]\\), \
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\),\\!\\(\\*SubscriptBox[\\(\
+\[Placeholder]\\), OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\)}}]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "MatrixForm[DiracToMatrix[\[Placeholder],{{\!\(\*SubscriptBox[\(\
+\[Placeholder]\), OverscriptBox[\(\[Placeholder]\), \
+\(^\)]]\),\!\(\*SubscriptBox[\(\[Placeholder]\), OverscriptBox[\(\
+\[Placeholder]\), \(^\)]]\)},{\!\(\*SubscriptBox[\(\[Placeholder]\), \
+OverscriptBox[\(\[Placeholder]\), \(^\)]]\),\!\(\*SubscriptBox[\(\
+\[Placeholder]\), OverscriptBox[\(\[Placeholder]\), \(^\)]]\)}}]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"MatrixForm[DiracToTensor[\[Placeholder],{{\\!\\(\\*\
+SubscriptBox[\\(\[Placeholder]\\), OverscriptBox[\\(\[Placeholder]\\), \
+\\(^\\)]]\\),\\!\\(\\*SubscriptBox[\\(\[Placeholder]\\), OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)]]\\)},{\\!\\(\\*SubscriptBox[\\(\[Placeholder]\\), \
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\),\\!\\(\\*SubscriptBox[\\(\
+\[Placeholder]\\), OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\)}}]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "MatrixForm[DiracToTensor[\[Placeholder],{{\!\(\*SubscriptBox[\(\
+\[Placeholder]\), OverscriptBox[\(\[Placeholder]\), \
+\(^\)]]\),\!\(\*SubscriptBox[\(\[Placeholder]\), OverscriptBox[\(\
+\[Placeholder]\), \(^\)]]\)},{\!\(\*SubscriptBox[\(\[Placeholder]\), \
+OverscriptBox[\(\[Placeholder]\), \(^\)]]\),\!\(\*SubscriptBox[\(\
+\[Placeholder]\), OverscriptBox[\(\[Placeholder]\), \(^\)]]\)}}]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"DiracEigensystem[\[Placeholder],{{\\!\\(\\*SubscriptBox[\\\
+(\[Placeholder]\\), OverscriptBox[\\(\[Placeholder]\\), \
+\\(^\\)]]\\),\\!\\(\\*SubscriptBox[\\(\[Placeholder]\\), OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)]]\\)},{\\!\\(\\*SubscriptBox[\\(\[Placeholder]\\), \
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\),\\!\\(\\*SubscriptBox[\\(\
+\[Placeholder]\\), OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\)}}]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "DiracEigensystem[\[Placeholder],{{\!\(\*SubscriptBox[\(\[Placeholder]\
+\), OverscriptBox[\(\[Placeholder]\), \(^\)]]\),\!\(\*SubscriptBox[\(\
+\[Placeholder]\), OverscriptBox[\(\[Placeholder]\), \
+\(^\)]]\)},{\!\(\*SubscriptBox[\(\[Placeholder]\), OverscriptBox[\(\
+\[Placeholder]\), \(^\)]]\),\!\(\*SubscriptBox[\(\[Placeholder]\), \
+OverscriptBox[\(\[Placeholder]\), \(^\)]]\)}}]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"DiracToVector[\[Placeholder]\\!\\(\\*TagBox[\\n \
+RowBox[{\\\"\[VerticalSeparator]\\\", TagBox[\\n   RowBox[{SubscriptBox[\\\"\
+\[Placeholder]\\\", OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]], \
+\\\",\\\", SubscriptBox[\\\"\[Placeholder]\\\", OverscriptBox[\\\"\
+\[Placeholder]\\\", \\\"^\\\"]]}],\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)+\[Placeholder]\\!\\(\\*\
+TagBox[\\n RowBox[{\\\"\[VerticalSeparator]\\\", TagBox[\\n   \
+RowBox[{SubscriptBox[\\\"\[Placeholder]\\\", OverscriptBox[\\\"\[Placeholder]\
+\\\", \\\"^\\\"]], \\\",\\\", SubscriptBox[\\\"\[Placeholder]\\\", \
+OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]]}],\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\),{{\\!\\(\\*SubscriptBox[\\(\
+\[Placeholder]\\), OverscriptBox[\\(\[Placeholder]\\), \
+\\(^\\)]]\\),\\!\\(\\*SubscriptBox[\\(\[Placeholder]\\), OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)]]\\)},{\\!\\(\\*SubscriptBox[\\(\[Placeholder]\\), \
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\),\\!\\(\\*SubscriptBox[\\(\
+\[Placeholder]\\), OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\)}}]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "DiracToVector[\[Placeholder]\!\(\*TagBox[\n RowBox[{\"\
+\[VerticalSeparator]\", TagBox[\n   RowBox[{SubscriptBox[\"\[Placeholder]\", \
+OverscriptBox[\"\[Placeholder]\", \"^\"]], \",\", SubscriptBox[\"\
+\[Placeholder]\", OverscriptBox[\"\[Placeholder]\", \"^\"]]}],\n   \
+Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> True},\n\
+Editable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080Ket,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)+\[Placeholder]\!\(\*TagBox[\n RowBox[{\
+\"\[VerticalSeparator]\", TagBox[\n   \
+RowBox[{SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\[Placeholder]\", \
+\"^\"]], \",\", SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\
+\[Placeholder]\", \"^\"]]}],\n   Quantum`Notation`zz080KetArgs,\n\
+BaseStyle->{ShowSyntaxStyles -> True},\nEditable->True,\nSelectable->True], \
+\"\[RightAngleBracket]\"}],\n Quantum`Notation`zz080Ket,\n\
+BaseStyle->{ShowSyntaxStyles -> False},\nEditable->False,\nSelectable->False]\
+\),{{\!\(\*SubscriptBox[\(\[Placeholder]\), OverscriptBox[\(\[Placeholder]\), \
+\(^\)]]\),\!\(\*SubscriptBox[\(\[Placeholder]\), OverscriptBox[\(\
+\[Placeholder]\), \(^\)]]\)},{\!\(\*SubscriptBox[\(\[Placeholder]\), \
+OverscriptBox[\(\[Placeholder]\), \(^\)]]\),\!\(\*SubscriptBox[\(\
+\[Placeholder]\), OverscriptBox[\(\[Placeholder]\), \(^\)]]\)}}]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]}
+   },
+   AutoDelete->False,
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]],
+ CellMargins->{{0, 0}, {0, 0}},
+ CellBracketOptions->{"Color"->RGBColor[0.269993, 0.308507, 0.6]},
+ CellHorizontalScrolling->True,
+ PageBreakAbove->True,
+ PageBreakWithin->False,
+ ShowAutoStyles->True,
+ LineSpacing->{1.25, 0},
+ AutoItalicWords->{},
+ ScriptMinSize->9,
+ ShowStringCharacters->False,
+ FontFamily:>CurrentValue["PanelFontFamily"],
+ FontSize:>CurrentValue["PanelFontSize"]]
+},
+WindowSize->All,
+WindowMargins->{{Automatic, 254}, {3, Automatic}},
+WindowElements->{},
+WindowTitle->"Quantum to Matrix",
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (February 18, 2009)",
+StyleDefinitions->"Palette.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[577, 21, 32308, 529, 394, InheritFromParent,
+ PageBreakAbove->True,
+ PageBreakWithin->False]
+}
+]
+*)
+
+(* End of internal cache information *)

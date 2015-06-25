@@ -1,0 +1,384 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     11158,        375]
+NotebookOptionsPosition[     10794,        358]
+NotebookOutlinePosition[     11199,        375]
+CellTagsIndexPosition[     11156,        372]
+WindowTitle->Quantized Hamiltonian Dynamics
+WindowFrame->Palette*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     ButtonBox["\<\"Needs[\\\"Quantum`QHD`\\\"]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "Needs[\"Quantum`QHD`\"]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]", "\[SpanFromLeft]", 
+     "\[SpanFromLeft]"},
+    {
+     ButtonBox[
+      RowBox[{"SetQHDAliases", "[", "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]", 
+     ButtonBox[
+      RowBox[{"SetQuantumObject", "[", 
+       TagBox[
+        FrameBox["var"],
+        "Placeholder"], "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]"},
+    {
+     ButtonBox[
+      RowBox[{"QHDSymmetrize", "[", 
+       TagBox[
+        FrameBox["expr"],
+        "Placeholder"], "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]", 
+     ButtonBox[
+      RowBox[{"QHDExpand", "[", 
+       TagBox[
+        FrameBox["expr"],
+        "Placeholder"], "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]"},
+    {
+     ButtonBox[
+      RowBox[{"QHDVariables", "[", 
+       TagBox[
+        FrameBox["expr"],
+        "Placeholder"], "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]", 
+     ButtonBox[
+      RowBox[{"QHDCrossTermsApproximant", "[", 
+       TagBox[
+        FrameBox["expr"],
+        "Placeholder"], "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]"},
+    {
+     ButtonBox[
+      RowBox[{"QHDOrder", "[", 
+       TagBox[
+        FrameBox["expr"],
+        "Placeholder"], "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]", 
+     ButtonBox[
+      RowBox[{"QHDClosure", "[", 
+       RowBox[{
+        TagBox[
+         FrameBox["order"],
+         "Placeholder"], ",", 
+        TagBox[
+         FrameBox["expr"],
+         "Placeholder"]}], "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]"},
+    {
+     ButtonBox[
+      RowBox[{"QHDEOM", "[", 
+       RowBox[{
+        TagBox[
+         FrameBox["order"],
+         "Placeholder"], ",", 
+        TagBox[
+         FrameBox["expr"],
+         "Placeholder"], ",", 
+        TagBox[
+         FrameBox["hamiltonian"],
+         "Placeholder"]}], "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]", "\[SpanFromLeft]", 
+     "\[SpanFromLeft]"},
+    {
+     ButtonBox[
+      RowBox[{"QHDHierarchy", "[", 
+       RowBox[{
+        TagBox[
+         FrameBox["order"],
+         "Placeholder"], ",", 
+        TagBox[
+         FrameBox["expr"],
+         "Placeholder"], ",", 
+        TagBox[
+         FrameBox["hamiltonian"],
+         "Placeholder"]}], "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]", "\[SpanFromLeft]", 
+     "\[SpanFromLeft]"},
+    {
+     ButtonBox[
+      RowBox[{"QHDForm", "[", 
+       TagBox[
+        FrameBox["hierarchy"],
+        "Placeholder"], "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]", 
+     ButtonBox[
+      RowBox[{"QHDGraphPlot", "[", 
+       TagBox[
+        FrameBox["hierarchy"],
+        "Placeholder"], "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]"},
+    {
+     ButtonBox[
+      RowBox[{"QHDDifferentialEquations", "[", 
+       TagBox[
+        FrameBox["hierarchy"],
+        "Placeholder"], "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]", "\[SpanFromLeft]", 
+     "\[SpanFromLeft]"},
+    {
+     ButtonBox[
+      RowBox[{"QHDInitialConditionsTemplate", "[", 
+       RowBox[{
+        TagBox[
+         FrameBox["hierarchy"],
+         "Placeholder"], ",", 
+        TagBox[
+         FrameBox[
+          SubscriptBox["t", "min"]],
+         "Placeholder"]}], "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]", "\[SpanFromLeft]", 
+     "\[SpanFromLeft]"},
+    {
+     ButtonBox[
+      RowBox[{"QHDNDSolve", "[", 
+       RowBox[{
+        TagBox[
+         FrameBox["hierarchy"],
+         "Placeholder"], ",", 
+        TagBox[
+         FrameBox["ini_cond"],
+         "Placeholder"], ",", 
+        TagBox[
+         FrameBox[
+          SubscriptBox["t", "min"]],
+         "Placeholder"], ",", 
+        TagBox[
+         FrameBox[
+          SubscriptBox["t", "max"]],
+         "Placeholder"]}], "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]", "\[SpanFromLeft]", 
+     "\[SpanFromLeft]"},
+    {
+     ButtonBox[
+      RowBox[{"QHDFunction", "[", 
+       RowBox[{
+        TagBox[
+         FrameBox["expr"],
+         "Placeholder"], ",", 
+        TagBox[
+         FrameBox["qhdndsolve"],
+         "Placeholder"]}], "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]", "\[SpanFromLeft]", 
+     "\[SpanFromLeft]"},
+    {
+     ButtonBox[
+      RowBox[{"QHDPlot", "[", 
+       RowBox[{"All", ",", 
+        TagBox[
+         FrameBox["qhdndsolve"],
+         "Placeholder"]}], "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]", 
+     ButtonBox[
+      RowBox[{"QHDPlot", "[", 
+       RowBox[{
+        TagBox[
+         FrameBox["expr"],
+         "Placeholder"], ",", 
+        TagBox[
+         FrameBox["qhdndsolve"],
+         "Placeholder"]}], "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]"},
+    {
+     ButtonBox[
+      RowBox[{"QHDParametricPlot", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          TagBox[
+           FrameBox["expr1"],
+           "Placeholder"], ",", 
+          TagBox[
+           FrameBox["expr2"],
+           "Placeholder"]}], "}"}], ",", 
+        TagBox[
+         FrameBox["qhdndsolve"],
+         "Placeholder"]}], "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]", "\[SpanFromLeft]", 
+     "\[SpanFromLeft]"},
+    {
+     ButtonBox[
+      RowBox[{"QHDParametricPlot3D", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          TagBox[
+           FrameBox["expr1"],
+           "Placeholder"], ",", 
+          TagBox[
+           FrameBox["expr2"],
+           "Placeholder"], ",", 
+          TagBox[
+           FrameBox["expr3"],
+           "Placeholder"]}], "}"}], ",", 
+        TagBox[
+         FrameBox["qhdndsolve"],
+         "Placeholder"]}], "]"}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]", "\[SpanFromLeft]", 
+     "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"\[CenterDot]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "\[CenterDot]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\[Rule]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "\[Rule]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox[
+      RowBox[{
+       TagBox[
+        FrameBox["expr"],
+        "Placeholder"], "/.", "\[InvisibleSpace]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          TagBox[
+           FrameBox[
+            SubscriptBox["old", "1"]],
+           "Placeholder"], "\[Rule]", 
+          TagBox[
+           FrameBox[
+            SubscriptBox["new", "1"]],
+           "Placeholder"]}], ",", 
+         RowBox[{
+          TagBox[
+           FrameBox[
+            SubscriptBox["old", "2"]],
+           "Placeholder"], "\[Rule]", 
+          TagBox[
+           FrameBox[
+            SubscriptBox["new", "2"]],
+           "Placeholder"]}]}], "}"}]}],
+      BaseStyle->"Paste"], "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"        \\!\\(\\*TagBox[SubscriptBox[\\n  RowBox[{\\\"\
+\[LeftDoubleBracket]\\\", TagBox[\\n    RowBox[{\\\"\[Placeholder]\\\", \\\",\
+\\\", \\\"\[Placeholder]\\\"}],\\n    \
+Quantum`Notation`zz080KetArgs,\\nEditable->True,\\nSelectable->True], \\\"\
+\[RightDoubleBracket]\\\"}], \\\"-\\\"],\\n Quantum`Notation`zz050Commutator,\
+\\nEditable->False,\\nSelectable->False]\\)       \"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[SubscriptBox[\n  RowBox[{\"\[LeftDoubleBracket]\", \
+TagBox[\n    RowBox[{\"\[Placeholder]\", \",\", \"\[Placeholder]\"}],\n    \
+Quantum`Notation`zz080KetArgs,\nEditable->True,\nSelectable->True], \"\
+\[RightDoubleBracket]\"}], \"-\"],\n Quantum`Notation`zz050Commutator,\n\
+Editable->False,\nSelectable->False]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"         \[LeftAngleBracket]\[Placeholder]\
+\[RightAngleBracket]         \"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\[LeftAngleBracket]\[Placeholder]\[RightAngleBracket]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"         \
+(\[Placeholder]\[CenterDot]\[Placeholder]\\!\\(\\*SubscriptBox[\\()\\), \\(\
+\[ScriptS]\\)]\\)         \"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "(\[Placeholder]\[CenterDot]\[Placeholder]\!\(\*SubscriptBox[\()\), \
+\(\[ScriptS]\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\[LeftAngleBracket](\[Placeholder]\[CenterDot]\
+\[Placeholder]\\!\\(\\*SubscriptBox[\\()\\), \\(\[ScriptS]\\)]\\)\
+\[RightAngleBracket]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\[LeftAngleBracket](\[Placeholder]\[CenterDot]\[Placeholder]\!\(\*\
+SubscriptBox[\()\), \(\[ScriptS]\)]\)\[RightAngleBracket]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox[
+      SubscriptBox["\[Placeholder]", "\[Placeholder]"],
+      BaseStyle->"Paste"], 
+     ButtonBox[
+      SuperscriptBox["\[Placeholder]", "\[Placeholder]"],
+      BaseStyle->"Paste"], 
+     ButtonBox[
+      SubsuperscriptBox["\[Placeholder]", "\[Placeholder]", "\[Placeholder]"],
+      BaseStyle->"Paste"], 
+     ButtonBox[
+      FractionBox["\[Placeholder]", "\[Placeholder]"],
+      BaseStyle->"Paste"]},
+    {
+     ButtonBox["\[HBar]",
+      BaseStyle->"Paste"], 
+     ButtonBox["\[ImaginaryI]",
+      BaseStyle->"Paste"], 
+     ButtonBox["\[Infinity]",
+      BaseStyle->"Paste"], 
+     ButtonBox["\[ScriptT]",
+      BaseStyle->"Paste"]}
+   },
+   AutoDelete->False,
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]],
+ CellMargins->{{0, 0}, {0, 0}},
+ CellBracketOptions->{"Color"->RGBColor[0.269993, 0.308507, 0.6]},
+ CellHorizontalScrolling->True,
+ PageBreakAbove->True,
+ PageBreakWithin->False,
+ ShowAutoStyles->True,
+ LineSpacing->{1.25, 0},
+ AutoItalicWords->{},
+ ScriptMinSize->9,
+ ShowStringCharacters->False,
+ FontFamily:>CurrentValue["PanelFontFamily"],
+ FontSize:>CurrentValue["PanelFontSize"]]
+},
+WindowSize->All,
+WindowMargins->{{Automatic, 220}, {Automatic, 41}},
+WindowElements->{},
+WindowTitle->"Quantized Hamiltonian Dynamics",
+FrontEndVersion->"8.0 for Microsoft Windows (32-bit) (November 7, 2010)",
+StyleDefinitions->"Palette.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[602, 21, 10188, 335, 496, InheritFromParent,
+ PageBreakAbove->True,
+ PageBreakWithin->False]
+}
+]
+*)
+
+(* End of internal cache information *)

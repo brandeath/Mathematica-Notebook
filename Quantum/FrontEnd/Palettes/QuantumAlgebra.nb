@@ -1,0 +1,329 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     13590,        320]
+NotebookOptionsPosition[     13228,        303]
+NotebookOutlinePosition[     13619,        320]
+CellTagsIndexPosition[     13576,        317]
+WindowTitle->Quantum Algebra
+WindowFrame->Palette*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     ButtonBox["\<\"Needs[\\\"Quantum`Notation`\\\"]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "Needs[\"Quantum`Notation`\"]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"SetQuantumObject[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "SetQuantumObject[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"SetQuantumObject[\[Placeholder],\[Placeholder],\
+\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "SetQuantumObject[\[Placeholder],\[Placeholder],\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"DefineOperatorOnKets[\[Placeholder],{\\!\\(\\*TagBox[\\n \
+RowBox[{\\\"\[VerticalSeparator]\\\", TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\[RuleDelayed]\\!\\(\\*\
+TagBox[\\n RowBox[{\\\"\[VerticalSeparator]\\\", \
+TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\),\\!\\(\\*TagBox[\\n \
+RowBox[{\\\"\[VerticalSeparator]\\\", TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\[RuleDelayed]\\!\\(\\*\
+TagBox[\\n RowBox[{\\\"\[VerticalSeparator]\\\", \
+TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)}]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "DefineOperatorOnKets[\[Placeholder],{\!\(\*TagBox[\n RowBox[{\"\
+\[VerticalSeparator]\", TagBox[\"\[Placeholder]\",\n   \
+Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> True},\n\
+Editable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080Ket,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)\[RuleDelayed]\!\(\*TagBox[\n \
+RowBox[{\"\[VerticalSeparator]\", TagBox[\"\[Placeholder]\",\n   \
+Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> True},\n\
+Editable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080Ket,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\),\!\(\*TagBox[\n RowBox[{\"\
+\[VerticalSeparator]\", TagBox[\"\[Placeholder]\",\n   \
+Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> True},\n\
+Editable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080Ket,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)\[RuleDelayed]\!\(\*TagBox[\n \
+RowBox[{\"\[VerticalSeparator]\", TagBox[\"\[Placeholder]\",\n   \
+Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> True},\n\
+Editable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080Ket,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)}]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"CollectFromLeft[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "CollectFromLeft[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"CollectFromRight[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "CollectFromRight[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"Expand[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "Expand[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"CommutatorExpand[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "CommutatorExpand[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"CommutatorExpand[\[Placeholder],Anticommutators\[Rule]\
+True]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "CommutatorExpand[\[Placeholder],Anticommutators\[Rule]True]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"CommutatorExpand[\[Placeholder],ReverseOrdering\[Rule]\
+True]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "CommutatorExpand[\[Placeholder],ReverseOrdering\[Rule]True]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"CommutatorExpand[\[Placeholder],NestedCommutators\[Rule]\
+True]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "CommutatorExpand[\[Placeholder],NestedCommutators\[Rule]True]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"EvaluateCommutators[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "EvaluateCommutators[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"EvaluateAllCommutators[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "EvaluateAllCommutators[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"FactorKet[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "FactorKet[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"CollectKet[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "CollectKet[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"FactorKetList[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "FactorKetList[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"Simplify[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "Simplify[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"\\!\\(\\*TagBox[SubscriptBox[\\n  RowBox[{\\\"\
+\[LeftDoubleBracket]\\\", TagBox[\\n    RowBox[{\\\"\[Placeholder]\\\", \\\",\
+\\\", \\\"\[Placeholder]\\\"}],\\n    \
+Quantum`Notation`zz080KetArgs,\\nEditable->True,\\nSelectable->True], \\\"\
+\[RightDoubleBracket]\\\"}], \\\"-\\\"],\\n Quantum`Notation`zz050Commutator,\
+\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[SubscriptBox[\n  RowBox[{\"\[LeftDoubleBracket]\", \
+TagBox[\n    RowBox[{\"\[Placeholder]\", \",\", \"\[Placeholder]\"}],\n    \
+Quantum`Notation`zz080KetArgs,\nEditable->True,\nSelectable->True], \"\
+\[RightDoubleBracket]\"}], \"-\"],\n Quantum`Notation`zz050Commutator,\n\
+Editable->False,\nSelectable->False]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*TagBox[SubscriptBox[\\n  RowBox[{\\\"\
+\[LeftDoubleBracket]\\\", TagBox[\\n    RowBox[{\\\"\[Placeholder]\\\", \\\",\
+\\\", \\\"\[Placeholder]\\\"}],\\n    \
+Quantum`Notation`zz080KetArgs,\\nEditable->True,\\nSelectable->True], \\\"\
+\[RightDoubleBracket]\\\"}], \\\"+\\\"],\\n \
+Quantum`Notation`zz050AntiCommutator,\\nEditable->False,\\nSelectable->False]\
+\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[SubscriptBox[\n  RowBox[{\"\[LeftDoubleBracket]\", \
+TagBox[\n    RowBox[{\"\[Placeholder]\", \",\", \"\[Placeholder]\"}],\n    \
+Quantum`Notation`zz080KetArgs,\nEditable->True,\nSelectable->True], \"\
+\[RightDoubleBracket]\"}], \"+\"],\n Quantum`Notation`zz050AntiCommutator,\n\
+Editable->False,\nSelectable->False]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"\\!\\(\\*TagBox[SubscriptBox[\\n  RowBox[{\\\"\
+\[LeftDoubleBracket]\\\", TagBox[\\n    RowBox[{\\\"\[Placeholder]\\\", \\\",\
+\\\", \\\"\[Placeholder]\\\"}],\\n    \
+Quantum`Notation`zz080KetArgs,\\nEditable->True,\\nSelectable->True], \\\"\
+\[RightDoubleBracket]\\\"}], \\\"-\\\"],\\n Quantum`Notation`zz050Commutator,\
+\\nEditable->False,\\nSelectable->False]\\)=\[Placeholder]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[SubscriptBox[\n  RowBox[{\"\[LeftDoubleBracket]\", \
+TagBox[\n    RowBox[{\"\[Placeholder]\", \",\", \"\[Placeholder]\"}],\n    \
+Quantum`Notation`zz080KetArgs,\nEditable->True,\nSelectable->True], \"\
+\[RightDoubleBracket]\"}], \"-\"],\n Quantum`Notation`zz050Commutator,\n\
+Editable->False,\nSelectable->False]\)=\[Placeholder]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*TagBox[SubscriptBox[\\n  RowBox[{\\\"\
+\[LeftDoubleBracket]\\\", TagBox[\\n    RowBox[{\\\"\[Placeholder]\\\", \\\",\
+\\\", \\\"\[Placeholder]\\\"}],\\n    \
+Quantum`Notation`zz080KetArgs,\\nEditable->True,\\nSelectable->True], \\\"\
+\[RightDoubleBracket]\\\"}], \\\"+\\\"],\\n \
+Quantum`Notation`zz050AntiCommutator,\\nEditable->False,\\nSelectable->False]\
+\\)=\[Placeholder]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[SubscriptBox[\n  RowBox[{\"\[LeftDoubleBracket]\", \
+TagBox[\n    RowBox[{\"\[Placeholder]\", \",\", \"\[Placeholder]\"}],\n    \
+Quantum`Notation`zz080KetArgs,\nEditable->True,\nSelectable->True], \"\
+\[RightDoubleBracket]\"}], \"+\"],\n Quantum`Notation`zz050AntiCommutator,\n\
+Editable->False,\nSelectable->False]\)=\[Placeholder]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"\[Placeholder]\[CenterDot]\[Placeholder]=\[Placeholder]\"\
+\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\[Placeholder]\[CenterDot]\[Placeholder]=\[Placeholder]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SuperscriptBox[\\(\[Placeholder]\\), \\(\
+\[Placeholder]\\)]\\)=\[Placeholder]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SuperscriptBox[\(\[Placeholder]\), \(\[Placeholder]\)]\)=\
+\[Placeholder]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"\[CenterDot]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "\[CenterDot]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\[CircleTimes]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "\[CircleTimes]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]}
+   },
+   AutoDelete->False,
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]],
+ CellMargins->{{0, 0}, {0, 0}},
+ CellBracketOptions->{"Color"->RGBColor[0.269993, 0.308507, 0.6]},
+ CellHorizontalScrolling->True,
+ PageBreakAbove->True,
+ PageBreakWithin->False,
+ ShowAutoStyles->True,
+ LineSpacing->{1.25, 0},
+ AutoItalicWords->{},
+ ScriptMinSize->9,
+ ShowStringCharacters->False,
+ FontFamily:>CurrentValue["PanelFontFamily"],
+ FontSize:>CurrentValue["PanelFontSize"]]
+},
+WindowSize->All,
+WindowMargins->{{364, Automatic}, {11, Automatic}},
+WindowElements->{},
+WindowTitle->"Quantum Algebra",
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (February 18, 2009)",
+StyleDefinitions->"Palette.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[575, 21, 12649, 280, 317, InheritFromParent,
+ PageBreakAbove->True,
+ PageBreakWithin->False]
+}
+]
+*)
+
+(* End of internal cache information *)

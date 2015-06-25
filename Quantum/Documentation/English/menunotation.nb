@@ -1,0 +1,447 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     13147,        438]
+NotebookOptionsPosition[     11921,        394]
+NotebookOutlinePosition[     12308,        411]
+CellTagsIndexPosition[     12265,        408]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Quantum`Notation`", "Title",
+ CellChangeTimes->{{3.466301507203125*^9, 3.46630151984375*^9}, {
+  3.4663017133125*^9, 3.466301715390625*^9}}],
+
+Cell["\<\
+Click on each title below in order to open the corresponding tutorial \
+\>", "Text",
+ CellChangeTimes->{{3.4681923896875*^9, 3.468192434203125*^9}, 
+   3.469546297855423*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Basic Documentation", "Section",
+ CellChangeTimes->{{3.450638486476555*^9, 3.450638515257989*^9}, {
+  3.450699892896326*^9, 3.450699899193121*^9}},
+ FontSize->18],
+
+Cell[TextData[{
+ "Using the Keyboard to Enter Dirac Notation in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " \n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7diracnotation.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7diracnotation.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7diracnotation.pdf", None}]
+}], "Text",
+ CellChangeTimes->{{3.471615890251089*^9, 3.471615934341211*^9}, {
+  3.4716163172576914`*^9, 3.471616355143289*^9}, {3.471616501717337*^9, 
+  3.471616532088255*^9}, {3.471616696082813*^9, 3.4716167267197123`*^9}, {
+  3.4716167694020214`*^9, 3.471616878029435*^9}, {3.471616972111744*^9, 
+  3.471616972111744*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "Quantum Measurements, Quantum Collapse and Density Operator\n",
+ StyleBox[ButtonBox["Mathematica ",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7measurements.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox["Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7measurements.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7measurements.pdf", None}]
+}], "Text",
+ CellChangeTimes->{
+  3.4716170693655415`*^9, {3.47161710761089*^9, 3.471617202786815*^9}, {
+   3.471617306461707*^9, 3.471617364334998*^9}, {3.4716174103072786`*^9, 
+   3.4716174103072786`*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "Iterated Quantum Products, Sums and Infinite Sums\n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7sums.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7sums.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7sums.pdf", None}]
+}], "Text",
+ CellChangeTimes->{{3.471617510705613*^9, 3.471617607775568*^9}, {
+  3.47161779608426*^9, 3.4716178174584394`*^9}, {3.4716178644097614`*^9, 
+  3.4716178644097614`*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "Dirac Notation, Matrix Notation and Operator Diagonalization\n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7matrices.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7matrices.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7matrices.pdf", None}]
+}], "Text",
+ CellChangeTimes->{{3.4716178917212124`*^9, 3.471617920032625*^9}, {
+  3.4716180709748273`*^9, 3.471618086301775*^9}, {3.4716181183618126`*^9, 
+  3.4716181811382413`*^9}, {3.486738659720812*^9, 3.486738673361453*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "Partial Trace and Partial Transpose\n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7tracetranspose.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7tracetranspose.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7tracetranspose.pdf", None}],
+ " "
+}], "Text",
+ CellChangeTimes->{{3.471618217322962*^9, 3.4716182845200224`*^9}, {
+  3.4716184185333505`*^9, 3.4716184185333505`*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "Two Different Ways of Creating Quantum Symbolic Operators\n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7scalars.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7scalars.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7scalars.pdf", None}]
+}], "Text",
+ CellChangeTimes->{{3.4716184691796055`*^9, 3.471618507051073*^9}, {
+  3.4716185848398485`*^9, 3.4716186528835526`*^9}, {3.47161869838338*^9, 
+  3.47161869838338*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "Comparison of Symbolic Operators vs Dirac-Notation Operators\n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7defope.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7defope.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7defope.pdf", None}]
+}], "Text",
+ CellChangeTimes->{{3.4716202445879316`*^9, 3.4716202457128305`*^9}, {
+  3.4716202797566547`*^9, 3.471620316034068*^9}, {3.4716203714967833`*^9, 
+  3.4716204309460073`*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "Power Series of Operators \n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7powerseries.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7powerseries.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7powerseries.pdf", None}]
+}], "Text",
+ CellChangeTimes->{{3.471621172156583*^9, 3.471621173656458*^9}, {
+   3.471621300989613*^9, 3.4716213058017125`*^9}, {3.471621345922992*^9, 
+   3.4716213995428443`*^9}, {3.471621523046612*^9, 3.471621523046612*^9}, 
+   3.4716337445424595`*^9},
+ FontSize->16],
+
+Cell[TextData[{
+ "Quantum Operator Algebra and Commutator Algebra in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " \n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7algebra.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7algebra.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7algebra.pdf", None}]
+}], "Text",
+ CellChangeTimes->{{3.4716217182153735`*^9, 3.471621793551891*^9}, {
+  3.471621898729293*^9, 3.471621898729293*^9}},
+ FontSize->16]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Application Examples ", "Section",
+ CellChangeTimes->{{3.450638486476555*^9, 3.450638515257989*^9}, {
+   3.450639939430704*^9, 3.450639940165084*^9}, {3.450699924161551*^9, 
+   3.450699928270873*^9}, 3.45246753428125*^9},
+ FontSize->18],
+
+Cell[TextData[{
+ "Step-by-step setup of Kets, Operators, Commutators and Algebra for the \
+Quantum Harmonic Oscillator in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " \n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7harmonic.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7harmonic.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7harmonic.pdf", None}]
+}], "Text",
+ CellChangeTimes->{{3.4716224086310654`*^9, 3.4716225408675227`*^9}, {
+  3.47162264713789*^9, 3.471622684587179*^9}, {3.471622717302579*^9, 
+  3.471622717302579*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "Setup of the Algebra of Pauli Matrices in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " \n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7pauli.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook ",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7pauli.nb", None}],
+ "| ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7pauli.pdf", None}]
+}], "Text",
+ CellChangeTimes->{{3.4716228020439005`*^9, 3.4716228228073993`*^9}, {
+   3.4716228730210066`*^9, 3.4716228845198293`*^9}, {3.4716229322961864`*^9, 
+   3.471623012897307*^9}, {3.4716230696258726`*^9, 3.4716230696258726`*^9}, 
+   3.481546413827845*^9},
+ FontSize->16],
+
+Cell[TextData[{
+ "Pauli Pascal Triangle and other Noncommutative Expansions\n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7triangles.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7triangles.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7triangles.pdf", None}]
+}], "Text",
+ CellChangeTimes->{{3.4716230995134363`*^9, 3.4716231146681347`*^9}, {
+   3.4716231653348207`*^9, 3.471623166912784*^9}, {3.4716232111895*^9, 
+   3.4716232907750993`*^9}, {3.4716233667048235`*^9, 3.4716233667048235`*^9}, 
+   3.47853863163025*^9},
+ FontSize->16],
+
+Cell[TextData[{
+ "Quantum Random Walk: Naive Approach\n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7qrwnaive.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7qrwnaive.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7qrwnaive.pdf", None}]
+}], "Text",
+ CellChangeTimes->{{3.4716235931154866`*^9, 3.471623648592328*^9}, {
+  3.471623690789059*^9, 3.471623708126548*^9}, {3.471623744705371*^9, 
+  3.471623744705371*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "Quantum Random Walk: Computationally Efficient Approach\n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7qrwefficient.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7qrwefficient.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7qrwefficient.pdf", None}]
+}], "Text",
+ CellChangeTimes->{{3.471623786937106*^9, 3.471623843048628*^9}, {
+  3.471623931252879*^9, 3.4716239651571684`*^9}, {3.4716240378850718`*^9, 
+  3.4716240378850718`*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "Quantum Random Walk: ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " Syntax and Dirac Notation\n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7qrwbest.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7qrwbest.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7qrwbest.pdf", None}]
+}], "Text",
+ CellChangeTimes->{{3.471624060951233*^9, 3.4716240999670506`*^9}, {
+  3.4716241442057223`*^9, 3.4716241849765325`*^9}, {3.47162437239729*^9, 
+  3.47162437239729*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "Quantum Random Walk with Two Entangled Coins\n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7qrwtwocoins.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7qrwtwocoins.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v7qrwtwocoins.pdf", None}],
+ " "
+}], "Text",
+ CellChangeTimes->{{3.471624409765607*^9, 3.471624426794241*^9}, {
+  3.4716244686628094`*^9, 3.4716245694136972`*^9}, {3.471624676398632*^9, 
+  3.471624676398632*^9}},
+ FontSize->16]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "Section"],
+
+Cell[TextData[{
+ "by Jos\[EAcute] Luis G\[OAcute]mez-Mu\[NTilde]oz\n",
+ ButtonBox["http://homepage.cem.itesm.mx/lgomez/quantum/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://homepage.cem.itesm.mx/lgomez/quantum/"], None},
+  ButtonNote->"http://homepage.cem.itesm.mx/lgomez/quantum/"],
+ "\njose.luis.gomez@itesm.mx  "
+}], "Text",
+ CellChangeTimes->{{3.45008652390625*^9, 3.45008658784375*^9}, {
+   3.450086927796875*^9, 3.450086927796875*^9}, 3.450354855359375*^9, 
+   3.450445823609375*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+Saveable->False,
+WindowSize->{636, 622},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+CellLabelAutoDelete->True,
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 146, 2, 83, "Title"],
+Cell[716, 26, 184, 4, 29, "Text"],
+Cell[CellGroupData[{
+Cell[925, 34, 168, 3, 68, "Section"],
+Cell[1096, 39, 786, 22, 55, "Text"],
+Cell[1885, 63, 623, 18, 55, "Text"],
+Cell[2511, 83, 562, 17, 55, "Text"],
+Cell[3076, 102, 634, 17, 55, "Text"],
+Cell[3713, 121, 536, 17, 55, "Text"],
+Cell[4252, 140, 578, 17, 55, "Text"],
+Cell[4833, 159, 584, 17, 55, "Text"],
+Cell[5420, 178, 635, 18, 55, "Text"],
+Cell[6058, 198, 576, 19, 55, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6671, 222, 242, 4, 68, "Section"],
+Cell[6916, 228, 682, 21, 77, "Text"],
+Cell[7601, 251, 696, 21, 55, "Text"],
+Cell[8300, 274, 663, 18, 55, "Text"],
+Cell[8966, 294, 557, 17, 55, "Text"],
+Cell[9526, 313, 593, 17, 55, "Text"],
+Cell[10122, 332, 622, 20, 55, "Text"],
+Cell[10747, 354, 583, 18, 55, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11367, 377, 19, 0, 71, "Section"],
+Cell[11389, 379, 504, 11, 65, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,0 +1,452 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     19269,        443]
+NotebookOptionsPosition[     18899,        426]
+NotebookOutlinePosition[     19298,        443]
+CellTagsIndexPosition[     19255,        440]
+WindowTitle->Quantum Computing Gates
+WindowFrame->Palette*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     ButtonBox["\<\"Needs[\\\"Quantum`Computing`\\\"]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "Needs[\"Quantum`Computing`\"]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]", "\[SpanFromLeft]", 
+     "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[ScriptCapitalI]\\), \
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[ScriptCapitalI]\), OverscriptBox[\(\
+\[Placeholder]\), \(^\)]]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[ScriptCapitalX]\\), \
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[ScriptCapitalX]\), OverscriptBox[\(\
+\[Placeholder]\), \(^\)]]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[ScriptCapitalY]\\), \
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[ScriptCapitalY]\), OverscriptBox[\(\
+\[Placeholder]\), \(^\)]]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[ScriptCapitalZ]\\), \
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[ScriptCapitalZ]\), OverscriptBox[\(\
+\[Placeholder]\), \(^\)]]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[Sigma]\\), \\(\[ScriptZero], \
+\\*OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]\\)]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[Sigma]\), \(\[ScriptZero], \*OverscriptBox[\(\
+\[Placeholder]\), \(^\)]\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[Sigma]\\), \
+\\(\[ScriptCapitalX], \\*OverscriptBox[\\(\[Placeholder]\\), \
+\\(^\\)]\\)]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[Sigma]\), \(\[ScriptCapitalX], \
+\*OverscriptBox[\(\[Placeholder]\), \(^\)]\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[Sigma]\\), \
+\\(\[ScriptCapitalY], \\*OverscriptBox[\\(\[Placeholder]\\), \
+\\(^\\)]\\)]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[Sigma]\), \(\[ScriptCapitalY], \
+\*OverscriptBox[\(\[Placeholder]\), \(^\)]\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[Sigma]\\), \
+\\(\[ScriptCapitalZ], \\*OverscriptBox[\\(\[Placeholder]\\), \
+\\(^\\)]\\)]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[Sigma]\), \(\[ScriptCapitalZ], \
+\*OverscriptBox[\(\[Placeholder]\), \(^\)]\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[ScriptCapitalH]\\), \
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[ScriptCapitalH]\), OverscriptBox[\(\
+\[Placeholder]\), \(^\)]]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[ScriptCapitalS]\\), \
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[ScriptCapitalS]\), OverscriptBox[\(\
+\[Placeholder]\), \(^\)]]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[ScriptCapitalT]\\), \
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[ScriptCapitalT]\), OverscriptBox[\(\
+\[Placeholder]\), \(^\)]]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[ScriptCapitalS]\
+\[ScriptCapitalW]\[ScriptCapitalA]\[ScriptCapitalP]\\), \
+\\(\\*OverscriptBox[\\(\[Placeholder]\\), \\(^\\)], \\*OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)]\\)]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[ScriptCapitalS]\[ScriptCapitalW]\
+\[ScriptCapitalA]\[ScriptCapitalP]\), \(\*OverscriptBox[\(\[Placeholder]\), \
+\(^\)], \*OverscriptBox[\(\[Placeholder]\), \(^\)]\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[ScriptCapitalQ]\
+\[ScriptCapitalF]\[ScriptCapitalT]\\), OverscriptBox[\\(\[Placeholder]\\), \
+\\(^\\)]]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[ScriptCapitalQ]\[ScriptCapitalF]\
+\[ScriptCapitalT]\), OverscriptBox[\(\[Placeholder]\), \(^\)]]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[ScriptCapitalQ]\
+\[ScriptCapitalF]\[ScriptCapitalT]\\), \
+\\(\\*OverscriptBox[\\(\[Placeholder]\\), \\(^\\)], \\*OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)]\\)]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[ScriptCapitalQ]\[ScriptCapitalF]\
+\[ScriptCapitalT]\), \(\*OverscriptBox[\(\[Placeholder]\), \(^\)], \
+\*OverscriptBox[\(\[Placeholder]\), \(^\)]\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[ScriptCapitalQ]\
+\[ScriptCapitalF]\[ScriptCapitalT]\\), \
+\\(\\*OverscriptBox[\\(\[Placeholder]\\), \\(^\\)], \\*OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)], \\*OverscriptBox[\\(\[Placeholder]\\), \
+\\(^\\)]\\)]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[ScriptCapitalQ]\[ScriptCapitalF]\
+\[ScriptCapitalT]\), \(\*OverscriptBox[\(\[Placeholder]\), \(^\)], \
+\*OverscriptBox[\(\[Placeholder]\), \(^\)], \
+\*OverscriptBox[\(\[Placeholder]\), \(^\)]\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[ScriptCapitalQ]\
+\[ScriptCapitalF]\[ScriptCapitalT]\\), \
+\\(\\*OverscriptBox[\\(\[Placeholder]\\), \\(^\\)], \\*OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)], \\*OverscriptBox[\\(\[Placeholder]\\), \\(^\\)], \
+\\*OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]\\)]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[ScriptCapitalQ]\[ScriptCapitalF]\
+\[ScriptCapitalT]\), \(\*OverscriptBox[\(\[Placeholder]\), \(^\)], \
+\*OverscriptBox[\(\[Placeholder]\), \(^\)], \
+\*OverscriptBox[\(\[Placeholder]\), \(^\)], \
+\*OverscriptBox[\(\[Placeholder]\), \(^\)]\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[Placeholder]\\), \
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[Placeholder]\), \
+OverscriptBox[\(\[Placeholder]\), \(^\)]]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[Placeholder]\\), \
+\\(\\*OverscriptBox[\\(\[Placeholder]\\), \\(^\\)], \\*OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)]\\)]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[Placeholder]\), \(\*OverscriptBox[\(\
+\[Placeholder]\), \(^\)], \*OverscriptBox[\(\[Placeholder]\), \(^\)]\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[Placeholder]\\), \
+\\(\\*OverscriptBox[\\(\[Placeholder]\\), \\(^\\)], \\*OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)], \\*OverscriptBox[\\(\[Placeholder]\\), \
+\\(^\\)]\\)]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[Placeholder]\), \(\*OverscriptBox[\(\
+\[Placeholder]\), \(^\)], \*OverscriptBox[\(\[Placeholder]\), \(^\)], \
+\*OverscriptBox[\(\[Placeholder]\), \(^\)]\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[Placeholder]\\), \
+\\(\\*OverscriptBox[\\(\[Placeholder]\\), \\(^\\)], \\*OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)], \\*OverscriptBox[\\(\[Placeholder]\\), \\(^\\)], \
+\\*OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]\\)]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[Placeholder]\), \(\*OverscriptBox[\(\
+\[Placeholder]\), \(^\)], \*OverscriptBox[\(\[Placeholder]\), \(^\)], \
+\*OverscriptBox[\(\[Placeholder]\), \(^\)], \
+\*OverscriptBox[\(\[Placeholder]\), \(^\)]\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[Placeholder]\\), \
+\\({\\*OverscriptBox[\\(\[Placeholder]\\), \\(^\\)], \\*OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)]}\\)]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[Placeholder]\), \({\*OverscriptBox[\(\
+\[Placeholder]\), \(^\)], \*OverscriptBox[\(\[Placeholder]\), \(^\)]}\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[Placeholder]\\), \
+\\({\\*OverscriptBox[\\(\[Placeholder]\\), \\(^\\)], \\*OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)], \\*OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]}\
+\\)]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[Placeholder]\), \({\*OverscriptBox[\(\
+\[Placeholder]\), \(^\)], \*OverscriptBox[\(\[Placeholder]\), \(^\)], \
+\*OverscriptBox[\(\[Placeholder]\), \(^\)]}\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{SuperscriptBox[\\\"\
+\[ScriptCapitalC]\\\", TagBox[\\n    RowBox[{\\\"{\\\", OverscriptBox[\\\"\
+\[Placeholder]\\\", \\\"^\\\"], \\\"}\\\"}],\\n    \
+Quantum`Computing`zz020TPend,\\nEditable->True,\\nSelectable->True]], \\\"[\\\
+\", TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Computing`zz020TPdat,\\nEditable->True,\\nSelectable->True], \
+\\\"]\\\"}],\\n \
+Quantum`Computing`zz020TP,\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{SuperscriptBox[\"\[ScriptCapitalC]\", \
+TagBox[\n    RowBox[{\"{\", OverscriptBox[\"\[Placeholder]\", \"^\"], \
+\"}\"}],\n    Quantum`Computing`zz020TPend,\nEditable->True,\n\
+Selectable->True]], \"[\", TagBox[\"\[Placeholder]\",\n   \
+Quantum`Computing`zz020TPdat,\nEditable->True,\nSelectable->True], \"]\"}],\n \
+Quantum`Computing`zz020TP,\nEditable->False,\nSelectable->False]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{SuperscriptBox[\\\"\
+\[ScriptCapitalC]\\\", TagBox[\\n    RowBox[{\\\"{\\\", OverscriptBox[\\\"\
+\[Placeholder]\\\", \\\"^\\\"], \\\",\\\", OverscriptBox[\\\"\[Placeholder]\\\
+\", \\\"^\\\"], \\\"}\\\"}],\\n    \
+Quantum`Computing`zz020TPend,\\nEditable->True,\\nSelectable->True]], \\\"[\\\
+\", TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Computing`zz020TPdat,\\nEditable->True,\\nSelectable->True], \
+\\\"]\\\"}],\\n \
+Quantum`Computing`zz020TP,\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{SuperscriptBox[\"\[ScriptCapitalC]\", \
+TagBox[\n    RowBox[{\"{\", OverscriptBox[\"\[Placeholder]\", \"^\"], \",\", \
+OverscriptBox[\"\[Placeholder]\", \"^\"], \"}\"}],\n    \
+Quantum`Computing`zz020TPend,\nEditable->True,\nSelectable->True]], \"[\", \
+TagBox[\"\[Placeholder]\",\n   Quantum`Computing`zz020TPdat,\nEditable->True,\
+\nSelectable->True], \"]\"}],\n Quantum`Computing`zz020TP,\nEditable->False,\n\
+Selectable->False]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{SuperscriptBox[\\\"\
+\[ScriptCapitalC]\\\", TagBox[\\n    RowBox[{\\\"{\\\", OverscriptBox[\\\"\
+\[Placeholder]\\\", \\\"^\\\"], \\\"}\\\"}],\\n    \
+Quantum`Computing`zz020TPend,\\nEditable->True,\\nSelectable->True]], \\\"[\\\
+\", TagBox[TagBox[SubscriptBox[\\\"\[ScriptCapitalN]\[ScriptCapitalO]\
+\[ScriptCapitalT]\\\", TagBox[OverscriptBox[\\\"\[Placeholder]\\\", \
+\\\"^\\\"],\\n      \
+Quantum`Computing`zz020TPdat,\\nEditable->True,\\nSelectable->True]],\\n    \
+Quantum`Computing`zz020TP,\\nEditable->False,\\nSelectable->False],\\n   \
+Quantum`Computing`zz020TPdat,\\nEditable->True,\\nSelectable->True], \
+\\\"]\\\"}],\\n \
+Quantum`Computing`zz020TP,\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{SuperscriptBox[\"\[ScriptCapitalC]\", \
+TagBox[\n    RowBox[{\"{\", OverscriptBox[\"\[Placeholder]\", \"^\"], \
+\"}\"}],\n    Quantum`Computing`zz020TPend,\nEditable->True,\n\
+Selectable->True]], \"[\", TagBox[TagBox[SubscriptBox[\"\[ScriptCapitalN]\
+\[ScriptCapitalO]\[ScriptCapitalT]\", \
+TagBox[OverscriptBox[\"\[Placeholder]\", \"^\"],\n      \
+Quantum`Computing`zz020TPdat,\nEditable->True,\nSelectable->True]],\n    \
+Quantum`Computing`zz020TP,\nEditable->False,\nSelectable->False],\n   \
+Quantum`Computing`zz020TPdat,\nEditable->True,\nSelectable->True], \"]\"}],\n \
+Quantum`Computing`zz020TP,\nEditable->False,\nSelectable->False]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[ScriptCapitalT]\
+\[ScriptCapitalO]\[ScriptCapitalF]\[ScriptCapitalF]\[ScriptCapitalO]\
+\[ScriptCapitalL]\[ScriptCapitalI]\\), \
+\\(\\*OverscriptBox[\\(\[Placeholder]\\), \\(^\\)], \\*OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)], \\*OverscriptBox[\\(\[Placeholder]\\), \
+\\(^\\)]\\)]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[ScriptCapitalT]\[ScriptCapitalO]\
+\[ScriptCapitalF]\[ScriptCapitalF]\[ScriptCapitalO]\[ScriptCapitalL]\
+\[ScriptCapitalI]\), \(\*OverscriptBox[\(\[Placeholder]\), \(^\)], \
+\*OverscriptBox[\(\[Placeholder]\), \(^\)], \
+\*OverscriptBox[\(\[Placeholder]\), \(^\)]\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[ScriptCapitalF]\
+\[ScriptCapitalR]\[ScriptCapitalE]\[ScriptCapitalD]\[ScriptCapitalK]\
+\[ScriptCapitalI]\[ScriptCapitalN]\\), \
+\\(\\*OverscriptBox[\\(\[Placeholder]\\), \\(^\\)], \\*OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)], \\*OverscriptBox[\\(\[Placeholder]\\), \
+\\(^\\)]\\)]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[ScriptCapitalF]\[ScriptCapitalR]\
+\[ScriptCapitalE]\[ScriptCapitalD]\[ScriptCapitalK]\[ScriptCapitalI]\
+\[ScriptCapitalN]\), \(\*OverscriptBox[\(\[Placeholder]\), \(^\)], \
+\*OverscriptBox[\(\[Placeholder]\), \(^\)], \
+\*OverscriptBox[\(\[Placeholder]\), \(^\)]\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[ScriptCapitalP]\\), \
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\)[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[ScriptCapitalP]\), OverscriptBox[\(\
+\[Placeholder]\), \(^\)]]\)[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"\[CenterDot]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "\[CenterDot]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\[CircleTimes]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "\[CircleTimes]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\[ScriptCapitalR]\[ScriptE]\[ScriptG]\[ScriptI]\[ScriptS]\
+\[ScriptT]\[ScriptE]\[ScriptR][\[Placeholder],\[Placeholder],\[Placeholder],\
+\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\[ScriptCapitalR]\[ScriptE]\[ScriptG]\[ScriptI]\[ScriptS]\[ScriptT]\
+\[ScriptE]\[ScriptR][\[Placeholder],\[Placeholder],\[Placeholder],\
+\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"(\[Placeholder]\\!\\(\\*SuperscriptBox[\\()\\), \\(\
+\[Dagger]\\)]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "(\[Placeholder]\!\(\*SuperscriptBox[\()\), \(\[Dagger]\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]}
+   },
+   AutoDelete->False,
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]],
+ CellMargins->{{0, 0}, {0, 0}},
+ CellBracketOptions->{"Color"->RGBColor[0.269993, 0.308507, 0.6]},
+ CellHorizontalScrolling->True,
+ PageBreakAbove->True,
+ PageBreakWithin->False,
+ ShowAutoStyles->True,
+ LineSpacing->{1.25, 0},
+ AutoItalicWords->{},
+ ScriptMinSize->9,
+ ShowStringCharacters->False,
+ FontFamily:>CurrentValue["PanelFontFamily"],
+ FontSize:>CurrentValue["PanelFontSize"]]
+},
+WindowSize->All,
+WindowMargins->{{Automatic, 445}, {Automatic, 75}},
+WindowElements->{},
+WindowTitle->"Quantum Computing Gates",
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (February 18, 2009)",
+StyleDefinitions->"Palette.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[583, 21, 18312, 403, 215, InheritFromParent,
+ PageBreakAbove->True,
+ PageBreakWithin->False]
+}
+]
+*)
+
+(* End of internal cache information *)

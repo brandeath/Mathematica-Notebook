@@ -1,0 +1,788 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     41438,        779]
+NotebookOptionsPosition[     41076,        762]
+NotebookOutlinePosition[     41467,        779]
+CellTagsIndexPosition[     41424,        776]
+WindowTitle->Quantum Notation
+WindowFrame->Palette*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     ButtonBox["\<\"Needs[\\\"Quantum`Notation`\\\"]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "Needs[\"Quantum`Notation`\"]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]", 
+     ButtonBox["\<\"SetQuantumAliases[]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "SetQuantumAliases[]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"SetQuantumObject[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "SetQuantumObject[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]", 
+     ButtonBox["\<\"SetQuantumScalar[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "SetQuantumScalar[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"QuantumPartialTrace[\[Placeholder],\\!\\(\\*OverscriptBox[\
+\\(\[Placeholder]\\), \\(^\\)]\\)]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "QuantumPartialTrace[\[Placeholder],\!\(\*OverscriptBox[\(\
+\[Placeholder]\), \(^\)]\)]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]", 
+     ButtonBox["\<\"QuantumPartialTranspose[\[Placeholder],\\!\\(\\*\
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]\\)]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "QuantumPartialTranspose[\[Placeholder],\!\(\*OverscriptBox[\(\
+\[Placeholder]\), \(^\)]\)]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"QuantumReplace[\[Placeholder],{\\!\\(\\*TagBox[\\n \
+RowBox[{\\\"\[VerticalSeparator]\\\", TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\[RuleDelayed]\\!\\(\\*\
+TagBox[\\n RowBox[{\\\"\[VerticalSeparator]\\\", \
+TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\),\\!\\(\\*TagBox[\\n \
+RowBox[{\\\"\[VerticalSeparator]\\\", TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\[RuleDelayed]\\!\\(\\*\
+TagBox[\\n RowBox[{\\\"\[VerticalSeparator]\\\", \
+TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)}]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "QuantumReplace[\[Placeholder],{\!\(\*TagBox[\n RowBox[{\"\
+\[VerticalSeparator]\", TagBox[\"\[Placeholder]\",\n   \
+Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> True},\n\
+Editable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080Ket,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)\[RuleDelayed]\!\(\*TagBox[\n \
+RowBox[{\"\[VerticalSeparator]\", TagBox[\"\[Placeholder]\",\n   \
+Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> True},\n\
+Editable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080Ket,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\),\!\(\*TagBox[\n RowBox[{\"\
+\[VerticalSeparator]\", TagBox[\"\[Placeholder]\",\n   \
+Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> True},\n\
+Editable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080Ket,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)\[RuleDelayed]\!\(\*TagBox[\n \
+RowBox[{\"\[VerticalSeparator]\", TagBox[\"\[Placeholder]\",\n   \
+Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> True},\n\
+Editable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080Ket,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)}]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]", "\[SpanFromLeft]", 
+     "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"DefineOperatorOnKets[\[Placeholder],{\\!\\(\\*TagBox[\\n \
+RowBox[{\\\"\[VerticalSeparator]\\\", TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\[RuleDelayed]\\!\\(\\*\
+TagBox[\\n RowBox[{\\\"\[VerticalSeparator]\\\", \
+TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\),\\!\\(\\*TagBox[\\n \
+RowBox[{\\\"\[VerticalSeparator]\\\", TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\[RuleDelayed]\\!\\(\\*\
+TagBox[\\n RowBox[{\\\"\[VerticalSeparator]\\\", \
+TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)}]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "DefineOperatorOnKets[\[Placeholder],{\!\(\*TagBox[\n RowBox[{\"\
+\[VerticalSeparator]\", TagBox[\"\[Placeholder]\",\n   \
+Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> True},\n\
+Editable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080Ket,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)\[RuleDelayed]\!\(\*TagBox[\n \
+RowBox[{\"\[VerticalSeparator]\", TagBox[\"\[Placeholder]\",\n   \
+Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> True},\n\
+Editable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080Ket,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\),\!\(\*TagBox[\n RowBox[{\"\
+\[VerticalSeparator]\", TagBox[\"\[Placeholder]\",\n   \
+Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> True},\n\
+Editable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080Ket,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)\[RuleDelayed]\!\(\*TagBox[\n \
+RowBox[{\"\[VerticalSeparator]\", TagBox[\"\[Placeholder]\",\n   \
+Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> True},\n\
+Editable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080Ket,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)}]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], "\[SpanFromLeft]", "\[SpanFromLeft]", 
+     "\[SpanFromLeft]"},
+    {
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{\\\"\[VerticalSeparator]\\\", \
+TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{\"\[VerticalSeparator]\", TagBox[\"\
+\[Placeholder]\",\n   Quantum`Notation`zz080KetArgs,\n\
+BaseStyle->{ShowSyntaxStyles -> True},\nEditable->True,\nSelectable->True], \
+\"\[RightAngleBracket]\"}],\n Quantum`Notation`zz080Ket,\n\
+BaseStyle->{ShowSyntaxStyles -> False},\nEditable->False,\nSelectable->False]\
+\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{\\\"\[LeftAngleBracket]\\\", \
+TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Notation`zz080BraArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[VerticalSeparator]\\\"}],\
+\\n Quantum`Notation`zz080Bra,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{\"\[LeftAngleBracket]\", TagBox[\"\
+\[Placeholder]\",\n   Quantum`Notation`zz080BraArgs,\n\
+BaseStyle->{ShowSyntaxStyles -> True},\nEditable->True,\nSelectable->True], \
+\"\[VerticalSeparator]\"}],\n Quantum`Notation`zz080Bra,\n\
+BaseStyle->{ShowSyntaxStyles -> False},\nEditable->False,\nSelectable->False]\
+\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{\\\"\[VerticalSeparator]\\\", \
+TagBox[SubscriptBox[\\\"\[Placeholder]\\\", \
+OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]],\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{\"\[VerticalSeparator]\", \
+TagBox[SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\[Placeholder]\", \"^\
+\"]],\n   Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> \
+True},\nEditable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080Ket,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{\\\"\[LeftAngleBracket]\\\", \
+TagBox[SubscriptBox[\\\"\[Placeholder]\\\", \
+OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]],\\n   \
+Quantum`Notation`zz080BraArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[VerticalSeparator]\\\"}],\
+\\n Quantum`Notation`zz080Bra,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{\"\[LeftAngleBracket]\", \
+TagBox[SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\[Placeholder]\", \"^\
+\"]],\n   Quantum`Notation`zz080BraArgs,\nBaseStyle->{ShowSyntaxStyles -> \
+True},\nEditable->True,\nSelectable->True], \"\[VerticalSeparator]\"}],\n \
+Quantum`Notation`zz080Bra,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{\\\"\[VerticalSeparator]\\\", \
+TagBox[\\n   RowBox[{SubscriptBox[\\\"\[Placeholder]\\\", OverscriptBox[\\\"\
+\[Placeholder]\\\", \\\"^\\\"]], \\\",\\\", SubscriptBox[\\\"\[Placeholder]\\\
+\", OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]]}],\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{\"\[VerticalSeparator]\", TagBox[\n   \
+RowBox[{SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\[Placeholder]\", \
+\"^\"]], \",\", SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\
+\[Placeholder]\", \"^\"]]}],\n   Quantum`Notation`zz080KetArgs,\n\
+BaseStyle->{ShowSyntaxStyles -> True},\nEditable->True,\nSelectable->True], \
+\"\[RightAngleBracket]\"}],\n Quantum`Notation`zz080Ket,\n\
+BaseStyle->{ShowSyntaxStyles -> False},\nEditable->False,\nSelectable->False]\
+\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{\\\"\[LeftAngleBracket]\\\", \
+TagBox[\\n   RowBox[{SubscriptBox[\\\"\[Placeholder]\\\", OverscriptBox[\\\"\
+\[Placeholder]\\\", \\\"^\\\"]], \\\",\\\", SubscriptBox[\\\"\[Placeholder]\\\
+\", OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]]}],\\n   \
+Quantum`Notation`zz080BraArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[VerticalSeparator]\\\"}],\
+\\n Quantum`Notation`zz080Bra,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{\"\[LeftAngleBracket]\", TagBox[\n   \
+RowBox[{SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\[Placeholder]\", \
+\"^\"]], \",\", SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\
+\[Placeholder]\", \"^\"]]}],\n   Quantum`Notation`zz080BraArgs,\n\
+BaseStyle->{ShowSyntaxStyles -> True},\nEditable->True,\nSelectable->True], \
+\"\[VerticalSeparator]\"}],\n Quantum`Notation`zz080Bra,\n\
+BaseStyle->{ShowSyntaxStyles -> False},\nEditable->False,\nSelectable->False]\
+\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{\\\"\[VerticalSeparator]\\\", \
+TagBox[\\n   RowBox[{SubscriptBox[\\\"\[Placeholder]\\\", OverscriptBox[\\\"\
+\[Placeholder]\\\", \\\"^\\\"]], \\\",\\\", SubscriptBox[\\\"\[Placeholder]\\\
+\", OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]], \\\",\\\", \
+SubscriptBox[\\\"\[Placeholder]\\\", OverscriptBox[\\\"\[Placeholder]\\\", \\\
+\"^\\\"]]}],\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{\"\[VerticalSeparator]\", TagBox[\n   \
+RowBox[{SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\[Placeholder]\", \
+\"^\"]], \",\", SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\
+\[Placeholder]\", \"^\"]], \",\", SubscriptBox[\"\[Placeholder]\", \
+OverscriptBox[\"\[Placeholder]\", \"^\"]]}],\n   \
+Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> True},\n\
+Editable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080Ket,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{\\\"\[LeftAngleBracket]\\\", \
+TagBox[\\n   RowBox[{SubscriptBox[\\\"\[Placeholder]\\\", OverscriptBox[\\\"\
+\[Placeholder]\\\", \\\"^\\\"]], \\\",\\\", SubscriptBox[\\\"\[Placeholder]\\\
+\", OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]], \\\",\\\", \
+SubscriptBox[\\\"\[Placeholder]\\\", OverscriptBox[\\\"\[Placeholder]\\\", \\\
+\"^\\\"]]}],\\n   \
+Quantum`Notation`zz080BraArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[VerticalSeparator]\\\"}],\
+\\n Quantum`Notation`zz080Bra,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{\"\[LeftAngleBracket]\", TagBox[\n   \
+RowBox[{SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\[Placeholder]\", \
+\"^\"]], \",\", SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\
+\[Placeholder]\", \"^\"]], \",\", SubscriptBox[\"\[Placeholder]\", \
+OverscriptBox[\"\[Placeholder]\", \"^\"]]}],\n   \
+Quantum`Notation`zz080BraArgs,\nBaseStyle->{ShowSyntaxStyles -> True},\n\
+Editable->True,\nSelectable->True], \"\[VerticalSeparator]\"}],\n \
+Quantum`Notation`zz080Bra,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{\\\"\[LeftAngleBracket]\\\", \
+TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Notation`zz080BraArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[VerticalSeparator]\\\", \
+TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080BraKet,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{\"\[LeftAngleBracket]\", TagBox[\"\
+\[Placeholder]\",\n   Quantum`Notation`zz080BraArgs,\n\
+BaseStyle->{ShowSyntaxStyles -> True},\nEditable->True,\nSelectable->True], \
+\"\[VerticalSeparator]\", TagBox[\"\[Placeholder]\",\n   \
+Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> True},\n\
+Editable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080BraKet,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{\\\"\[VerticalSeparator]\\\", \
+TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\[CenterDot]\\!\\(\\*TagBox[\
+\\n RowBox[{\\\"\[LeftAngleBracket]\\\", TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Notation`zz080BraArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[VerticalSeparator]\\\"}],\
+\\n Quantum`Notation`zz080Bra,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{\"\[VerticalSeparator]\", TagBox[\"\
+\[Placeholder]\",\n   Quantum`Notation`zz080KetArgs,\n\
+BaseStyle->{ShowSyntaxStyles -> True},\nEditable->True,\nSelectable->True], \
+\"\[RightAngleBracket]\"}],\n Quantum`Notation`zz080Ket,\n\
+BaseStyle->{ShowSyntaxStyles -> False},\nEditable->False,\nSelectable->False]\
+\)\[CenterDot]\!\(\*TagBox[\n RowBox[{\"\[LeftAngleBracket]\", TagBox[\"\
+\[Placeholder]\",\n   Quantum`Notation`zz080BraArgs,\n\
+BaseStyle->{ShowSyntaxStyles -> True},\nEditable->True,\nSelectable->True], \
+\"\[VerticalSeparator]\"}],\n Quantum`Notation`zz080Bra,\n\
+BaseStyle->{ShowSyntaxStyles -> False},\nEditable->False,\nSelectable->False]\
+\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{\\\"\[LeftAngleBracket]\\\", \
+TagBox[SubscriptBox[\\\"\[Placeholder]\\\", \
+OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]],\\n   \
+Quantum`Notation`zz080BraArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[VerticalSeparator]\\\"}],\
+\\n Quantum`Notation`zz080Bra,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\[CenterDot]\\!\\(\\*TagBox[\
+\\n RowBox[{\\\"\[VerticalSeparator]\\\", TagBox[SubscriptBox[\\\"\
+\[Placeholder]\\\", OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]],\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{\"\[LeftAngleBracket]\", \
+TagBox[SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\[Placeholder]\", \"^\
+\"]],\n   Quantum`Notation`zz080BraArgs,\nBaseStyle->{ShowSyntaxStyles -> \
+True},\nEditable->True,\nSelectable->True], \"\[VerticalSeparator]\"}],\n \
+Quantum`Notation`zz080Bra,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)\[CenterDot]\!\(\*TagBox[\n RowBox[{\"\
+\[VerticalSeparator]\", TagBox[SubscriptBox[\"\[Placeholder]\", \
+OverscriptBox[\"\[Placeholder]\", \"^\"]],\n   Quantum`Notation`zz080KetArgs,\
+\nBaseStyle->{ShowSyntaxStyles -> True},\nEditable->True,\nSelectable->True], \
+\"\[RightAngleBracket]\"}],\n Quantum`Notation`zz080Ket,\n\
+BaseStyle->{ShowSyntaxStyles -> False},\nEditable->False,\nSelectable->False]\
+\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{\\\"\[VerticalSeparator]\\\", \
+TagBox[SubscriptBox[\\\"\[Placeholder]\\\", \
+OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]],\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\[CenterDot]\\!\\(\\*TagBox[\
+\\n RowBox[{\\\"\[LeftAngleBracket]\\\", TagBox[SubscriptBox[\\\"\
+\[Placeholder]\\\", OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]],\\n   \
+Quantum`Notation`zz080BraArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[VerticalSeparator]\\\"}],\
+\\n Quantum`Notation`zz080Bra,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{\"\[VerticalSeparator]\", \
+TagBox[SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\[Placeholder]\", \"^\
+\"]],\n   Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> \
+True},\nEditable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080Ket,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)\[CenterDot]\!\(\*TagBox[\n RowBox[{\"\
+\[LeftAngleBracket]\", TagBox[SubscriptBox[\"\[Placeholder]\", OverscriptBox[\
+\"\[Placeholder]\", \"^\"]],\n   Quantum`Notation`zz080BraArgs,\n\
+BaseStyle->{ShowSyntaxStyles -> True},\nEditable->True,\nSelectable->True], \
+\"\[VerticalSeparator]\"}],\n Quantum`Notation`zz080Bra,\n\
+BaseStyle->{ShowSyntaxStyles -> False},\nEditable->False,\nSelectable->False]\
+\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{\\\"\[LeftAngleBracket]\\\", \
+TagBox[\\n   RowBox[{SubscriptBox[\\\"\[Placeholder]\\\", OverscriptBox[\\\"\
+\[Placeholder]\\\", \\\"^\\\"]], \\\",\\\", SubscriptBox[\\\"\[Placeholder]\\\
+\", OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]]}],\\n   \
+Quantum`Notation`zz080BraArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[VerticalSeparator]\\\"}],\
+\\n Quantum`Notation`zz080Bra,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\[CenterDot]\\!\\(\\*TagBox[\
+\\n RowBox[{\\\"\[VerticalSeparator]\\\", TagBox[\\n   \
+RowBox[{SubscriptBox[\\\"\[Placeholder]\\\", OverscriptBox[\\\"\[Placeholder]\
+\\\", \\\"^\\\"]], \\\",\\\", SubscriptBox[\\\"\[Placeholder]\\\", \
+OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]]}],\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{\"\[LeftAngleBracket]\", TagBox[\n   \
+RowBox[{SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\[Placeholder]\", \
+\"^\"]], \",\", SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\
+\[Placeholder]\", \"^\"]]}],\n   Quantum`Notation`zz080BraArgs,\n\
+BaseStyle->{ShowSyntaxStyles -> True},\nEditable->True,\nSelectable->True], \
+\"\[VerticalSeparator]\"}],\n Quantum`Notation`zz080Bra,\n\
+BaseStyle->{ShowSyntaxStyles -> False},\nEditable->False,\nSelectable->False]\
+\)\[CenterDot]\!\(\*TagBox[\n RowBox[{\"\[VerticalSeparator]\", TagBox[\n   \
+RowBox[{SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\[Placeholder]\", \
+\"^\"]], \",\", SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\
+\[Placeholder]\", \"^\"]]}],\n   Quantum`Notation`zz080KetArgs,\n\
+BaseStyle->{ShowSyntaxStyles -> True},\nEditable->True,\nSelectable->True], \
+\"\[RightAngleBracket]\"}],\n Quantum`Notation`zz080Ket,\n\
+BaseStyle->{ShowSyntaxStyles -> False},\nEditable->False,\nSelectable->False]\
+\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{\\\"\[VerticalSeparator]\\\", \
+TagBox[\\n   RowBox[{SubscriptBox[\\\"\[Placeholder]\\\", OverscriptBox[\\\"\
+\[Placeholder]\\\", \\\"^\\\"]], \\\",\\\", SubscriptBox[\\\"\[Placeholder]\\\
+\", OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]]}],\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\[CenterDot]\\!\\(\\*TagBox[\
+\\n RowBox[{\\\"\[LeftAngleBracket]\\\", TagBox[\\n   RowBox[{SubscriptBox[\\\
+\"\[Placeholder]\\\", OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]], \
+\\\",\\\", SubscriptBox[\\\"\[Placeholder]\\\", OverscriptBox[\\\"\
+\[Placeholder]\\\", \\\"^\\\"]]}],\\n   \
+Quantum`Notation`zz080BraArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[VerticalSeparator]\\\"}],\
+\\n Quantum`Notation`zz080Bra,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{\"\[VerticalSeparator]\", TagBox[\n   \
+RowBox[{SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\[Placeholder]\", \
+\"^\"]], \",\", SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\
+\[Placeholder]\", \"^\"]]}],\n   Quantum`Notation`zz080KetArgs,\n\
+BaseStyle->{ShowSyntaxStyles -> True},\nEditable->True,\nSelectable->True], \
+\"\[RightAngleBracket]\"}],\n Quantum`Notation`zz080Ket,\n\
+BaseStyle->{ShowSyntaxStyles -> False},\nEditable->False,\nSelectable->False]\
+\)\[CenterDot]\!\(\*TagBox[\n RowBox[{\"\[LeftAngleBracket]\", TagBox[\n   \
+RowBox[{SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\[Placeholder]\", \
+\"^\"]], \",\", SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\
+\[Placeholder]\", \"^\"]]}],\n   Quantum`Notation`zz080BraArgs,\n\
+BaseStyle->{ShowSyntaxStyles -> True},\nEditable->True,\nSelectable->True], \
+\"\[VerticalSeparator]\"}],\n Quantum`Notation`zz080Bra,\n\
+BaseStyle->{ShowSyntaxStyles -> False},\nEditable->False,\nSelectable->False]\
+\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{\\\"\[VerticalSeparator]\\\", \
+TagBox[SubscriptBox[\\\"\[Placeholder]\\\", \
+OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]],\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\[CenterDot]\\!\\(\\*TagBox[\
+\\n RowBox[{\\\"\[VerticalSeparator]\\\", TagBox[SubscriptBox[\\\"\
+\[Placeholder]\\\", OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]],\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{\"\[VerticalSeparator]\", \
+TagBox[SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\[Placeholder]\", \"^\
+\"]],\n   Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> \
+True},\nEditable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080Ket,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)\[CenterDot]\!\(\*TagBox[\n RowBox[{\"\
+\[VerticalSeparator]\", TagBox[SubscriptBox[\"\[Placeholder]\", \
+OverscriptBox[\"\[Placeholder]\", \"^\"]],\n   Quantum`Notation`zz080KetArgs,\
+\nBaseStyle->{ShowSyntaxStyles -> True},\nEditable->True,\nSelectable->True], \
+\"\[RightAngleBracket]\"}],\n Quantum`Notation`zz080Ket,\n\
+BaseStyle->{ShowSyntaxStyles -> False},\nEditable->False,\nSelectable->False]\
+\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{\\\"\[LeftAngleBracket]\\\", \
+TagBox[SubscriptBox[\\\"\[Placeholder]\\\", \
+OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]],\\n   \
+Quantum`Notation`zz080BraArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[VerticalSeparator]\\\"}],\
+\\n Quantum`Notation`zz080Bra,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\[CenterDot]\\!\\(\\*TagBox[\
+\\n RowBox[{\\\"\[LeftAngleBracket]\\\", TagBox[SubscriptBox[\\\"\
+\[Placeholder]\\\", OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]],\\n   \
+Quantum`Notation`zz080BraArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[VerticalSeparator]\\\"}],\
+\\n Quantum`Notation`zz080Bra,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{\"\[LeftAngleBracket]\", \
+TagBox[SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\[Placeholder]\", \"^\
+\"]],\n   Quantum`Notation`zz080BraArgs,\nBaseStyle->{ShowSyntaxStyles -> \
+True},\nEditable->True,\nSelectable->True], \"\[VerticalSeparator]\"}],\n \
+Quantum`Notation`zz080Bra,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)\[CenterDot]\!\(\*TagBox[\n RowBox[{\"\
+\[LeftAngleBracket]\", TagBox[SubscriptBox[\"\[Placeholder]\", OverscriptBox[\
+\"\[Placeholder]\", \"^\"]],\n   Quantum`Notation`zz080BraArgs,\n\
+BaseStyle->{ShowSyntaxStyles -> True},\nEditable->True,\nSelectable->True], \
+\"\[VerticalSeparator]\"}],\n Quantum`Notation`zz080Bra,\n\
+BaseStyle->{ShowSyntaxStyles -> False},\nEditable->False,\nSelectable->False]\
+\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"\\!\\(\\*OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]\\)\
+\[CenterDot]\\!\\(\\*TagBox[\\n RowBox[{\\\"\[VerticalSeparator]\\\", \
+TagBox[SubscriptBox[\\\"\[Placeholder]\\\", \
+OverscriptBox[\\\"\[Placeholder]\\\", \\\"^\\\"]],\\n   \
+Quantum`Notation`zz080KetArgs,\\nBaseStyle->{ShowSyntaxStyles -> \
+True},\\nEditable->True,\\nSelectable->True], \\\"\[RightAngleBracket]\\\"}],\
+\\n Quantum`Notation`zz080Ket,\\nBaseStyle->{ShowSyntaxStyles -> \
+False},\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*OverscriptBox[\(\[Placeholder]\), \
+\(^\)]\)\[CenterDot]\!\(\*TagBox[\n RowBox[{\"\[VerticalSeparator]\", \
+TagBox[SubscriptBox[\"\[Placeholder]\", OverscriptBox[\"\[Placeholder]\", \"^\
+\"]],\n   Quantum`Notation`zz080KetArgs,\nBaseStyle->{ShowSyntaxStyles -> \
+True},\nEditable->True,\nSelectable->True], \"\[RightAngleBracket]\"}],\n \
+Quantum`Notation`zz080Ket,\nBaseStyle->{ShowSyntaxStyles -> False},\n\
+Editable->False,\nSelectable->False]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(\[Placeholder]\\), \
+OverscriptBox[\\(\[Placeholder]\\), \\(^\\)]]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(\[Placeholder]\), \
+OverscriptBox[\(\[Placeholder]\), \(^\)]]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*OverscriptBox[\\(\[Placeholder]\\), \
+\\(^\\)]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "\!\(\*OverscriptBox[\(\[Placeholder]\), \(^\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*SubscriptBox[\\(Tr\\), OverscriptBox[\\(\
+\[Placeholder]\\), \\(^\\)]]\\)[\[Placeholder]]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*SubscriptBox[\(Tr\), OverscriptBox[\(\[Placeholder]\), \(^\)]]\
+\)[\[Placeholder]]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"\\!\\(\\*UnderoverscriptBox[\\(\[Sum]\\), \\(\
+\[Placeholder]\\), \\(\[Placeholder]\\)]\\)\[Placeholder]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*UnderoverscriptBox[\(\[Sum]\), \(\[Placeholder]\), \(\
+\[Placeholder]\)]\)\[Placeholder]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*TagBox[\\n RowBox[{UnderoverscriptBox[\\\"\
+\[CircleTimes]\\\", TagBox[\\\"\[Placeholder]\\\",\\n    \
+Quantum`Notation`zz020TPNotationini,\\nEditable->True,\\nSelectable->True], \
+TagBox[\\\"\[Placeholder]\\\",\\n    \
+Quantum`Notation`zz020TPNotationend,\\nEditable->True,\\nSelectable->True]], \
+TagBox[\\\"\[Placeholder]\\\",\\n   \
+Quantum`Notation`zz020TPNotationdat,\\nEditable->True,\\nSelectable->True]}],\
+\\n Quantum`Notation`zz020TPNotation,\\nEditable->False,\\nSelectable->False]\
+\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[\n RowBox[{UnderoverscriptBox[\"\[CircleTimes]\", \
+TagBox[\"\[Placeholder]\",\n    Quantum`Notation`zz020TPNotationini,\n\
+Editable->True,\nSelectable->True], TagBox[\"\[Placeholder]\",\n    \
+Quantum`Notation`zz020TPNotationend,\nEditable->True,\nSelectable->True]], \
+TagBox[\"\[Placeholder]\",\n   Quantum`Notation`zz020TPNotationdat,\n\
+Editable->True,\nSelectable->True]}],\n Quantum`Notation`zz020TPNotation,\n\
+Editable->False,\nSelectable->False]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\[LeftDoubleBracketingBar]\[Placeholder]\
+\[RightDoubleBracketingBar]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\[LeftDoubleBracketingBar]\[Placeholder]\[RightDoubleBracketingBar]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*FractionBox[\\(\[Placeholder]\\), \\(\
+\[LeftDoubleBracketingBar]\[Placeholder]\[RightDoubleBracketingBar]\\)]\\)\"\>\
+",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*FractionBox[\(\[Placeholder]\), \(\[LeftDoubleBracketingBar]\
+\[Placeholder]\[RightDoubleBracketingBar]\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"(\[Placeholder]\\!\\(\\*SuperscriptBox[\\()\\), \\(\
+\[Dagger]\\)]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "(\[Placeholder]\!\(\*SuperscriptBox[\()\), \(\[Dagger]\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"(\[Placeholder]\\!\\(\\*SuperscriptBox[\\()\\), \
+\\(*\\)]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "(\[Placeholder]\!\(\*SuperscriptBox[\()\), \(*\)]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*TagBox[SubscriptBox[\\n  RowBox[{\\\"\
+\[LeftDoubleBracket]\\\", TagBox[\\n    RowBox[{\\\"\[Placeholder]\\\", \\\",\
+\\\", \\\"\[Placeholder]\\\"}],\\n    \
+Quantum`Notation`zz080KetArgs,\\nEditable->True,\\nSelectable->True], \\\"\
+\[RightDoubleBracket]\\\"}], \\\"-\\\"],\\n Quantum`Notation`zz050Commutator,\
+\\nEditable->False,\\nSelectable->False]\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[SubscriptBox[\n  RowBox[{\"\[LeftDoubleBracket]\", \
+TagBox[\n    RowBox[{\"\[Placeholder]\", \",\", \"\[Placeholder]\"}],\n    \
+Quantum`Notation`zz080KetArgs,\nEditable->True,\nSelectable->True], \"\
+\[RightDoubleBracket]\"}], \"-\"],\n Quantum`Notation`zz050Commutator,\n\
+Editable->False,\nSelectable->False]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\\!\\(\\*TagBox[SubscriptBox[\\n  RowBox[{\\\"\
+\[LeftDoubleBracket]\\\", TagBox[\\n    RowBox[{\\\"\[Placeholder]\\\", \\\",\
+\\\", \\\"\[Placeholder]\\\"}],\\n    \
+Quantum`Notation`zz080KetArgs,\\nEditable->True,\\nSelectable->True], \\\"\
+\[RightDoubleBracket]\\\"}], \\\"+\\\"],\\n \
+Quantum`Notation`zz050AntiCommutator,\\nEditable->False,\\nSelectable->False]\
+\\)\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], 
+        "\!\(\*TagBox[SubscriptBox[\n  RowBox[{\"\[LeftDoubleBracket]\", \
+TagBox[\n    RowBox[{\"\[Placeholder]\", \",\", \"\[Placeholder]\"}],\n    \
+Quantum`Notation`zz080KetArgs,\nEditable->True,\nSelectable->True], \"\
+\[RightDoubleBracket]\"}], \"+\"],\n Quantum`Notation`zz050AntiCommutator,\n\
+Editable->False,\nSelectable->False]\)"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"\[CenterDot]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "\[CenterDot]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\[CircleTimes]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "\[CircleTimes]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\[Placeholder]\[CenterDot]\[Placeholder]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "\[Placeholder]\[CenterDot]\[Placeholder]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"], 
+     ButtonBox["\<\"\[Placeholder]\[CircleTimes]\[Placeholder]\"\>",
+      Appearance->"Palette",
+      ButtonFunction:>NotebookWrite[
+        InputNotebook[], "\[Placeholder]\[CircleTimes]\[Placeholder]"],
+      Evaluator->Automatic,
+      Method->"Preemptive"]}
+   },
+   AutoDelete->False,
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]],
+ CellMargins->{{0, 0}, {0, 0}},
+ CellBracketOptions->{"Color"->RGBColor[0.269993, 0.308507, 0.6]},
+ CellHorizontalScrolling->True,
+ PageBreakAbove->True,
+ PageBreakWithin->False,
+ ShowAutoStyles->True,
+ LineSpacing->{1.25, 0},
+ AutoItalicWords->{},
+ ScriptMinSize->9,
+ ShowStringCharacters->False,
+ FontFamily:>CurrentValue["PanelFontFamily"],
+ FontSize:>CurrentValue["PanelFontSize"]]
+},
+WindowSize->All,
+WindowMargins->{{Automatic, 208}, {Automatic, -1}},
+WindowElements->{},
+WindowTitle->"Quantum Notation",
+FrontEndVersion->"8.0 for Microsoft Windows (32-bit) (November 7, 2010)",
+StyleDefinitions->"Palette.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[576, 21, 40496, 739, 293, InheritFromParent,
+ PageBreakAbove->True,
+ PageBreakWithin->False]
+}
+]
+*)
+
+(* End of internal cache information *)

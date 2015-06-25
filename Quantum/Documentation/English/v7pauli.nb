@@ -1,0 +1,1933 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     73891,       1924]
+NotebookOptionsPosition[     55993,       1510]
+NotebookOutlinePosition[     70576,       1815]
+CellTagsIndexPosition[     70533,       1812]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Setup of the Algebra of Pauli Matrices in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ "   "
+}], "Title",
+ CellChangeTimes->{{3.450086506453125*^9, 3.450086518203125*^9}, {
+   3.450355366484375*^9, 3.450355424234375*^9}, {3.450375396375*^9, 
+   3.4503753969375*^9}, {3.451676499273164*^9, 3.451676524507377*^9}, {
+   3.4525249128772197`*^9, 3.4525249177207837`*^9}, {3.452533629223873*^9, 
+   3.452533630067618*^9}, {3.4698901538500404`*^9, 3.4698901544437866`*^9}, 
+   3.481306725364807*^9}],
+
+Cell[TextData[{
+ "by  Moritz Schubotz, Jos\[EAcute] Luis G\[OAcute]mez-Mu\[NTilde]oz, and \
+Francisco Delgado-Cepeda\n",
+ ButtonBox["http://homepage.cem.itesm.mx/lgomez/quantum/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://homepage.cem.itesm.mx/lgomez/quantum/"], None},
+  ButtonNote->"http://homepage.cem.itesm.mx/lgomez/quantum/"],
+ "\njose.luis.gomez@itesm.mx  "
+}], "Text",
+ CellChangeTimes->{{3.45008652390625*^9, 3.45008658784375*^9}, {
+   3.450086927796875*^9, 3.450086927796875*^9}, 3.450354855359375*^9, 
+   3.450445823609375*^9, {3.4813086592818055`*^9, 3.4813086763452883`*^9}, {
+   3.4813091304392624`*^9, 3.481309144095687*^9}, {3.4815452640639467`*^9, 
+   3.4815452677826967`*^9}, {3.4816380771479826`*^9, 3.4816380824917326`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Introduction", "Section",
+ CellChangeTimes->{{3.45035557515625*^9, 3.450355577640625*^9}}],
+
+Cell[TextData[{
+ "Pauli Algebra is implemented ",
+ StyleBox["only as an example",
+  FontWeight->"Bold"],
+ " of how to define and use algebraic properties of operators in Quantum ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ ". The standard ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " syntax and the special Quantum ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " syntax that are used are briefly explained. The user interested in Pauli \
+Algebra for several spins (qubits) can use the Quantum`Computing` package, as \
+shown in the following documents: "
+}], "Text",
+ CellChangeTimes->{
+  3.45035556646875*^9, {3.45035561096875*^9, 3.4503556131875*^9}, 
+   3.450375143921875*^9, {3.450375386328125*^9, 3.450375391515625*^9}, {
+   3.4525249273297896`*^9, 3.452524957766121*^9}, {3.4525258964332*^9, 
+   3.4525258966988144`*^9}, {3.481310072134044*^9, 3.4813101040398855`*^9}, {
+   3.481491626578927*^9, 3.481491630547677*^9}, {3.4816454734375753`*^9, 
+   3.4816455652500753`*^9}, {3.4816455964219503`*^9, 
+   3.4816457576563253`*^9}, {3.4816458223594503`*^9, 
+   3.4816458361407003`*^9}, {3.4816459334219503`*^9, 3.4816459343125753`*^9}}],
+
+Cell[TextData[{
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://homepage.cem.itesm.mx/lgomez/quantum/v7pauliope.nb"], None},
+  ButtonNote->"http://homepage.cem.itesm.mx/lgomez/quantum/v7pauliope.nb"],
+  FontSlant->"Italic"],
+ ButtonBox[" file: http://homepage.cem.itesm.mx/lgomez/quantum/v7pauliope.nb",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://homepage.cem.itesm.mx/lgomez/quantum/v7pauliope.nb"], None},
+  ButtonNote->"http://homepage.cem.itesm.mx/lgomez/quantum/v7pauliope.nb"]
+}], "Text",
+ CellChangeTimes->{{3.4815441697529335`*^9, 3.4815441994215803`*^9}, {
+  3.481544299379453*^9, 3.4815443173618717`*^9}}],
+
+Cell[TextData[ButtonBox["PDF: \
+http://homepage.cem.itesm.mx/lgomez/quantum/v7pauliope.pdf",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://homepage.cem.itesm.mx/lgomez/quantum/v7pauliope.pdf"], None},
+ ButtonNote->
+  "http://homepage.cem.itesm.mx/lgomez/quantum/v7pauliope.pdf"]], "Text",
+ CellChangeTimes->{{3.4815442945831003`*^9, 3.4815442969422183`*^9}, {
+  3.481544333672597*^9, 3.48154434945213*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Load the Package", "Section",
+ CellChangeTimes->{{3.450086595125*^9, 3.45008660265625*^9}}],
+
+Cell[TextData[{
+ "First load the Quantum`Notation` package. Write:\nNeeds[\"Quantum`Notation`\
+\"];\nthen press at the same time the keys \[ShiftKey]-\[EnterKey] to \
+evaluate. ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " will load the package:"
+}], "Text",
+ CellChangeTimes->{{3.45008660775*^9, 3.450086613046875*^9}, 
+   3.450086744625*^9, 3.483888001266523*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Quantum`Notation`\>\"", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.450086747640625*^9, 3.450086763046875*^9}, 
+   3.450086805609375*^9, 3.4838880044383574`*^9}],
+
+Cell[BoxData["\<\"Quantum`Notation` Version 2.2.0. (July 2010) \\nA \
+Mathematica package for Quantum calculations in Dirac bra-ket notation\\nby \
+Jos\[EAcute] Luis G\[OAcute]mez-Mu\[NTilde]oz\\n\\nExecute \
+SetQuantumAliases[] in order to use the keyboard to enter quantum objects in \
+Dirac's notation\\nSetQuantumAliases[] must be executed again in each new \
+notebook that is created, only one time per notebook.\"\>"], "Output",
+ CellChangeTimes->{3.486732414276151*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "In order to use the keyboard to enter quantum objects write:\n\
+SetQuantumAliases[ ];\nthen press at the same time the keys \[ShiftKey]-\
+\[EnterKey] to evaluate. The semicolon prevents ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " from printing the help message. Remember that SetQuantumAliases[ ] must be \
+evaluated again in each new notebook:"
+}], "Text",
+ CellChangeTimes->{3.450086782515625*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetQuantumAliases", "[", "]"}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.45008680878125*^9, 3.450086837859375*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Setup Pauli Algebra", "Section",
+ CellChangeTimes->{{3.4525280361082525`*^9, 3.4525280410924683`*^9}, {
+  3.452529152043008*^9, 3.4525291631991863`*^9}, {3.481304286788862*^9, 
+  3.4813042926010647`*^9}, {3.4813065988074036`*^9, 3.4813066027452307`*^9}, {
+  3.4816458602500753`*^9, 3.4816458635625753`*^9}}],
+
+Cell[TextData[{
+ "The commands below define the Pauli Algebra, with ",
+ Cell[BoxData[
+  SubscriptBox["\[Sigma]", "0"]]],
+ " as the identity operator and ",
+ Cell[BoxData[
+  SubscriptBox["\[Sigma]", "1"]]],
+ ", ",
+ Cell[BoxData[
+  SubscriptBox["\[Sigma]", "2"]]],
+ ", ",
+ Cell[BoxData[
+  SubscriptBox["\[Sigma]", "3"]]],
+ " as the Pauli matrices. ",
+ StyleBox["The explanation is below, after the commands.",
+  FontWeight->"Bold"],
+ "\nPlace the cursor on the definitions and press at the same time \
+\[ShiftKey]-\[EnterKey] to evaluate, ",
+ StyleBox["no output will be generated",
+  FontVariations->{"Underline"->True}],
+ ", but the definitions will be stored in the ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " session: "
+}], "Text",
+ CellChangeTimes->{{3.452528196571868*^9, 3.452528291100093*^9}, {
+   3.452528338348581*^9, 3.4525284497676334`*^9}, {3.452528488334399*^9, 
+   3.4525285005075984`*^9}, {3.4525291862771635`*^9, 3.452529291370241*^9}, {
+   3.4528688187581863`*^9, 3.452868820414415*^9}, {3.4558929136875*^9, 
+   3.45589291371875*^9}, 3.4568344120625*^9, {3.481303951041255*^9, 
+   3.481303954994152*^9}, {3.481304397236332*^9, 3.481304432781387*^9}, {
+   3.481304462826723*^9, 3.48130450332465*^9}, {3.481304558226018*^9, 
+   3.4813046088777294`*^9}, {3.481304645046363*^9, 3.4813047147588663`*^9}, {
+   3.481304900807166*^9, 3.4813050649372864`*^9}, {3.4813051446824408`*^9, 
+   3.481305617482808*^9}, {3.4813056707997437`*^9, 3.4813056820038004`*^9}, {
+   3.4813063639495354`*^9, 3.4813063649807653`*^9}, {3.4813064217608423`*^9, 
+   3.481306501289548*^9}, {3.4813066411234236`*^9, 3.4813066543589*^9}, 
+   3.481310442441804*^9, {3.4813108489963155`*^9, 3.4813109910019493`*^9}, 
+   3.4813131198595233`*^9, {3.4815433888125*^9, 3.481543507046875*^9}, {
+   3.48164695217387*^9, 3.48164696148637*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<Quantum`Notation`\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SetQuantumAliases", "[", "]"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"Important", ":", " ", 
+     RowBox[{
+     "Next", " ", "code", " ", "only", " ", "works", " ", "if", " ", 
+      "Quantum`Computing`", " ", "has", " ", "NOT", " ", "been", " ", 
+      "loaded", " ", "in", " ", "the", " ", "Mathematica", " ", "session"}]}],
+     ",", " ", 
+    RowBox[{
+    "because", " ", "Quantum`Computing`", " ", "has", " ", "its", " ", "own", 
+     " ", "defintions", " ", "for", " ", "the", " ", "symbol", " ", 
+     "\[Sigma]"}]}], " ", "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetQuantumObject", "[", "\[Sigma]", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"(", 
+     SubscriptBox["\[Sigma]", 
+      RowBox[{"a", ":", 
+       RowBox[{"0", "|", "1", "|", "2", "|", "3"}]}]], ")"}], "2"], ":=", 
+   SubscriptBox["\[Sigma]", "0"]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"(", 
+     SubscriptBox["\[Sigma]", 
+      RowBox[{"a", ":", 
+       RowBox[{"0", "|", "1", "|", "2", "|", "3"}]}]], ")"}], "\[Dagger]"], ":=", 
+   SubscriptBox["\[Sigma]", "a"]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    SubscriptBox["\[Sigma]", 
+     RowBox[{"a", ":", 
+      RowBox[{"0", "|", "1", "|", "2", "|", "3"}]}]], "\[CenterDot]", 
+    SubscriptBox["\[Sigma]", "0"]}], ":=", 
+   SubscriptBox["\[Sigma]", "a"]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    SubscriptBox["\[Sigma]", "0"], "\[CenterDot]", 
+    SubscriptBox["\[Sigma]", 
+     RowBox[{"b", ":", 
+      RowBox[{"0", "|", "1", "|", "2", "|", "3"}]}]]}], ":=", 
+   SubscriptBox["\[Sigma]", "b"]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    SubscriptBox["\[Sigma]", 
+     RowBox[{"a", ":", 
+      RowBox[{"1", "|", "2", "|", "3"}]}]], "\[CenterDot]", 
+    SubscriptBox["\[Sigma]", 
+     RowBox[{"b", ":", 
+      RowBox[{"1", "|", "2", "|", "3"}]}]]}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"KroneckerDelta", "[", 
+      RowBox[{"a", ",", "b"}], "]"}], "*", 
+     SubscriptBox["\[Sigma]", "0"]}], "+", 
+    RowBox[{"\[ImaginaryI]", "*", 
+     RowBox[{
+      UnderoverscriptBox["\[Sum]", 
+       RowBox[{"c", "=", "1"}], "3"], 
+      RowBox[{
+       RowBox[{"Signature", "[", 
+        RowBox[{"{", 
+         RowBox[{"a", ",", "b", ",", "c"}], "}"}], "]"}], "*", 
+       SubscriptBox["\[Sigma]", "c"]}]}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   TagBox[
+    SubscriptBox[
+     RowBox[{"\[LeftDoubleBracket]", 
+      TagBox[
+       RowBox[{
+        SubscriptBox["\[Sigma]", "0"], ",", 
+        SubscriptBox["\[Sigma]", 
+         RowBox[{"b", ":", 
+          RowBox[{"0", "|", "1", "|", "2", "|", "3"}]}]]}],
+       Quantum`Notation`zz080KetArgs,
+       Editable->True,
+       Selectable->True], "\[RightDoubleBracket]"}], "-"],
+    Quantum`Notation`zz050Commutator,
+    Editable->False,
+    Selectable->False], ":=", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   TagBox[
+    SubscriptBox[
+     RowBox[{"\[LeftDoubleBracket]", 
+      TagBox[
+       RowBox[{
+        SubscriptBox["\[Sigma]", 
+         RowBox[{"a", ":", 
+          RowBox[{"1", "|", "2", "|", "3"}]}]], ",", 
+        SubscriptBox["\[Sigma]", 
+         RowBox[{"b", ":", 
+          RowBox[{"1", "|", "2", "|", "3"}]}]]}],
+       Quantum`Notation`zz080KetArgs,
+       Editable->True,
+       Selectable->True], "\[RightDoubleBracket]"}], "-"],
+    Quantum`Notation`zz050Commutator,
+    Editable->False,
+    Selectable->False], ":=", 
+   RowBox[{"2", "*", "\[ImaginaryI]", "*", 
+    RowBox[{
+     UnderoverscriptBox["\[Sum]", 
+      RowBox[{"c", "=", "1"}], "3"], 
+     RowBox[{
+      RowBox[{"Signature", "[", 
+       RowBox[{"{", 
+        RowBox[{"a", ",", "b", ",", "c"}], "}"}], "]"}], "*", 
+      SubscriptBox["\[Sigma]", "c"]}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   TagBox[
+    SubscriptBox[
+     RowBox[{"\[LeftDoubleBracket]", 
+      TagBox[
+       RowBox[{
+        SubscriptBox["\[Sigma]", "0"], ",", 
+        SubscriptBox["\[Sigma]", 
+         RowBox[{"b", ":", 
+          RowBox[{"0", "|", "1", "|", "2", "|", "3"}]}]]}],
+       Quantum`Notation`zz080KetArgs,
+       Editable->True,
+       Selectable->True], "\[RightDoubleBracket]"}], "+"],
+    Quantum`Notation`zz050AntiCommutator,
+    Editable->False,
+    Selectable->False], ":=", 
+   RowBox[{"2", "*", 
+    SubscriptBox["\[Sigma]", "b"]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   TagBox[
+    SubscriptBox[
+     RowBox[{"\[LeftDoubleBracket]", 
+      TagBox[
+       RowBox[{
+        SubscriptBox["\[Sigma]", 
+         RowBox[{"a", ":", 
+          RowBox[{"1", "|", "2", "|", "3"}]}]], ",", 
+        SubscriptBox["\[Sigma]", 
+         RowBox[{"b", ":", 
+          RowBox[{"1", "|", "2", "|", "3"}]}]]}],
+       Quantum`Notation`zz080KetArgs,
+       Editable->True,
+       Selectable->True], "\[RightDoubleBracket]"}], "+"],
+    Quantum`Notation`zz050AntiCommutator,
+    Editable->False,
+    Selectable->False], ":=", 
+   RowBox[{"2", "*", 
+    RowBox[{"KroneckerDelta", "[", 
+     RowBox[{"a", ",", "b"}], "]"}], "*", 
+    SubscriptBox["\[Sigma]", "0"]}]}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.4525175272940793`*^9, 3.4525175318712373`*^9}, {
+   3.452517851840588*^9, 3.4525179122871356`*^9}, {3.4525179623441887`*^9, 
+   3.452517968343536*^9}, {3.452518168574527*^9, 3.4525182906320424`*^9}, 
+   3.452518470597337*^9, {3.452518599405842*^9, 3.452518647247755*^9}, {
+   3.4525186876055803`*^9, 3.452518691589802*^9}, {3.4525193869777164`*^9, 
+   3.452519427756879*^9}, 3.452521261209876*^9, {3.452524327821562*^9, 
+   3.4525243303214655`*^9}, {3.4525243660232196`*^9, 3.452524367132552*^9}, {
+   3.452528087919095*^9, 3.4525281319958096`*^9}, {3.452529296870206*^9, 
+   3.4525293933379216`*^9}, {3.4525294905391808`*^9, 3.452529519663621*^9}, 
+   3.4525332307406015`*^9, {3.480861668788042*^9, 3.4808616922333107`*^9}, {
+   3.480862571032114*^9, 3.4808626407304115`*^9}, {3.4813039118403883`*^9, 
+   3.48130391866812*^9}, 3.481304364331766*^9, {3.4813048534195747`*^9, 
+   3.4813048848081903`*^9}, {3.481306418432824*^9, 3.481306419057804*^9}, {
+   3.481306520929544*^9, 3.481306524366934*^9}, {3.481306556428878*^9, 
+   3.4813065770555935`*^9}, 3.4813069043913317`*^9, 3.481306990751259*^9, {
+   3.4813084935610285`*^9, 3.4813085864504647`*^9}, {3.481308780585667*^9, 
+   3.481308798180431*^9}, {3.481308857511973*^9, 3.4813088819821324`*^9}, {
+   3.4813089753591523`*^9, 3.4813089806404696`*^9}, {3.4813090741416664`*^9, 
+   3.4813090771260796`*^9}, {3.481309190190027*^9, 3.4813092093151007`*^9}, {
+   3.481309242002391*^9, 3.481309296627042*^9}, {3.4813101507736626`*^9, 
+   3.4813101538204985`*^9}, {3.481310303974827*^9, 3.481310429723217*^9}, {
+   3.4813105535185075`*^9, 3.4813105690964327`*^9}, {3.481310613017746*^9, 
+   3.4813106610335674`*^9}, {3.481545089033903*^9, 3.481545096752554*^9}, 
+   3.48154605118058*^9}],
+
+Cell[TextData[{
+ "There are several important details to notice in the definitions above:\n",
+ StyleBox["Standard ",
+  FontWeight->"Bold"],
+ StyleBox["Mathematica",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ StyleBox[" keyboard aliases:",
+  FontWeight->"Bold"],
+ "\n* The sigma \[Sigma] can be entered by pressing the keys [ESC]s[ESC]\n* \
+The imaginary \[ImaginaryI] can be entered by pressing the keys [ESC]ii[ESC]\n\
+",
+ StyleBox["Quantum keyboard aliases that can be used only if \
+Needs[\"Quantum`Notation`\"] and SetQuantumAliases[] have been executed in \
+this notebook:",
+  FontWeight->"Bold"],
+ "\n* Subscipts can be entered by pressing the keys [ESC]su[ESC]\n* The \
+noncommutative operator-application symbol \[CenterDot] can be entered as \
+[ESC]on[ESC]\n* The sum template ",
+ Cell[BoxData[
+  RowBox[{
+   UnderoverscriptBox["\[Sum]", "\[Placeholder]", "\[Placeholder]"], 
+   "\[Placeholder]"}]]],
+ " can be  entered by pressing the keys [ESC]qs[ESC], as in \"QuantumSum\"\n* \
+Press [ESC]comm[ESC] for the commutator and [ESC]anti[ESC] for the \
+anticommutator templates\n",
+ StyleBox["Standard ",
+  FontWeight->"Bold"],
+ StyleBox["Mathematica",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ StyleBox[" syntax:",
+  FontWeight->"Bold"],
+ "\n* The standard ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " command \"Signature\" plays the role of the Levi-Civita symbol\n* The \
+pattern ",
+ StyleBox["b",
+  FontWeight->"Bold"],
+ ":0|1|2|3 means that the corresponding definition will be used only when ",
+ StyleBox["b",
+  FontWeight->"Bold"],
+ " is equal to zero, one, two or three. On the other hand, the pattern ",
+ StyleBox["b",
+  FontWeight->"Bold"],
+ ":1|2|3 means that the corresponding definition will be used only when ",
+ StyleBox["b",
+  FontWeight->"Bold"],
+ " is equal to one, two or three.   \n* Notice the use of SetDelayed :=\n* Do \
+not type letters \"O\" or \"o\" when you mean number \"0\", ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " considers them as different symbols\n",
+ StyleBox["Quantum ",
+  FontWeight->"Bold"],
+ StyleBox["Mathematica",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ StyleBox[" syntax that can be used only if Needs[\"Quantum`Notation`\"] has \
+been executed in this ",
+  FontWeight->"Bold"],
+ StyleBox["Mathematica",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ StyleBox[" session:\n",
+  FontWeight->"Bold"],
+ "* SetQuantumObject[\[Sigma]] makes \[Sigma] a quantum object (operator)\n* \
+It is possible to assign values to powers of quantum objects. This is a \
+modification of standard ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " behavior\n* It is also possible to assign values to hermitian conjugates, \
+noncommutative products, commutators and anticommutators of quantum objects."
+}], "Text",
+ CellChangeTimes->{{3.48154340240625*^9, 3.48154340834375*^9}, {
+   3.4815451311896133`*^9, 3.4815451377520294`*^9}, 3.48164704976762*^9}],
+
+Cell["\<\
+Pauli Algebra calculations can be done after evaluation of the definitions \
+above (place the cursor on the definitions above and press at the same time \
+[SHIFT]-[ENTER]) 
+It was defined that the square of any Pauli matrix is the identity:\
+\>", "Text",
+ CellChangeTimes->{{3.452529553991087*^9, 3.452529579709343*^9}, {
+  3.4813111594728556`*^9, 3.481311187441963*^9}, {3.4815449240828896`*^9, 
+  3.4815450235816154`*^9}, {3.4816462015626073`*^9, 3.4816462091720304`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ SuperscriptBox[
+  RowBox[{"(", 
+   SubscriptBox["\[Sigma]", "3"], ")"}], "2"]], "Input",
+ CellChangeTimes->{3.4813111535352793`*^9}],
+
+Cell[BoxData[
+ SubscriptBox["\[Sigma]", "0"]], "Output",
+ CellChangeTimes->{3.486732415885557*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "It was ",
+ StyleBox["not",
+  FontWeight->"Bold"],
+ " defined what happens in the case of powers larger than 2, however Quantum ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " can obtain the correct answer from the definition for ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox[
+    RowBox[{"(", 
+     SubscriptBox["\[Sigma]", "a"], ")"}], "2"], TraditionalForm]]],
+ ":"
+}], "Text",
+ CellChangeTimes->{{3.481311195613943*^9, 3.4813113022708683`*^9}, {
+  3.4816462224846163`*^9, 3.4816462285315294`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ SuperscriptBox[
+  RowBox[{"(", 
+   SubscriptBox["\[Sigma]", "3"], ")"}], "5"]], "Input"],
+
+Cell[BoxData[
+ SubscriptBox["\[Sigma]", "3"]], "Output",
+ CellChangeTimes->{3.486732415948058*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "This commutator is calculated using the ",
+ StyleBox["Signature[{a,b,c}]",
+  FontWeight->"Bold"],
+ " command in the definition above. This command is equivalent to the \
+Levi-Civita symbol if {a,b,c} are each one 1, 2 or 3"
+}], "Text",
+ CellChangeTimes->{{3.4813113257552433`*^9, 3.4813114290677433`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  SubscriptBox[
+   RowBox[{"\[LeftDoubleBracket]", 
+    TagBox[
+     RowBox[{
+      SubscriptBox["\[Sigma]", "1"], ",", 
+      SubscriptBox["\[Sigma]", "3"]}],
+     Quantum`Notation`zz080KetArgs,
+     Editable->True,
+     Selectable->True], "\[RightDoubleBracket]"}], "-"],
+  Quantum`Notation`zz050Commutator,
+  Editable->False,
+  Selectable->False]], "Input",
+ CellChangeTimes->{3.4813114534427433`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "2"}], " ", "\[ImaginaryI]", " ", 
+  SubscriptBox["\[Sigma]", "2"]}]], "Output",
+ CellChangeTimes->{3.486732416010559*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "This other commutator is calculated using the special definition for ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Sigma]", "0"], TraditionalForm]]],
+ ". Notice that the definition was made with ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Sigma]", "0"], TraditionalForm]]],
+ " as first argument of the commutator, however it is used also if ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Sigma]", "0"], TraditionalForm]]],
+ " is the second argument:"
+}], "Text",
+ CellChangeTimes->{{3.4813114671614933`*^9, 3.4813115582239304`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  SubscriptBox[
+   RowBox[{"\[LeftDoubleBracket]", 
+    TagBox[
+     RowBox[{
+      SubscriptBox["\[Sigma]", "1"], ",", 
+      SubscriptBox["\[Sigma]", "0"]}],
+     Quantum`Notation`zz080KetArgs,
+     Editable->True,
+     Selectable->True], "\[RightDoubleBracket]"}], "-"],
+  Quantum`Notation`zz050Commutator,
+  Editable->False,
+  Selectable->False]], "Input",
+ CellChangeTimes->{3.4813088982955723`*^9}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.4867324160730605`*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "This anticommutator is calculated using the ",
+ StyleBox["KroneckerDelta[a,b]",
+  FontWeight->"Bold"],
+ " command in the definition above:"
+}], "Text",
+ CellChangeTimes->{{3.4813113257552433`*^9, 3.4813114290677433`*^9}, {
+  3.4813116428483887`*^9, 3.4813116614263945`*^9}, {3.481546077009366*^9, 
+  3.4815460814001036`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  SubscriptBox[
+   RowBox[{"\[LeftDoubleBracket]", 
+    TagBox[
+     RowBox[{
+      SubscriptBox["\[Sigma]", "3"], ",", 
+      SubscriptBox["\[Sigma]", "3"]}],
+     Quantum`Notation`zz080KetArgs,
+     Editable->True,
+     Selectable->True], "\[RightDoubleBracket]"}], "+"],
+  Quantum`Notation`zz050AntiCommutator,
+  Editable->False,
+  Selectable->False]], "Input",
+ CellChangeTimes->{3.4813089951406555`*^9, 3.4813117027412586`*^9}],
+
+Cell[BoxData[
+ RowBox[{"2", " ", 
+  SubscriptBox["\[Sigma]", "0"]}]], "Output",
+ CellChangeTimes->{3.486732416135562*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "This other anticommutator is calculated using the special definition for ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Sigma]", "0"], TraditionalForm]]],
+ ". Notice that the definition was made with ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Sigma]", "0"], TraditionalForm]]],
+ " as first argument of the anticommutator, however it is used also if ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Sigma]", "0"], TraditionalForm]]],
+ " is the second argument:"
+}], "Text",
+ CellChangeTimes->{{3.4813114671614933`*^9, 3.481311585973753*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  SubscriptBox[
+   RowBox[{"\[LeftDoubleBracket]", 
+    TagBox[
+     RowBox[{
+      SubscriptBox["\[Sigma]", "1"], ",", 
+      SubscriptBox["\[Sigma]", "0"]}],
+     Quantum`Notation`zz080KetArgs,
+     Editable->True,
+     Selectable->True], "\[RightDoubleBracket]"}], "+"],
+  Quantum`Notation`zz050AntiCommutator,
+  Editable->False,
+  Selectable->False]], "Input",
+ CellChangeTimes->{{3.481308907811413*^9, 3.4813089193115597`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"2", " ", 
+  SubscriptBox["\[Sigma]", "1"]}]], "Output",
+ CellChangeTimes->{3.486732416182438*^9}]
+}, Open  ]],
+
+Cell["Quantum expansions use the definitions made above:", "Text",
+ CellChangeTimes->{{3.452529598318361*^9, 3.4525296106462493`*^9}, {
+  3.452868861742011*^9, 3.4528688658357086`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Expand", "[", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["\[Sigma]", "0"], "+", 
+     RowBox[{"\[ImaginaryI]", "*", 
+      SubscriptBox["\[Sigma]", "1"]}]}], ")"}], "\[CenterDot]", 
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["\[Sigma]", "0"], "+", 
+     RowBox[{"\[ImaginaryI]", "*", 
+      SubscriptBox["\[Sigma]", "3"]}]}], ")"}], "\[CenterDot]", 
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["\[Sigma]", "0"], "+", 
+     RowBox[{"\[ImaginaryI]", "*", 
+      SubscriptBox["\[Sigma]", "2"]}]}], ")"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.4528688589607964`*^9, 3.452868860367028*^9}, {
+  3.4529493449783077`*^9, 3.4529493460408077`*^9}, {3.481311774792283*^9, 
+  3.4813117878555355`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+   SubscriptBox["\[Sigma]", "1"]}], "+", 
+  RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+   SubscriptBox["\[Sigma]", "2"]}]}]], "Output",
+ CellChangeTimes->{3.48673241630744*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Sample Application: Bloch Equations for Resonance Fluorescence\
+\>", "Section",
+ CellChangeTimes->{
+  3.450087688484375*^9, {3.4503658218125*^9, 3.45036582528125*^9}, {
+   3.4813119944445114`*^9, 3.481312000538418*^9}, {3.4816141354668603`*^9, 
+   3.481614157680131*^9}, 3.4816141980454397`*^9, 3.4816263189485025`*^9, {
+   3.481645365688259*^9, 3.4816453735007095`*^9}}],
+
+Cell[TextData[{
+ "This is Moritz Schubotz's solution of exercises 3.10 from the textbook  ",
+ StyleBox["QUANTUM MEASUREMENT AND CONTROL by H., Wiseman and G. Milburn 2010",
+  FontWeight->"Bold"],
+ " www.cambridge.org/9780521804424 "
+}], "Text",
+ CellChangeTimes->{
+  3.4813130639532733`*^9, {3.4816139360684557`*^9, 3.481613940672719*^9}, {
+   3.4816140022842426`*^9, 3.481614119458945*^9}, {3.481614208079014*^9, 
+   3.48161420835703*^9}, {3.4816230673447347`*^9, 3.481623071095949*^9}, {
+   3.481623109538148*^9, 3.481623147140299*^9}, {3.481626321132506*^9, 
+   3.4816263670277863`*^9}, {3.481626403609851*^9, 3.4816264176186757`*^9}, {
+   3.4816383326479826`*^9, 3.4816383619917326`*^9}, {3.481645404453636*^9, 
+   3.481645405016133*^9}}],
+
+Cell[TextData[{
+ "Every density matrix for a two level system can be written as a linear \
+combination of Pauli-matrices, see next definition of \[Rho]. Creation and \
+annihilation operators ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Sigma]", "+"], TraditionalForm]]],
+ " ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Sigma]", "-"], TraditionalForm]]],
+ " are also defined."
+}], "Text",
+ CellChangeTimes->{
+  3.4813130639532733`*^9, {3.4816139360684557`*^9, 3.481613940672719*^9}, {
+   3.4816140022842426`*^9, 3.481614119458945*^9}, {3.481614208079014*^9, 
+   3.48161420835703*^9}, {3.4816230673447347`*^9, 3.481623071095949*^9}, {
+   3.481623109538148*^9, 3.481623147140299*^9}, {3.481626321132506*^9, 
+   3.4816263670277863`*^9}, {3.481626403609851*^9, 3.4816264176186757`*^9}, {
+   3.4816383326479826`*^9, 3.4816383619917326`*^9}, {3.4816454094848537`*^9, 
+   3.481645409891102*^9}, {3.4816463242665176`*^9, 3.4816463405478716`*^9}, {
+   3.48164664123637*^9, 3.481646731595745*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"\[Rho]", "=", 
+  FractionBox[
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["\[Sigma]", "0"], "+", 
+     RowBox[{
+      RowBox[{"x", "[", "t", "]"}], " ", 
+      SubscriptBox["\[Sigma]", "1"]}], "+", 
+     RowBox[{
+      RowBox[{"y", "[", "t", "]"}], " ", 
+      SubscriptBox["\[Sigma]", "2"]}], "+", 
+     RowBox[{
+      RowBox[{"z", "[", "t", "]"}], " ", 
+      SubscriptBox["\[Sigma]", "3"]}]}], ")"}], "2"]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[Sigma]", "+"], "=", 
+   FractionBox[
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["\[Sigma]", "1"], "+", 
+      RowBox[{"I", " ", 
+       SubscriptBox["\[Sigma]", "2"]}]}], ")"}], "2"]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  SubscriptBox["\[Sigma]", "-"], "=", 
+  SuperscriptBox[
+   RowBox[{"(", 
+    SubscriptBox["\[Sigma]", "+"], ")"}], "\[Dagger]"]}]}], "Input",
+ CellChangeTimes->{{3.480837746957773*^9, 3.4808377756707053`*^9}, {
+   3.480837848670618*^9, 3.4808378498406963`*^9}, {3.4808379918680954`*^9, 
+   3.4808379983025284`*^9}, {3.480838030975727*^9, 3.4808380417694535`*^9}, {
+   3.4808380800910325`*^9, 3.480838129357348*^9}, {3.480861779756812*^9, 
+   3.4808619396873913`*^9}, {3.480861977300322*^9, 3.480862030284678*^9}, {
+   3.480862654065564*^9, 3.4808626565668426`*^9}, 3.4813048463262787`*^9, {
+   3.4813121920433197`*^9, 3.481312203090478*^9}, {3.481613633220134*^9, 
+   3.4816136637818813`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", "2"], " ", 
+  RowBox[{"(", 
+   RowBox[{
+    SubscriptBox["\[Sigma]", "0"], "+", 
+    RowBox[{
+     SubscriptBox["\[Sigma]", "1"], " ", 
+     RowBox[{"x", "[", "t", "]"}]}], "+", 
+    RowBox[{
+     SubscriptBox["\[Sigma]", "2"], " ", 
+     RowBox[{"y", "[", "t", "]"}]}], "+", 
+    RowBox[{
+     SubscriptBox["\[Sigma]", "3"], " ", 
+     RowBox[{"z", "[", "t", "]"}]}]}], ")"}]}]], "Output",
+ CellChangeTimes->{3.486732416369941*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", "2"], " ", 
+  RowBox[{"(", 
+   RowBox[{
+    SubscriptBox["\[Sigma]", "1"], "+", 
+    RowBox[{"\[ImaginaryI]", " ", 
+     SubscriptBox["\[Sigma]", "2"]}]}], ")"}]}]], "Output",
+ CellChangeTimes->{3.4867324163855667`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", "2"], " ", 
+  RowBox[{"(", 
+   RowBox[{
+    SubscriptBox["\[Sigma]", "1"], "-", 
+    RowBox[{"\[ImaginaryI]", " ", 
+     SubscriptBox["\[Sigma]", "2"]}]}], ")"}]}]], "Output",
+ CellChangeTimes->{3.4867324163855667`*^9}]
+}, Open  ]],
+
+Cell["\<\
+The effective Hamilton operator of a external driven system is given by \
+equation (3.31) of Wiseman and Milburn, where \[CapitalOmega] stands for the \
+Rabi - frequency and \[CapitalDelta] is the effective deturning of the atom:\
+\>", "Text",
+ CellChangeTimes->{{3.4816144043102374`*^9, 3.481614428642629*^9}, {
+   3.4816146814670897`*^9, 3.48161474214056*^9}, {3.481614832275716*^9, 
+   3.481614858363208*^9}, {3.4816263686189895`*^9, 3.481626371489394*^9}, 
+   3.4816264344667053`*^9, {3.481646432079707*^9, 3.48164644029851*^9}, {
+   3.48164659223637*^9, 3.48164662204887*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"H", "=", " ", 
+  RowBox[{
+   RowBox[{
+    FractionBox["\[CapitalOmega]", "2"], " ", 
+    SubscriptBox["\[Sigma]", "1"]}], "+", 
+   RowBox[{
+    FractionBox["\[CapitalDelta]", "2"], 
+    SubscriptBox["\[Sigma]", "3"]}]}]}]], "Input",
+ CellChangeTimes->{{3.480837564781681*^9, 3.4808377041710615`*^9}, {
+  3.480862769800638*^9, 3.4808627762007113`*^9}, {3.4813120361174536`*^9, 
+  3.4813120942283163`*^9}, {3.4816148836076517`*^9, 3.481614884350694*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox[
+   RowBox[{"\[CapitalOmega]", " ", 
+    SubscriptBox["\[Sigma]", "1"]}], "2"], "+", 
+  FractionBox[
+   RowBox[{"\[CapitalDelta]", " ", 
+    SubscriptBox["\[Sigma]", "3"]}], "2"]}]], "Output",
+ CellChangeTimes->{3.4867324164949436`*^9}]
+}, Open  ]],
+
+Cell["\<\
+Furthermore the Lindblad super operator is given by equation (3.29) of \
+Wiseman and Milburn. The evaluation of next definition does not produce any \
+output, however it stores the definition of DD[]: \
+\>", "Text",
+ CellChangeTimes->{{3.4813119566465073`*^9, 3.481312014570027*^9}, {
+  3.481614909015105*^9, 3.4816149499994493`*^9}, {3.481615042270727*^9, 
+  3.481615104776302*^9}, {3.4816225280328875`*^9, 3.4816225382854743`*^9}, {
+  3.4816384282418013`*^9, 3.481638433819998*^9}, {3.4816464621424*^9, 
+  3.4816464631736565`*^9}, {3.481646605408245*^9, 3.48164661023637*^9}, {
+  3.481647481538531*^9, 3.481647535195441*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"DD", "[", "A_", "]"}], ":=", 
+   RowBox[{"Function", "[", 
+    RowBox[{
+     RowBox[{"{", "ope", "}"}], ",", 
+     RowBox[{
+      RowBox[{"A", " ", "\[CenterDot]", "ope", "\[CenterDot]", 
+       SuperscriptBox[
+        RowBox[{"(", "A", ")"}], "\[Dagger]"]}], "-", 
+      FractionBox[
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", "A", ")"}], "\[Dagger]"], "\[CenterDot]", "A", 
+          "\[CenterDot]", "ope"}], " ", "+", 
+         RowBox[{"ope", "\[CenterDot]", 
+          SuperscriptBox[
+           RowBox[{"(", "A", ")"}], "\[Dagger]"], "\[CenterDot]", "A"}]}], 
+        ")"}], "2"]}]}], " ", "]"}]}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{
+  3.4808620432860765`*^9, {3.4808624274542217`*^9, 3.480862428549234*^9}, {
+   3.481312300904729*^9, 3.481312367280154*^9}, {3.4813124417650056`*^9, 
+   3.481312454811964*^9}, 3.4816150591896944`*^9}],
+
+Cell["\<\
+The Born - Markov Master Equation are given by equation (3.28) of Wiseman and \
+Milburn. Here it is evaluated in the Hamiltonian that was previously defined:\
+\>", "Text",
+ CellChangeTimes->{{3.481622787722741*^9, 3.4816227964742413`*^9}, {
+  3.4816228547165728`*^9, 3.4816228720525646`*^9}, {3.4816229054124727`*^9, 
+  3.4816229583865023`*^9}, {3.4816464733612213`*^9, 3.481646584064495*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"dt\[Rho]", "=", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{"Expand", "[", "  ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", " ", "\[ImaginaryI]"}], "*", " ", 
+       TagBox[
+        SubscriptBox[
+         RowBox[{"\[LeftDoubleBracket]", 
+          TagBox[
+           RowBox[{"H", ",", "\[Rho]"}],
+           Quantum`Notation`zz080KetArgs,
+           Editable->True,
+           Selectable->True], "\[RightDoubleBracket]"}], "-"],
+        Quantum`Notation`zz050Commutator,
+        Editable->False,
+        Selectable->False]}], "+", 
+      RowBox[{"\[Gamma]", " ", "*", " ", 
+       RowBox[{
+        RowBox[{"DD", "[", 
+         SubscriptBox["\[Sigma]", "-"], "]"}], "[", "\[Rho]", "]"}]}]}], "  ",
+      "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"TraditionalForm", "[", "dt\[Rho]", "]"}]}], "Input",
+ CellChangeTimes->{{3.481312544734415*^9, 3.4813125605157657`*^9}, {
+  3.481615061956853*^9, 3.4816150663191023`*^9}, {3.481624699264464*^9, 
+  3.4816247013236675`*^9}, {3.481645174611357*^9, 3.4816452036892962`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FractionBox["1", "4"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["\[Sigma]", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", "\[CapitalDelta]", " ", 
+         RowBox[{"x", "(", "t", ")"}]}], "-", 
+        RowBox[{"\[Gamma]", " ", 
+         RowBox[{"y", "(", "t", ")"}]}], "-", 
+        RowBox[{"2", " ", "\[CapitalOmega]", " ", 
+         RowBox[{"z", "(", "t", ")"}]}]}], ")"}]}], "-", 
+     RowBox[{
+      SubscriptBox["\[Sigma]", "1"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"\[Gamma]", " ", 
+         RowBox[{"x", "(", "t", ")"}]}], "+", 
+        RowBox[{"2", " ", "\[CapitalDelta]", " ", 
+         RowBox[{"y", "(", "t", ")"}]}]}], ")"}]}], "-", 
+     RowBox[{"2", " ", 
+      SubscriptBox["\[Sigma]", "3"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"\[CapitalOmega]", " ", 
+          RowBox[{"y", "(", "t", ")"}]}]}], "+", 
+        RowBox[{"\[Gamma]", " ", 
+         RowBox[{"z", "(", "t", ")"}]}], "+", "\[Gamma]"}], ")"}]}]}], 
+    ")"}]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.486732422932567*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Density matrices in Pauli basis, have the feature that the components x,y,z \
+can be calculated by ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", "=", 
+    RowBox[{"Tr", "(", 
+     RowBox[{
+      SubscriptBox["\[Sigma]", "1"], "\[Rho]"}], ")"}]}], TraditionalForm]]],
+ " etc. The same holds true for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["d", "t"], "x", " ", 
+     RowBox[{"etc", ".", " ", "The"}], " ", "Pauli"}], "-", 
+    RowBox[{
+    "Matrices", " ", "are", " ", "all", "  ", "traceless", " ", "with", " ", 
+     "the", " ", "exception", " ", "of", " ", 
+     SubscriptBox["\[Sigma]", "0"], " ", "where", " ", "the", " ", "trace", 
+     " ", "is", " ", "2."}]}], TraditionalForm]]],
+ " So the equations of movement for x,z,t read:"
+}], "Text",
+ CellChangeTimes->{{3.4813119566465073`*^9, 3.481312014570027*^9}, {
+   3.481623233867259*^9, 3.4816232602167664`*^9}, {3.4816243886523185`*^9, 
+   3.481624609907507*^9}, 3.481624682042034*^9, {3.4816247688561864`*^9, 
+   3.4816247972170362`*^9}, 3.481626441205917*^9, {3.4816264739971743`*^9, 
+   3.4816264769143796`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Blochxyz", "=", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Expand", "[", 
+        RowBox[{
+         SubscriptBox["\[Sigma]", "k"], "\[CenterDot]", "dt\[Rho]"}], "]"}], "/.", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          SubscriptBox["\[Sigma]", "1"], "\[Rule]", "0"}], ",", 
+         RowBox[{
+          SubscriptBox["\[Sigma]", "2"], "\[Rule]", "0"}], ",", 
+         RowBox[{
+          SubscriptBox["\[Sigma]", "3"], "\[Rule]", "0"}], ",", 
+         RowBox[{
+          SubscriptBox["\[Sigma]", "0"], "\[Rule]", "2"}]}], "}"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"k", ",", "3"}], "}"}]}], "]"}], "]"}]}], ";", 
+  RowBox[{"TraditionalForm", "[", 
+   RowBox[{"MatrixForm", "[", "Blochxyz", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.4808620494573975`*^9, 3.480862176096346*^9}, {
+  3.480862210764243*^9, 3.4808622166980605`*^9}, {3.480862666201953*^9, 
+  3.480862692102249*^9}, {3.480862758333007*^9, 3.4808627653343368`*^9}, {
+  3.4813126112188983`*^9, 3.4813126164532733`*^9}, {3.4816472098614397`*^9, 
+  3.4816472146271563`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[
+   RowBox[{"(", "\[NoBreak]", 
+    TagBox[GridBox[{
+       {
+        RowBox[{
+         FractionBox["1", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", 
+            RowBox[{"\[Gamma]", " ", 
+             RowBox[{"x", "(", "t", ")"}]}]}], "-", 
+           RowBox[{"2", " ", "\[CapitalDelta]", " ", 
+            RowBox[{"y", "(", "t", ")"}]}]}], ")"}]}]},
+       {
+        RowBox[{
+         RowBox[{"\[CapitalDelta]", " ", 
+          RowBox[{"x", "(", "t", ")"}]}], "-", 
+         RowBox[{
+          FractionBox["1", "2"], " ", "\[Gamma]", " ", 
+          RowBox[{"y", "(", "t", ")"}]}], "-", 
+         RowBox[{"\[CapitalOmega]", " ", 
+          RowBox[{"z", "(", "t", ")"}]}]}]},
+       {
+        RowBox[{
+         RowBox[{"\[CapitalOmega]", " ", 
+          RowBox[{"y", "(", "t", ")"}]}], "-", 
+         RowBox[{"\[Gamma]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"z", "(", "t", ")"}], "+", "1"}], ")"}]}]}]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.5599999999999999]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     Column], "\[NoBreak]", ")"}],
+   Function[BoxForm`e$, 
+    MatrixForm[BoxForm`e$]]], TraditionalForm]], "Output",
+ CellChangeTimes->{3.4867324239013357`*^9}]
+}, Open  ]],
+
+Cell["\<\
+Furthermore the goal is to calculate a steady state for this equations.  \
+\>", "Text",
+ CellChangeTimes->{{3.4813119566465073`*^9, 3.481312014570027*^9}, {
+  3.4816248272314887`*^9, 3.4816248448439198`*^9}, {3.4816260464238234`*^9, 
+  3.481626107529131*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"X", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "[", "t", "]"}], ",", 
+     RowBox[{"y", "[", "t", "]"}], ",", 
+     RowBox[{"z", "[", "t", "]"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"BlochStat", "[", 
+    RowBox[{"\[CapitalDelta]_", ",", "\[CapitalOmega]_", ",", "\[Gamma]_"}], 
+    "]"}], "=", 
+   RowBox[{"Solve", "[", 
+    RowBox[{
+     RowBox[{"Blochxyz", "\[Equal]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], ",", "X"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"X", "/.", 
+  RowBox[{"BlochStat", "[", 
+   RowBox[{"\[CapitalDelta]", ",", "\[CapitalOmega]", ",", "\[Gamma]"}], 
+   "]"}]}]}], "Input",
+ CellChangeTimes->{{3.4808628382976713`*^9, 3.480862876131854*^9}, {
+  3.480862909420985*^9, 3.480862960876574*^9}, {3.4808630029233046`*^9, 
+  3.4808630128409185`*^9}, {3.480865125711339*^9, 3.4808651307938976`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{"4", " ", "\[CapitalDelta]", " ", "\[CapitalOmega]"}], 
+      RowBox[{
+       SuperscriptBox["\[Gamma]", "2"], "+", 
+       RowBox[{"4", " ", 
+        SuperscriptBox["\[CapitalDelta]", "2"]}], "+", 
+       RowBox[{"2", " ", 
+        SuperscriptBox["\[CapitalOmega]", "2"]}]}]]}], ",", 
+    FractionBox[
+     RowBox[{"2", " ", "\[Gamma]", " ", "\[CapitalOmega]"}], 
+     RowBox[{
+      SuperscriptBox["\[Gamma]", "2"], "+", 
+      RowBox[{"4", " ", 
+       SuperscriptBox["\[CapitalDelta]", "2"]}], "+", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["\[CapitalOmega]", "2"]}]}]], ",", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       SuperscriptBox["\[Gamma]", "2"], "+", 
+       RowBox[{"4", " ", 
+        SuperscriptBox["\[CapitalDelta]", "2"]}]}], 
+      RowBox[{
+       SuperscriptBox["\[Gamma]", "2"], "+", 
+       RowBox[{"4", " ", 
+        SuperscriptBox["\[CapitalDelta]", "2"]}], "+", 
+       RowBox[{"2", " ", 
+        SuperscriptBox["\[CapitalOmega]", "2"]}]}]]}]}], "}"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.4867324244013453`*^9}]
+}, Open  ]],
+
+Cell["\<\
+This can be visualized. The red dot is the steady state and the blue curve \
+shows the movement of the density matrix in Bloch space for given initial \
+conditions.\
+\>", "Text",
+ CellChangeTimes->{{3.4813119566465073`*^9, 3.481312014570027*^9}, {
+  3.4816261291517687`*^9, 3.4816262271043406`*^9}, {3.4816264790827837`*^9, 
+  3.4816264835911913`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"GLN", "[", 
+    RowBox[{"\[CapitalDelta]_", ",", "\[CapitalOmega]_", ",", "\[Gamma]_"}], 
+    "]"}], "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"D", "[", 
+       RowBox[{
+        RowBox[{"X", "[", 
+         RowBox[{"[", "k", "]"}], "]"}], ",", "t"}], "]"}], "\[Equal]", 
+      RowBox[{"Blochxyz", "[", 
+       RowBox[{"[", "k", "]"}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", "3"}], "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"LSG", "=", 
+     RowBox[{"NDSolve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"GLN", "[", 
+          RowBox[{
+          "\[CapitalDelta]", ",", "\[CapitalOmega]", ",", "\[Gamma]"}], "]"}],
+          ",", 
+         RowBox[{
+          RowBox[{"x", "[", "0", "]"}], "\[Equal]", "x0"}], ",", 
+         RowBox[{
+          RowBox[{"y", "[", "0", "]"}], "\[Equal]", "y0"}], ",", 
+         RowBox[{
+          RowBox[{"z", "[", "0", "]"}], "\[Equal]", "z0"}]}], "}"}], ",", "X",
+        ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "0", ",", "TMax"}], "}"}]}], "]"}]}], ";", 
+    RowBox[{"P1", "=", 
+     RowBox[{"ParametricPlot3D", "[", 
+      RowBox[{
+       RowBox[{"X", "/.", "LSG"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "0", ",", "TMax"}], "}"}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "}"}]}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"P2", "=", 
+     RowBox[{"Graphics3D", "[", 
+      RowBox[{"{", 
+       RowBox[{"Red", ",", 
+        RowBox[{"PointSize", "[", "Medium", "]"}], ",", 
+        RowBox[{"Point", "[", 
+         RowBox[{"X", "/.", 
+          RowBox[{"BlochStat", "[", 
+           RowBox[{
+           "\[CapitalDelta]", ",", "\[CapitalOmega]", ",", "\[Gamma]"}], 
+           "]"}]}], "]"}]}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Show", "[", 
+     RowBox[{"P1", ",", "P2"}], "]"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[CapitalDelta]", ",", "1"}], "}"}], ",", "0", ",", "3"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[CapitalOmega]", ",", "2"}], "}"}], ",", "0", ",", "3"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Gamma]", ",", 
+       RowBox[{"1", "/", "2"}]}], "}"}], ",", "0", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"TMax", ",", "5"}], "}"}], ",", "0", ",", "20"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x0", ",", "0"}], "}"}], ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"y0", ",", "0"}], "}"}], ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"z0", ",", 
+       RowBox[{"-", "1"}]}], "}"}], ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "\[IndentingNewLine]", 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.480863171265231*^9, 3.480863233808446*^9}, {
+   3.4808634649010897`*^9, 3.480863648971946*^9}, {3.4808636969837446`*^9, 
+   3.480863754941908*^9}, {3.4808638010599356`*^9, 3.480863802526202*^9}, {
+   3.480863847629218*^9, 3.480863848999234*^9}, {3.4808638793270807`*^9, 
+   3.480863879440832*^9}, {3.480863911867453*^9, 3.480863947247858*^9}, {
+   3.480863993962142*^9, 3.480864105408417*^9}, {3.4808642549226274`*^9, 
+   3.480864265378997*^9}, {3.480865163143018*^9, 3.4808652084997864`*^9}, {
+   3.4808652457039623`*^9, 3.48086547984414*^9}, {3.480865559922557*^9, 
+   3.480865583991582*^9}, {3.4813127839220233`*^9, 3.4813128040626483`*^9}, {
+   3.4813128841563983`*^9, 3.4813129309532733`*^9}, 3.4813129628438983`*^9}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`TMax$$ = 5, $CellContext`x0$$ = 
+    0, $CellContext`y0$$ = 
+    0, $CellContext`z0$$ = -1, $CellContext`\[Gamma]$$ = Rational[
+    1, 2], $CellContext`\[CapitalDelta]$$ = 
+    1, $CellContext`\[CapitalOmega]$$ = 2, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`\[CapitalDelta]$$], 1}, 0, 3}, {{
+       Hold[$CellContext`\[CapitalOmega]$$], 2}, 0, 3}, {{
+       Hold[$CellContext`\[Gamma]$$], 
+       Rational[1, 2]}, 0, 3}, {{
+       Hold[$CellContext`TMax$$], 5}, 0, 20}, {{
+       Hold[$CellContext`x0$$], 0}, -1, 1}, {{
+       Hold[$CellContext`y0$$], 0}, -1, 1}, {{
+       Hold[$CellContext`z0$$], -1}, -1, 1}}, Typeset`size$$ = {
+    450., {258., 265.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`\[CapitalDelta]$1835$$ = 
+    0, $CellContext`\[CapitalOmega]$1840$$ = 0, $CellContext`\[Gamma]$1841$$ =
+     0, $CellContext`TMax$1842$$ = 0, $CellContext`x0$1843$$ = 
+    0, $CellContext`y0$1844$$ = 0, $CellContext`z0$1845$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`TMax$$ = 5, $CellContext`x0$$ = 
+        0, $CellContext`y0$$ = 
+        0, $CellContext`z0$$ = -1, $CellContext`\[Gamma]$$ = 
+        Rational[1, 2], $CellContext`\[CapitalDelta]$$ = 
+        1, $CellContext`\[CapitalOmega]$$ = 2}, "ControllerVariables" :> {
+        Hold[$CellContext`\[CapitalDelta]$$, \
+$CellContext`\[CapitalDelta]$1835$$, 0], 
+        Hold[$CellContext`\[CapitalOmega]$$, \
+$CellContext`\[CapitalOmega]$1840$$, 0], 
+        Hold[$CellContext`\[Gamma]$$, $CellContext`\[Gamma]$1841$$, 0], 
+        Hold[$CellContext`TMax$$, $CellContext`TMax$1842$$, 0], 
+        Hold[$CellContext`x0$$, $CellContext`x0$1843$$, 0], 
+        Hold[$CellContext`y0$$, $CellContext`y0$1844$$, 0], 
+        Hold[$CellContext`z0$$, $CellContext`z0$1845$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> ($CellContext`LSG = NDSolve[{
+           $CellContext`GLN[$CellContext`\[CapitalDelta]$$, $CellContext`\
+\[CapitalOmega]$$, $CellContext`\[Gamma]$$], $CellContext`x[
+            0] == $CellContext`x0$$, $CellContext`y[
+            0] == $CellContext`y0$$, $CellContext`z[
+            0] == $CellContext`z0$$}, $CellContext`X, {$CellContext`t, 
+           0, $CellContext`TMax$$}]; $CellContext`P1 = ParametricPlot3D[
+          
+          ReplaceAll[$CellContext`X, $CellContext`LSG], {$CellContext`t, 
+           0, $CellContext`TMax$$}, 
+          PlotRange -> {{-2, 2}, {-2, 2}, {-2, 2}}]; $CellContext`P2 = 
+        Graphics3D[{Red, 
+           PointSize[Medium], 
+           Point[
+            ReplaceAll[$CellContext`X, 
+             $CellContext`BlochStat[$CellContext`\[CapitalDelta]$$, \
+$CellContext`\[CapitalOmega]$$, $CellContext`\[Gamma]$$]]]}]; 
+       Show[$CellContext`P1, $CellContext`P2]), 
+      "Specifications" :> {{{$CellContext`\[CapitalDelta]$$, 1}, 0, 
+         3}, {{$CellContext`\[CapitalOmega]$$, 2}, 0, 
+         3}, {{$CellContext`\[Gamma]$$, 
+          Rational[1, 2]}, 0, 3}, {{$CellContext`TMax$$, 5}, 0, 
+         20}, {{$CellContext`x0$$, 0}, -1, 1}, {{$CellContext`y0$$, 0}, -1, 
+         1}, {{$CellContext`z0$$, -1}, -1, 1}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{506., {415., 422.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`GLN[
+         Pattern[$CellContext`\[CapitalDelta], 
+          Blank[]], 
+         Pattern[$CellContext`\[CapitalOmega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Gamma], 
+          Blank[]]] = {
+        Derivative[
+          1][$CellContext`x][$CellContext`t] == (-($CellContext`\[Gamma] \
+$CellContext`x[$CellContext`t]) - 
+           2 $CellContext`\[CapitalDelta] $CellContext`y[$CellContext`t])/2, 
+         Derivative[
+          1][$CellContext`y][$CellContext`t] == $CellContext`\[CapitalDelta] \
+$CellContext`x[$CellContext`t] - ($CellContext`\[Gamma] \
+$CellContext`y[$CellContext`t])/
+          2 - $CellContext`\[CapitalOmega] $CellContext`z[$CellContext`t], 
+         Derivative[
+          1][$CellContext`z][$CellContext`t] == $CellContext`\[CapitalOmega] \
+$CellContext`y[$CellContext`t] - $CellContext`\[Gamma] (
+           1 + $CellContext`z[$CellContext`t])}, 
+       Attributes[Derivative] = {NHoldAll, ReadProtected}, $CellContext`X = {
+         $CellContext`x[$CellContext`t], 
+         $CellContext`y[$CellContext`t], 
+         $CellContext`z[$CellContext`t]}, $CellContext`BlochStat[
+         Pattern[$CellContext`\[CapitalDelta], 
+          Blank[]], 
+         Pattern[$CellContext`\[CapitalOmega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Gamma], 
+          
+          Blank[]]] = {{$CellContext`x[$CellContext`t] -> ((-4) $CellContext`\
+\[CapitalDelta] $CellContext`\[CapitalOmega])/($CellContext`\[Gamma]^2 + 
+           4 $CellContext`\[CapitalDelta]^2 + 
+           2 $CellContext`\[CapitalOmega]^2), $CellContext`y[$CellContext`t] -> \
+(2 $CellContext`\[Gamma] \
+$CellContext`\[CapitalOmega])/($CellContext`\[Gamma]^2 + 
+           4 $CellContext`\[CapitalDelta]^2 + 
+           2 $CellContext`\[CapitalOmega]^2), $CellContext`z[$CellContext`t] -> \
+-(($CellContext`\[Gamma]^2 + 
+             4 $CellContext`\[CapitalDelta]^2)/($CellContext`\[Gamma]^2 + 
+            4 $CellContext`\[CapitalDelta]^2 + 
+            2 $CellContext`\[CapitalOmega]^2))}}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.486732425354489*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+NOTE: Pauli Algebra is already implemented in the Quantum Computing package\
+\>", "Section",
+ CellChangeTimes->{{3.48154444300445*^9, 3.4815444749094687`*^9}, {
+  3.48154615899584*^9, 3.481546163074069*^9}}],
+
+Cell[TextData[{
+ "This document shows how to implement Pauli Algebra ",
+ StyleBox["as an example",
+  FontWeight->"Bold"],
+ " of the use of Quantum to create an \"algebra\". However, if you are \
+interested in actually performing calculations with Pauli Algebra, you might \
+want to use the implementation in the Quantum Computing package, where Pauli \
+operators for different qubits (spins) can be used, it is possible to \
+\"expand\" unitary operators in terms of Paul operators, it is possible to \
+transform to matrix notation, among many other features. Here is the \
+documentation for that implementation:"
+}], "Text",
+ CellChangeTimes->{{3.4815444808779893`*^9, 3.4815445000647526`*^9}, {
+  3.4815445314854207`*^9, 3.4815446061860285`*^9}, {3.481544697198741*^9, 
+  3.4815447630560083`*^9}, {3.4815448186011057`*^9, 3.48154483097571*^9}, {
+  3.4815455152514467`*^9, 3.4815456096109705`*^9}}],
+
+Cell[TextData[{
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://homepage.cem.itesm.mx/lgomez/quantum/v7pauliope.nb"], None},
+  ButtonNote->"http://homepage.cem.itesm.mx/lgomez/quantum/v7pauliope.nb"],
+  FontSlant->"Italic"],
+ ButtonBox[" file: http://homepage.cem.itesm.mx/lgomez/quantum/v7pauliope.nb",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://homepage.cem.itesm.mx/lgomez/quantum/v7pauliope.nb"], None},
+  ButtonNote->"http://homepage.cem.itesm.mx/lgomez/quantum/v7pauliope.nb"]
+}], "Text",
+ CellChangeTimes->{{3.4815441697529335`*^9, 3.4815441994215803`*^9}, {
+  3.481544299379453*^9, 3.4815443173618717`*^9}}],
+
+Cell[TextData[ButtonBox["PDF: \
+http://homepage.cem.itesm.mx/lgomez/quantum/v7pauliope.pdf",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://homepage.cem.itesm.mx/lgomez/quantum/v7pauliope.pdf"], None},
+ ButtonNote->
+  "http://homepage.cem.itesm.mx/lgomez/quantum/v7pauliope.pdf"]], "Text",
+ CellChangeTimes->{{3.4815442945831003`*^9, 3.4815442969422183`*^9}, {
+  3.481544333672597*^9, 3.48154434945213*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[" ", "Section",
+ CellChangeTimes->{3.481311929988722*^9}],
+
+Cell[TextData[{
+ "by  Moritz Schubotz, Jos\[EAcute] Luis G\[OAcute]mez-Mu\[NTilde]oz, and \
+Francisco Delgado-Cepeda\n",
+ ButtonBox["http://homepage.cem.itesm.mx/lgomez/quantum/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://homepage.cem.itesm.mx/lgomez/quantum/"], None},
+  ButtonNote->"http://homepage.cem.itesm.mx/lgomez/quantum/"],
+ "\njose.luis.gomez@itesm.mx  "
+}], "Text",
+ CellChangeTimes->{{3.45008652390625*^9, 3.45008658784375*^9}, {
+   3.450086927796875*^9, 3.450086927796875*^9}, 3.450354855359375*^9, 
+   3.450445823609375*^9, {3.4813086592818055`*^9, 3.4813086763452883`*^9}, {
+   3.4813091304392624`*^9, 3.481309144095687*^9}, {3.4815452640639467`*^9, 
+   3.4815452677826967`*^9}, {3.4816380771479826`*^9, 3.4816380824917326`*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+AutoGeneratedPackage->None,
+Saveable->False,
+WindowSize->{901, 648},
+WindowMargins->{{7, Automatic}, {Automatic, 2}},
+PrintingCopies->1,
+PrintingPageRange->{Automatic, Automatic},
+CellLabelAutoDelete->True,
+InputAliases->{
+ "on" -> "\[CenterDot]", "tp" -> "\[CircleTimes]", "op" -> 
+  OverscriptBox["\[Placeholder]", "^"], "her" -> SuperscriptBox[
+    RowBox[{"(", "\[Placeholder]", ")"}], "\[Dagger]"], "con" -> 
+  SuperscriptBox[
+    RowBox[{"(", "\[Placeholder]", ")"}], "*"], "comm" -> TagBox[
+    SubscriptBox[
+     RowBox[{"\[LeftDoubleBracket]", 
+       TagBox[
+        RowBox[{"\[Placeholder]", ",", "\[Placeholder]"}], 
+        Quantum`Notation`zz080KetArgs, Editable -> True, Selectable -> True], 
+       "\[RightDoubleBracket]"}], "-"], Quantum`Notation`zz050Commutator, 
+    Editable -> False, Selectable -> False], "anti" -> TagBox[
+    SubscriptBox[
+     RowBox[{"\[LeftDoubleBracket]", 
+       TagBox[
+        RowBox[{"\[Placeholder]", ",", "\[Placeholder]"}], 
+        Quantum`Notation`zz080KetArgs, Editable -> True, Selectable -> True], 
+       "\[RightDoubleBracket]"}], "+"], Quantum`Notation`zz050AntiCommutator, 
+    Editable -> False, Selectable -> False], "ket" -> TagBox[
+    RowBox[{"\[VerticalSeparator]", 
+      TagBox[
+      "\[Placeholder]", Quantum`Notation`zz080KetArgs, Editable -> True, 
+       Selectable -> True, BaseStyle -> {ShowSyntaxStyles -> True}], 
+      "\[RightAngleBracket]"}], Quantum`Notation`zz080Ket, Editable -> False, 
+    Selectable -> False, BaseStyle -> {ShowSyntaxStyles -> False}], "ev" -> 
+  SubscriptBox["\[Placeholder]", 
+    OverscriptBox["\[Placeholder]", "^"]], "eval" -> 
+  SubscriptBox["\[Placeholder]", 
+    OverscriptBox["\[Placeholder]", "^"]], "eket" -> TagBox[
+    RowBox[{"\[VerticalSeparator]", 
+      TagBox[
+       RowBox[{
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]]}], 
+       Quantum`Notation`zz080KetArgs, Editable -> True, Selectable -> True, 
+       BaseStyle -> {ShowSyntaxStyles -> True}], "\[RightAngleBracket]"}], 
+    Quantum`Notation`zz080Ket, Editable -> False, Selectable -> False, 
+    BaseStyle -> {ShowSyntaxStyles -> False}], "eeket" -> TagBox[
+    RowBox[{"\[VerticalSeparator]", 
+      TagBox[
+       RowBox[{
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]], ",", 
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]]}], 
+       Quantum`Notation`zz080KetArgs, Editable -> True, Selectable -> True, 
+       BaseStyle -> {ShowSyntaxStyles -> True}], "\[RightAngleBracket]"}], 
+    Quantum`Notation`zz080Ket, Editable -> False, Selectable -> False, 
+    BaseStyle -> {ShowSyntaxStyles -> False}], "eeeket" -> TagBox[
+    RowBox[{"\[VerticalSeparator]", 
+      TagBox[
+       RowBox[{
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]], ",", 
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]], ",", 
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]]}], 
+       Quantum`Notation`zz080KetArgs, Editable -> True, Selectable -> True, 
+       BaseStyle -> {ShowSyntaxStyles -> True}], "\[RightAngleBracket]"}], 
+    Quantum`Notation`zz080Ket, Editable -> False, Selectable -> False, 
+    BaseStyle -> {ShowSyntaxStyles -> False}], "braket" -> TagBox[
+    RowBox[{"\[LeftAngleBracket]", 
+      TagBox[
+      "\[Placeholder]", Quantum`Notation`zz080BraArgs, Editable -> True, 
+       Selectable -> True, BaseStyle -> {ShowSyntaxStyles -> True}], 
+      "\[VerticalSeparator]", 
+      TagBox[
+      "\[Placeholder]", Quantum`Notation`zz080KetArgs, Editable -> True, 
+       Selectable -> True, BaseStyle -> {ShowSyntaxStyles -> True}], 
+      "\[RightAngleBracket]"}], Quantum`Notation`zz080BraKet, Editable -> 
+    False, Selectable -> False, BaseStyle -> {ShowSyntaxStyles -> False}], 
+  "ebraket" -> TagBox[
+    RowBox[{"\[LeftAngleBracket]", 
+      TagBox[
+       RowBox[{
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]]}], 
+       Quantum`Notation`zz080BraArgs, Editable -> True, Selectable -> True, 
+       BaseStyle -> {ShowSyntaxStyles -> True}], "\[VerticalSeparator]", 
+      TagBox[
+       RowBox[{
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]]}], 
+       Quantum`Notation`zz080KetArgs, Editable -> True, Selectable -> True, 
+       BaseStyle -> {ShowSyntaxStyles -> True}], "\[RightAngleBracket]"}], 
+    Quantum`Notation`zz080BraKet, Editable -> False, Selectable -> False, 
+    BaseStyle -> {ShowSyntaxStyles -> False}], "eebraket" -> TagBox[
+    RowBox[{"\[LeftAngleBracket]", 
+      TagBox[
+       RowBox[{
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]], ",", 
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]]}], 
+       Quantum`Notation`zz080BraArgs, Editable -> True, Selectable -> True, 
+       BaseStyle -> {ShowSyntaxStyles -> True}], "\[VerticalSeparator]", 
+      TagBox[
+       RowBox[{
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]], ",", 
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]]}], 
+       Quantum`Notation`zz080KetArgs, Editable -> True, Selectable -> True, 
+       BaseStyle -> {ShowSyntaxStyles -> True}], "\[RightAngleBracket]"}], 
+    Quantum`Notation`zz080BraKet, Editable -> False, Selectable -> False, 
+    BaseStyle -> {ShowSyntaxStyles -> False}], "eeebraket" -> TagBox[
+    RowBox[{"\[LeftAngleBracket]", 
+      TagBox[
+       RowBox[{
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]], ",", 
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]], ",", 
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]]}], 
+       Quantum`Notation`zz080BraArgs, Editable -> True, Selectable -> True, 
+       BaseStyle -> {ShowSyntaxStyles -> True}], "\[VerticalSeparator]", 
+      TagBox[
+       RowBox[{
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]], ",", 
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]], ",", 
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]]}], 
+       Quantum`Notation`zz080KetArgs, Editable -> True, Selectable -> True, 
+       BaseStyle -> {ShowSyntaxStyles -> True}], "\[RightAngleBracket]"}], 
+    Quantum`Notation`zz080BraKet, Editable -> False, Selectable -> False, 
+    BaseStyle -> {ShowSyntaxStyles -> False}], "bra" -> TagBox[
+    RowBox[{"\[LeftAngleBracket]", 
+      TagBox[
+      "\[Placeholder]", Quantum`Notation`zz080BraArgs, Editable -> True, 
+       Selectable -> True, BaseStyle -> {ShowSyntaxStyles -> True}], 
+      "\[VerticalSeparator]"}], Quantum`Notation`zz080Bra, Editable -> False, 
+    Selectable -> False, BaseStyle -> {ShowSyntaxStyles -> False}], "ebra" -> 
+  TagBox[
+    RowBox[{"\[LeftAngleBracket]", 
+      TagBox[
+       RowBox[{
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]]}], 
+       Quantum`Notation`zz080BraArgs, Editable -> True, Selectable -> True, 
+       BaseStyle -> {ShowSyntaxStyles -> True}], "\[VerticalSeparator]"}], 
+    Quantum`Notation`zz080Bra, Editable -> False, Selectable -> False, 
+    BaseStyle -> {ShowSyntaxStyles -> False}], "eebra" -> TagBox[
+    RowBox[{"\[LeftAngleBracket]", 
+      TagBox[
+       RowBox[{
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]], ",", 
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]]}], 
+       Quantum`Notation`zz080BraArgs, Editable -> True, Selectable -> True, 
+       BaseStyle -> {ShowSyntaxStyles -> True}], "\[VerticalSeparator]"}], 
+    Quantum`Notation`zz080Bra, Editable -> False, Selectable -> False, 
+    BaseStyle -> {ShowSyntaxStyles -> False}], "eeebra" -> TagBox[
+    RowBox[{"\[LeftAngleBracket]", 
+      TagBox[
+       RowBox[{
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]], ",", 
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]], ",", 
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]]}], 
+       Quantum`Notation`zz080BraArgs, Editable -> True, Selectable -> True, 
+       BaseStyle -> {ShowSyntaxStyles -> True}], "\[VerticalSeparator]"}], 
+    Quantum`Notation`zz080Bra, Editable -> False, Selectable -> False, 
+    BaseStyle -> {ShowSyntaxStyles -> False}], "norm" -> 
+  RowBox[{"\[LeftDoubleBracketingBar]", "\[Placeholder]", 
+     "\[RightDoubleBracketingBar]"}], "trace" -> RowBox[{
+     SubscriptBox["Tr", 
+      OverscriptBox["\[Placeholder]", "^"]], "[", "\[Placeholder]", "]"}], 
+  "ketbra" -> RowBox[{
+     TagBox[
+      RowBox[{"\[VerticalSeparator]", 
+        TagBox[
+        "\[Placeholder]", Quantum`Notation`zz080KetArgs, Editable -> True, 
+         Selectable -> True, BaseStyle -> {ShowSyntaxStyles -> True}], 
+        "\[RightAngleBracket]"}], Quantum`Notation`zz080Ket, Editable -> 
+      False, Selectable -> False, BaseStyle -> {ShowSyntaxStyles -> False}], 
+     "\[CenterDot]", 
+     TagBox[
+      RowBox[{"\[LeftAngleBracket]", 
+        TagBox[
+        "\[Placeholder]", Quantum`Notation`zz080BraArgs, Editable -> True, 
+         Selectable -> True, BaseStyle -> {ShowSyntaxStyles -> True}], 
+        "\[VerticalSeparator]"}], Quantum`Notation`zz080Bra, Editable -> 
+      False, Selectable -> False, BaseStyle -> {ShowSyntaxStyles -> False}]}],
+   "eketbra" -> RowBox[{
+     TagBox[
+      RowBox[{"\[VerticalSeparator]", 
+        TagBox[
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]], 
+         Quantum`Notation`zz080KetArgs, Editable -> True, Selectable -> True, 
+         BaseStyle -> {ShowSyntaxStyles -> True}], "\[RightAngleBracket]"}], 
+      Quantum`Notation`zz080Ket, Editable -> False, Selectable -> False, 
+      BaseStyle -> {ShowSyntaxStyles -> False}], "\[CenterDot]", 
+     TagBox[
+      RowBox[{"\[LeftAngleBracket]", 
+        TagBox[
+         SubscriptBox["\[Placeholder]", 
+          OverscriptBox["\[Placeholder]", "^"]], 
+         Quantum`Notation`zz080BraArgs, Editable -> True, Selectable -> True, 
+         BaseStyle -> {ShowSyntaxStyles -> True}], "\[VerticalSeparator]"}], 
+      Quantum`Notation`zz080Bra, Editable -> False, Selectable -> False, 
+      BaseStyle -> {ShowSyntaxStyles -> False}]}], "eeketbra" -> RowBox[{
+     TagBox[
+      RowBox[{"\[VerticalSeparator]", 
+        TagBox[
+         RowBox[{
+           SubscriptBox["\[Placeholder]", 
+            OverscriptBox["\[Placeholder]", "^"]], ",", 
+           SubscriptBox["\[Placeholder]", 
+            OverscriptBox["\[Placeholder]", "^"]]}], 
+         Quantum`Notation`zz080KetArgs, Editable -> True, Selectable -> True, 
+         BaseStyle -> {ShowSyntaxStyles -> True}], "\[RightAngleBracket]"}], 
+      Quantum`Notation`zz080Ket, Editable -> False, Selectable -> False, 
+      BaseStyle -> {ShowSyntaxStyles -> False}], "\[CenterDot]", 
+     TagBox[
+      RowBox[{"\[LeftAngleBracket]", 
+        TagBox[
+         RowBox[{
+           SubscriptBox["\[Placeholder]", 
+            OverscriptBox["\[Placeholder]", "^"]], ",", 
+           SubscriptBox["\[Placeholder]", 
+            OverscriptBox["\[Placeholder]", "^"]]}], 
+         Quantum`Notation`zz080BraArgs, Editable -> True, Selectable -> True, 
+         BaseStyle -> {ShowSyntaxStyles -> True}], "\[VerticalSeparator]"}], 
+      Quantum`Notation`zz080Bra, Editable -> False, Selectable -> False, 
+      BaseStyle -> {ShowSyntaxStyles -> False}]}], "eeeketbra" -> RowBox[{
+     TagBox[
+      RowBox[{"\[VerticalSeparator]", 
+        TagBox[
+         RowBox[{
+           SubscriptBox["\[Placeholder]", 
+            OverscriptBox["\[Placeholder]", "^"]], ",", 
+           SubscriptBox["\[Placeholder]", 
+            OverscriptBox["\[Placeholder]", "^"]], ",", 
+           SubscriptBox["\[Placeholder]", 
+            OverscriptBox["\[Placeholder]", "^"]]}], 
+         Quantum`Notation`zz080KetArgs, Editable -> True, Selectable -> True, 
+         BaseStyle -> {ShowSyntaxStyles -> True}], "\[RightAngleBracket]"}], 
+      Quantum`Notation`zz080Ket, Editable -> False, Selectable -> False, 
+      BaseStyle -> {ShowSyntaxStyles -> False}], "\[CenterDot]", 
+     TagBox[
+      RowBox[{"\[LeftAngleBracket]", 
+        TagBox[
+         RowBox[{
+           SubscriptBox["\[Placeholder]", 
+            OverscriptBox["\[Placeholder]", "^"]], ",", 
+           SubscriptBox["\[Placeholder]", 
+            OverscriptBox["\[Placeholder]", "^"]], ",", 
+           SubscriptBox["\[Placeholder]", 
+            OverscriptBox["\[Placeholder]", "^"]]}], 
+         Quantum`Notation`zz080BraArgs, Editable -> True, Selectable -> True, 
+         BaseStyle -> {ShowSyntaxStyles -> True}], "\[VerticalSeparator]"}], 
+      Quantum`Notation`zz080Bra, Editable -> False, Selectable -> False, 
+      BaseStyle -> {ShowSyntaxStyles -> False}]}], "su" -> 
+  SubscriptBox["\[Placeholder]", "\[Placeholder]"], "po" -> SuperscriptBox[
+    RowBox[{"(", "\[Placeholder]", ")"}], "\[Placeholder]"], "pow" -> 
+  SuperscriptBox[
+    RowBox[{"(", "\[Placeholder]", ")"}], "\[Placeholder]"], "si" -> RowBox[{
+     UnderoverscriptBox["\[Sum]", "\[Placeholder]", "\[Placeholder]"], 
+     "\[Placeholder]"}], "qs" -> RowBox[{
+     UnderoverscriptBox["\[Sum]", "\[Placeholder]", "\[Placeholder]"], 
+     "\[Placeholder]"}], "qp" -> TagBox[
+    RowBox[{
+      UnderoverscriptBox["\[CircleTimes]", 
+       TagBox[
+       "\[Placeholder]", Quantum`Notation`zz020TPNotationini, Editable -> 
+        True, Selectable -> True], 
+       TagBox[
+       "\[Placeholder]", Quantum`Notation`zz020TPNotationend, Editable -> 
+        True, Selectable -> True]], 
+      TagBox[
+      "\[Placeholder]", Quantum`Notation`zz020TPNotationdat, Editable -> True,
+        Selectable -> True]}], Quantum`Notation`zz020TPNotation, Editable -> 
+    False, Selectable -> False]},
+Magnification:>FEPrivate`If[
+  FEPrivate`Equal[FEPrivate`$VersionNumber, 6.], 1.25, 1.25 Inherited],
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (February 18, 2009)",
+StyleDefinitions->FrontEnd`FileName[{"Report"}, "StandardReport.nb", 
+  CharacterEncoding -> "WindowsANSI"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 518, 11, 168, "Title"],
+Cell[1088, 35, 760, 14, 76, "Text"],
+Cell[CellGroupData[{
+Cell[1873, 53, 96, 1, 91, "Section"],
+Cell[1972, 56, 1161, 25, 98, "Text"],
+Cell[3136, 83, 675, 14, 34, "Text"],
+Cell[3814, 99, 415, 8, 34, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4266, 112, 97, 1, 91, "Section"],
+Cell[4366, 115, 374, 9, 76, "Text"],
+Cell[CellGroupData[{
+Cell[4765, 128, 225, 4, 47, "Input",
+ InitializationCell->True],
+Cell[4993, 134, 476, 6, 202, "Output"]
+}, Open  ]],
+Cell[5484, 143, 428, 9, 121, "Text"],
+Cell[5915, 154, 175, 4, 58, "Input",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6127, 163, 313, 4, 113, "Section"],
+Cell[6443, 169, 1828, 39, 122, "Text"],
+Cell[8274, 210, 7197, 189, 587, "Input",
+ InitializationCell->True],
+Cell[15474, 401, 2923, 76, 595, "Text"],
+Cell[18400, 479, 484, 8, 95, "Text"],
+Cell[CellGroupData[{
+Cell[18909, 491, 147, 4, 61, "Input"],
+Cell[19059, 497, 98, 2, 58, "Output"]
+}, Open  ]],
+Cell[19172, 502, 526, 16, 72, "Text"],
+Cell[CellGroupData[{
+Cell[19723, 522, 103, 3, 61, "Input"],
+Cell[19829, 527, 98, 2, 58, "Output"]
+}, Open  ]],
+Cell[19942, 532, 323, 7, 70, "Text"],
+Cell[CellGroupData[{
+Cell[20290, 543, 427, 14, 58, "Input"],
+Cell[20720, 559, 161, 4, 58, "Output"]
+}, Open  ]],
+Cell[20896, 566, 557, 15, 68, "Text"],
+Cell[CellGroupData[{
+Cell[21478, 585, 427, 14, 58, "Input"],
+Cell[21908, 601, 72, 1, 58, "Output"]
+}, Open  ]],
+Cell[21995, 605, 343, 8, 43, "Text"],
+Cell[CellGroupData[{
+Cell[22363, 617, 455, 14, 58, "Input"],
+Cell[22821, 633, 121, 3, 58, "Output"]
+}, Open  ]],
+Cell[22957, 639, 563, 15, 68, "Text"],
+Cell[CellGroupData[{
+Cell[23545, 658, 455, 14, 58, "Input"],
+Cell[24003, 674, 121, 3, 58, "Output"]
+}, Open  ]],
+Cell[24139, 680, 185, 2, 42, "Text"],
+Cell[CellGroupData[{
+Cell[24349, 686, 742, 20, 58, "Input"],
+Cell[25094, 708, 241, 6, 58, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25384, 720, 381, 7, 113, "Section"],
+Cell[25768, 729, 742, 13, 71, "Text"],
+Cell[26513, 744, 992, 21, 68, "Text"],
+Cell[CellGroupData[{
+Cell[27530, 769, 1455, 37, 187, "Input"],
+Cell[28988, 808, 475, 15, 81, "Output"],
+Cell[29466, 825, 262, 8, 81, "Output"],
+Cell[29731, 835, 262, 8, 81, "Output"]
+}, Open  ]],
+Cell[30008, 846, 591, 9, 68, "Text"],
+Cell[CellGroupData[{
+Cell[30624, 859, 476, 11, 80, "Input"],
+Cell[31103, 872, 274, 8, 80, "Output"]
+}, Open  ]],
+Cell[31392, 883, 637, 10, 68, "Text"],
+Cell[32032, 895, 969, 25, 113, "Input"],
+Cell[33004, 922, 403, 6, 68, "Text"],
+Cell[CellGroupData[{
+Cell[33432, 932, 1071, 27, 87, "Input"],
+Cell[34506, 961, 1167, 34, 107, "Output"]
+}, Open  ]],
+Cell[35688, 998, 1121, 27, 95, "Text"],
+Cell[CellGroupData[{
+Cell[36834, 1029, 1157, 28, 87, "Input"],
+Cell[37994, 1059, 1608, 46, 158, "Output"]
+}, Open  ]],
+Cell[39617, 1108, 269, 5, 42, "Text"],
+Cell[CellGroupData[{
+Cell[39911, 1117, 948, 25, 115, "Input"],
+Cell[40862, 1144, 1167, 34, 87, "Output"]
+}, Open  ]],
+Cell[42044, 1181, 362, 7, 68, "Text"],
+Cell[CellGroupData[{
+Cell[42431, 1192, 4240, 116, 335, "Input"],
+Cell[46674, 1310, 6166, 121, 1086, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[52889, 1437, 217, 4, 155, "Section"],
+Cell[53109, 1443, 898, 15, 147, "Text"],
+Cell[54010, 1460, 675, 14, 42, "Text"],
+Cell[54688, 1476, 415, 8, 42, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[55140, 1489, 62, 1, 113, "Section"],
+Cell[55205, 1492, 760, 14, 95, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

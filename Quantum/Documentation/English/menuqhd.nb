@@ -1,0 +1,269 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      8164,        260]
+NotebookOptionsPosition[      7392,        230]
+NotebookOutlinePosition[      7778,        247]
+CellTagsIndexPosition[      7735,        244]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Quantum`QHD`", "Title",
+ CellChangeTimes->{{3.466301507203125*^9, 3.46630151984375*^9}, {
+  3.511701515734375*^9, 3.51170151621875*^9}}],
+
+Cell[TextData[{
+ "A ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " package for the Quantized Hamilton Dynamics (QHD) approximation to the \
+Heisenberg Equations of Motion "
+}], "Text",
+ CellChangeTimes->{{3.5136815543125*^9, 3.5136816100625*^9}, 
+   3.51575975334375*^9},
+ FontSize->18,
+ FontWeight->"Bold"],
+
+Cell["\<\
+Click on each title below in order to open the corresponding tutorial  \
+\>", "Text",
+ CellChangeTimes->{{3.4681923896875*^9, 3.468192434203125*^9}, 
+   3.469546289995746*^9, 3.471633921294509*^9}],
+
+Cell[TextData[{
+ "QHD-",
+ StyleBox["2",
+  FontWeight->"Bold"],
+ " Tunneling Escape from a Metastable State\n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdtunneling.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdtunneling.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdtunneling.pdf", None}]
+}], "Text",
+ CellChangeTimes->{{3.47163124651034*^9, 3.4716313059276514`*^9}, {
+  3.47163134148742*^9, 3.47163134148742*^9}, {3.511701813703125*^9, 
+  3.511701906328125*^9}, {3.51343272140625*^9, 3.513432726546875*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "QHD-",
+ StyleBox["2",
+  FontWeight->"Bold"],
+ " Zero Point Motion in Energy Exchange between Two Oscillators\n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdzeropoint.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdzeropoint.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdzeropoint.pdf", None}]
+}], "Text",
+ CellChangeTimes->{{3.4716317974149733`*^9, 3.4716318211337233`*^9}, {
+  3.4716319818052683`*^9, 3.47163203453728*^9}, {3.511703413734375*^9, 
+  3.5117035105*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "QHD-",
+ StyleBox["2",
+  FontWeight->"Bold"],
+ " QHD-",
+ StyleBox["3",
+  FontWeight->"Bold"],
+ " and QHD-",
+ StyleBox["4",
+  FontWeight->"Bold"],
+ " Decay from a Metastable State\n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdhigher.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdhigher.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdhigher.pdf", None}]
+}], "Text",
+ CellChangeTimes->{{3.4716314801330214`*^9, 3.4716314909290676`*^9}, {
+  3.4716315280980873`*^9, 3.47163156979801*^9}, {3.471631618309909*^9, 
+  3.471631618309909*^9}, {3.511701986421875*^9, 3.51170202290625*^9}, {
+  3.511702092546875*^9, 3.511702114984375*^9}, {3.511703299703125*^9, 
+  3.51170330065625*^9}, {3.513432740046875*^9, 3.513432740875*^9}, {
+  3.515252603171875*^9, 3.5152526053125*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "QHD-",
+ StyleBox["vars",
+  FontWeight->"Bold"],
+ " Different Sets of Dynamical Variables\n",
+ ButtonBox["Mathematica Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdvarset.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdvarset.pdf", None}]
+}], "Text",
+ CellChangeTimes->{{3.4716314801330214`*^9, 3.4716314909290676`*^9}, {
+  3.4716315280980873`*^9, 3.47163156979801*^9}, {3.471631618309909*^9, 
+  3.471631618309909*^9}, {3.511701986421875*^9, 3.51170202290625*^9}, {
+  3.511702092546875*^9, 3.511702114984375*^9}, {3.511703299703125*^9, 
+  3.51170330065625*^9}, {3.513100041203125*^9, 3.5131000915*^9}, {
+  3.513100132171875*^9, 3.513100143859375*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "QHD-",
+ StyleBox["\[Infinity]",
+  FontWeight->"Bold"],
+ " Heisenberg Equations of Motion and the Cross Terms Approximation\n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdinfinite.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdinfinite.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdinfinite.pdf", None}]
+}], "Text",
+ CellChangeTimes->{{3.4716316360585456`*^9, 3.4716317372899733`*^9}, {
+  3.4716317677899733`*^9, 3.4716317677899733`*^9}, {3.511702267875*^9, 
+  3.51170228446875*^9}, {3.51170319975*^9, 3.51170328903125*^9}, {
+  3.511703364703125*^9, 3.511703364703125*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "QHD for a General Potential\n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdgeneral.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdgeneral.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdgeneral.pdf", None}]
+}], "Text",
+ CellChangeTimes->{{3.4716316360585456`*^9, 3.4716317372899733`*^9}, {
+   3.4716317677899733`*^9, 3.4716317677899733`*^9}, {3.511702267875*^9, 
+   3.51170228446875*^9}, {3.51170319975*^9, 3.51170328903125*^9}, {
+   3.511703364703125*^9, 3.511703364703125*^9}, {3.513598605671875*^9, 
+   3.513598622875*^9}, {3.513599743734375*^9, 3.513599750359375*^9}, {
+   3.513599785609375*^9, 3.51359979865625*^9}, 3.51359987646875*^9, {
+   3.5136824755625*^9, 3.51368247665625*^9}},
+ FontSize->16],
+
+Cell[TextData[{
+ "QHD for O-H Bond of the Water Molecule (Morse Potential)\n",
+ StyleBox[ButtonBox["Mathematica",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdh2o.nb", None}],
+  FontSlant->"Italic"],
+ ButtonBox[" Notebook",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdh2o.nb", None}],
+ " | ",
+ ButtonBox["PDF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{"v8qhdh2o.pdf", None}],
+ "  "
+}], "Text",
+ CellChangeTimes->{{3.4716316360585456`*^9, 3.4716317372899733`*^9}, {
+   3.4716317677899733`*^9, 3.4716317677899733`*^9}, {3.511702267875*^9, 
+   3.51170228446875*^9}, {3.51170319975*^9, 3.51170328903125*^9}, {
+   3.511703364703125*^9, 3.511703364703125*^9}, {3.513598605671875*^9, 
+   3.513598622875*^9}, {3.513599743734375*^9, 3.513599750359375*^9}, {
+   3.513599785609375*^9, 3.51359979865625*^9}, 3.51359987646875*^9, {
+   3.51368215909375*^9, 3.5136822045625*^9}, {3.51368244640625*^9, 
+   3.5136824728125*^9}, {3.51429326584375*^9, 3.514293271890625*^9}},
+ FontSize->16],
+
+Cell[CellGroupData[{
+
+Cell["", "Section"],
+
+Cell[TextData[{
+ "by Jos\[EAcute] Luis G\[OAcute]mez-Mu\[NTilde]oz\n",
+ ButtonBox["http://homepage.cem.itesm.mx/lgomez/quantum/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://homepage.cem.itesm.mx/lgomez/quantum/"], None},
+  ButtonNote->"http://homepage.cem.itesm.mx/lgomez/quantum/"],
+ "\njose.luis.gomez@itesm.mx  "
+}], "Text",
+ CellChangeTimes->{{3.45008652390625*^9, 3.45008658784375*^9}, {
+   3.450086927796875*^9, 3.450086927796875*^9}, 3.450354855359375*^9, 
+   3.450445823609375*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+Saveable->False,
+WindowSize->{620, 646},
+WindowMargins->{{4, Automatic}, {Automatic, 1}},
+CellLabelAutoDelete->True,
+FrontEndVersion->"8.0 for Microsoft Windows (32-bit) (November 7, 2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 142, 2, 83, "Title"],
+Cell[712, 26, 315, 10, 58, "Text"],
+Cell[1030, 38, 207, 4, 29, "Text"],
+Cell[1240, 44, 664, 20, 55, "Text"],
+Cell[1907, 66, 640, 20, 55, "Text"],
+Cell[2550, 88, 937, 29, 55, "Text"],
+Cell[3490, 119, 733, 19, 55, "Text"],
+Cell[4226, 140, 745, 21, 55, "Text"],
+Cell[4974, 163, 860, 21, 55, "Text"],
+Cell[5837, 186, 976, 23, 55, "Text"],
+Cell[CellGroupData[{
+Cell[6838, 213, 19, 0, 71, "Section"],
+Cell[6860, 215, 504, 11, 65, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

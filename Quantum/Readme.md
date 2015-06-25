@@ -1,0 +1,1 @@
+这是一个量子计算和量子信息Mathematica包，程序的主页是 http://homepage.cem.itesm.mx/lgomez/quantum/
